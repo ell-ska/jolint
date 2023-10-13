@@ -1,7 +1,5 @@
 const ConsentForm = () => {
-  return (
-    <div>consent form</div>
-  )
+  return <div>consent form</div>
 }
 
 export default ConsentForm
