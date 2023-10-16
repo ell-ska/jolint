@@ -1,8 +1,14 @@
-import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Space_Grotesk, Kumbh_Sans } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+import { cn } from '@/utils/classnames'
+import './globals.css'
+
+const kumbhSans = Kumbh_Sans({ subsets: ['latin'], variable: '--kumbh-sans' })
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--space-grotesk',
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +22,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body
+        className={cn(
+          spaceGrotesk.variable,
+          kumbhSans.variable,
+          'font-body text-neutral-900',
+        )}
+      >
+        {children}
+      </body>
     </html>
   )
 }
