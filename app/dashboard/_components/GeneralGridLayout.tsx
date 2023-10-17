@@ -38,3 +38,58 @@ const GeneralGridLayout = ({ children }: Props) => {
 }
 
 export default GeneralGridLayout
+
+
+/* 
+For grid template areas
+
+ .gridTemplateAreas {
+      margin-left: 20%;
+      width: 80%;
+      min-height: 100vh;
+      padding: 1rem;
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto; 
+      grid-template-areas:
+      'a'
+      'b'
+      'c'
+      'd'
+      'e'
+      'f';
+     justify-items: stretch;
+      color: black;
+      text-shadow: 1px 1px white;
+      background-color: #cadef0; 
+
+    @media (min-width: 960px) {
+        padding: 2rem;
+        width: 80%;
+        height: 95vh; 
+      grid-template-areas:
+        'a a a a b b'
+        'c c c d d d'
+        'e e f f f f';
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 2rem; 
+    }
+  }
+
+  .a,
+  .b,
+  .c,
+  .d,
+  .e {
+    min-height: 50vh;
+    max-height: 90vh;
+
+    @media (min-width: 960px) {
+      min-height: 100%;
+      max-height: 100%;
+    }
+  }
+
+*/
