@@ -3,11 +3,8 @@ import Image from 'next/image'
 
 export const Header = () => {
   return (
-    <header>
-      <div className='m-5'>
-        <Image className='bg-white' src={Logo} alt='Logo' />
-      </div>
-      <hr className='text-neutral-400' />
+    <header className='border-b border-neutral-600 p-5 '>
+      <Image src={Logo} alt='Logo' />
     </header>
   )
 }
