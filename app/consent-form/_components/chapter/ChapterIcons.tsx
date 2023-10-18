@@ -1,3 +1,8 @@
+import type {
+  State,
+  Icon,
+} from '@/app/consent-form/_components/chapter/Chapter'
+
 const Introduction = () => {
   return (
     <svg
@@ -613,11 +618,21 @@ const ConsentDisabled = () => {
   )
 }
 
-export {
-  Introduction,
-  Purpose,
-  PurposeDisabled,
-  Rights,
-  RightsDisabled,
-  Consent,
+type ChapterIconsProps = {
+  icon: Icon
+  state: State
 }
+
+const ChapterIcon = ({ icon, state }: ChapterIconsProps) => {
+  if (icon === 'introduction') {
+    return <Introduction />
+  } else if (icon === 'purpose') {
+    return state === 'disabled' ? <PurposeDisabled /> : <Purpose />
+  } else if (icon === 'rights') {
+    return state === 'disabled' ? <RightsDisabled /> : <Rights />
+  } else if (icon === 'consent') {
+    return state === 'disabled' ? <ConsentDisabled /> : <Consent />
+  }
+}
+
+export default ChapterIcon
