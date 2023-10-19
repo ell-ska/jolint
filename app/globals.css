@@ -15,4 +15,11 @@
       rgba(7, 63, 234, 0.28) 100%
     );
   }
+
+  .flexCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
