@@ -1,7 +1,8 @@
-import Button from '@/components/Button'
-import heroImg from '@/public/Hero.png'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import Button from '@/components/Button'
+import heroImg from '@/public/Hero.png'
 
 const Hero = () => {
   return (
