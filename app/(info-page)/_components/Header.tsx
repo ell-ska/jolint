@@ -13,22 +13,22 @@ const Header = () => {
           <Image className='cursor-pointer' src={Logo} alt='Logo' />
         </Link>
         <div className='flex items-center gap-8'>
-          <Link className='hover:text-neutral-700' href='/'>
+          <Link className='hover:underline' href='/#how-it-works'>
             How it works
           </Link>
-          <Link className='hover:text-neutral-700' href='/inclusion'>
+          <Link className='hover:underline' href='/inclusion'>
             Inclusion
           </Link>
-          <Link className='hover:text-neutral-700' href='/faq'>
+          <Link className='hover:underline' href='/faq'>
             FAQ
           </Link>
-          <Link className='hover:text-neutral-700' href='/about'>
+          <Link className='hover:underline' href='/about'>
             About us
           </Link>
-          <Link className='hover:text-neutral-700' href='#'>
+          <Link className='hover:underline' href='#'>
             Contact us
           </Link>
-          <p className='flex items-center gap-2'>
+          <p className='flex cursor-pointer items-center gap-2 hover:underline'>
             <Globe className='h-4 w-4' /> English
             <ChevronDown className='cursor-pointer' />
           </p>
