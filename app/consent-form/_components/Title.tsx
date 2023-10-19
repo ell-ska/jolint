@@ -8,7 +8,7 @@ const Title = ({ text = 'Default Title' }: TitleProps) => {
   return (
     <div>
       <h1 className='font-heading inline-flex items-center space-x-8 text-4xl font-bold text-neutral-900'>
-        <span>{text}</span>
+        {text}
       </h1>
       <Volume2 />
     </div>
