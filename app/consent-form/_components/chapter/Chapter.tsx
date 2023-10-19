@@ -6,7 +6,7 @@ import { Check } from 'lucide-react'
 import { cn } from '@/utils/classnames'
 import ChapterIcon from '@/app/consent-form/_components/chapter/ChapterIcons'
 
-export type State = 'unlocked' | 'disabled' | 'done'
+export type State = 'unlocked' | 'locked' | 'done'
 export type Icon = 'introduction' | 'purpose' | 'rights' | 'consent'
 
 type ChapterProps = {
@@ -20,8 +20,8 @@ const Chapter = ({ state, icon, title, desc }: ChapterProps) => {
   return (
     <div
       className={cn(
-        'aspect-square space-y-6 rounded-xl border border-neutral-400 bg-neutral-100 p-6',
-        state === 'disabled' && 'bg-neutral-200 text-neutral-700',
+        'aspect-square flex-1 space-y-6 rounded-xl border border-neutral-400 bg-neutral-100 p-6',
+        state === 'locked' && 'bg-neutral-200 text-neutral-700',
       )}
     >
       <div className='flex justify-between'>
