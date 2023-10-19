@@ -24,13 +24,13 @@ const Sidebar = ({ urls }: UrlsType) => {
     <>
       <button
         onClick={() => handleClick()}
-        className='absolute right-8 top-8 md:hidden'
+        className='absolute right-8 top-8 z-20 md:hidden'
       >
-        {!open ? <Menu /> : <X />}
+        {!open ? <Menu /> : <X color='#FFFFFF' />}
       </button>
       <aside
         className={cn(
-          'absolute top-0 flex w-full flex-col items-center gap-y-28 bg-neutral-900 px-8 py-20 capitalize text-neutral-100 md:relative md:left-0 md:max-w-[14rem]',
+          'absolute	top-0 z-10 flex w-full flex-col items-center gap-y-28 bg-neutral-900 px-8 py-20 capitalize text-neutral-100 md:relative md:left-0 md:flex md:max-w-[14rem]',
           !open && 'hidden',
         )}
       >
