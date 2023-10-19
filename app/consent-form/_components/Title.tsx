@@ -4,12 +4,14 @@ type TitleProps = {
   text?: string
 }
 
-const Title: React.FC<TitleProps> = ({ text = 'Default Title' }) => {
+const Title = ({ text = 'Default Title' }: TitleProps) => {
   return (
-    <h1 className='font-heading inline-flex items-center space-x-4 text-xl font-bold text-neutral-900'>
-      <span>{text}</span>
+    <div>
+      <h1 className='font-heading inline-flex items-center space-x-8 text-4xl font-bold text-neutral-900'>
+        <span>{text}</span>
+      </h1>
       <Volume2 />
-    </h1>
+    </div>
   )
 }
 
