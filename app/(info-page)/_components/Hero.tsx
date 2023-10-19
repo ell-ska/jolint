@@ -21,7 +21,7 @@ const Hero = () => {
             <Link href='/inclusion'>Why inclusion?</Link>
           </Button>
           <Button>
-            <Link href='#how-it-works'>How it works</Link>
+            <Link href='/#how-it-works'>How it works</Link>
           </Button>
         </div>
       </div>
