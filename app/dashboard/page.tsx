@@ -1,7 +1,11 @@
-import GeneralGridLayoutT from './_components/GeneralGridLayout'
+import GeneralGridLayout from '@/app/dashboard/_components/GeneralGridLayout'
 
 const Dashboard = () => {
-  return <div></div>
+  return (
+    <div>
+      <GeneralGridLayout></GeneralGridLayout>
+    </div>
+  )
 }
 
 export default Dashboard
