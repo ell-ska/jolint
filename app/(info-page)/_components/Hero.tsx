@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const Hero = () => {
   return (
-    <div className='colorful-gradient flex pt-28 min-h-screen items-center justify-between gap-8 text-neutral-900'>
+    <div className='colorful-gradient flex min-h-screen items-center justify-between gap-8 pt-28 text-neutral-900'>
       <div className='pl-20'>
         <h1 className='font-heading text-5xl font-bold'>
           Let&apos;s Create an Inclusive Workspace Together
