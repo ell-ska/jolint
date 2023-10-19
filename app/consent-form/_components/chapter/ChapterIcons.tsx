@@ -627,11 +627,11 @@ const ChapterIcon = ({ icon, state }: ChapterIconsProps) => {
   if (icon === 'introduction') {
     return <Introduction />
   } else if (icon === 'purpose') {
-    return state === 'disabled' ? <PurposeDisabled /> : <Purpose />
+    return state === 'locked' ? <PurposeDisabled /> : <Purpose />
   } else if (icon === 'rights') {
-    return state === 'disabled' ? <RightsDisabled /> : <Rights />
+    return state === 'locked' ? <RightsDisabled /> : <Rights />
   } else if (icon === 'consent') {
-    return state === 'disabled' ? <ConsentDisabled /> : <Consent />
+    return state === 'locked' ? <ConsentDisabled /> : <Consent />
   }
 }
 
