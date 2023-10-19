@@ -7,7 +7,7 @@ import Logo from '@/public/Jolint-logo.svg'
 
 const Header = () => {
   return (
-    <header className='border-b border-neutral-400 p-8'>
+    <header className='absolute w-full border-b border-neutral-400 bg-neutral-100 p-8'>
       <div className='flex items-center justify-between'>
         <Link href='/'>
           <Image className='cursor-pointer' src={Logo} alt='Logo' />
