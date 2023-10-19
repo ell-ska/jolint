@@ -1,7 +1,7 @@
 import { UrlsType } from '@/utils/types'
 import { Gauge, Settings } from 'lucide-react'
 
-import SideBar from './_components/SideBar'
+import Sidebar from './_components/Sidebar'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const urls: UrlsType = [
@@ -18,8 +18,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   ]
 
   return (
-    <main className='flex min-h-screen'>
-      <SideBar urls={urls} />
+    <main className='flex flex-col md:flex-row min-h-screen'>
+      <Sidebar urls={urls} />
       {children}
     </main>
   )
