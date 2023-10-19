@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer utilities {
-  .colorfull-gradient {
+  .colorful-gradient {
     background: linear-gradient(
       to bottom right,
       rgba(229, 32, 50, 0.79) 0%,
