@@ -15,21 +15,22 @@ const config: Config = {
         400: '#CBD5E1',
         600: '#94A3B8',
         700: '#94A3B8',
-        900: '#0F172A'
+        800: '#475569',
+        900: '#0F172A',
       },
       blue: {
         dull: '#2C3386',
         bright: '#0015CE',
-        light: '#91BBE7'
+        light: '#91BBE7',
       },
       green: '#7ACD6D',
       orange: '#F4770A',
-      red: '#D3383B'
+      red: '#D3383B',
     },
     fontFamily: {
       body: 'var(--kumbh-sans)',
-      heading: 'var(--space-grotesk)'
-    }
+      heading: 'var(--space-grotesk)',
+    },
   },
   plugins: [],
 }
