@@ -12,7 +12,7 @@ type SidebarProps = {
   urls: UrlsType
 }
 
-const Sidebar = ({ urls }: UrlsType) => {
+const Sidebar = ({ urls }: SidebarProps) => {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
 
