@@ -24,9 +24,15 @@ const Sidebar = ({ urls }: SidebarProps) => {
     <>
       <button
         onClick={() => handleClick()}
-        className='absolute right-8 top-8 z-20 md:hidden'
+        className='absolute right-8 top-8 z-20 rounded-full bg-neutral-900 p-4 md:hidden'
       >
-        {!open ? <Menu /> : <X color='#FFFFFF' />}
+        {!open ? (
+          <div className=''>
+            <Menu color='#FFFFFF' />
+          </div>
+        ) : (
+          <X color='#FFFFFF' />
+        )}
       </button>
       <aside
         className={cn(
