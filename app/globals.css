@@ -15,4 +15,16 @@
       rgba(7, 63, 234, 0.28) 100%
     );
   }
+  .colorfull-gradient-inclusion {
+    background: linear-gradient(
+      to bottom right,
+      rgba(229, 32, 50, 0.79) 0%,
+      rgba(250, 187, 132, 0.88) 15%,
+      rgba(250, 220, 194, 0.81) 35%,
+      rgba(250, 252, 255, 0.596) 55%,
+      rgba(84, 124, 235, 0.158) 70%,
+      rgba(255, 255, 255, 0.068) 80%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
 }
