@@ -26,7 +26,7 @@ export default function RootLayout({
         className={cn(
           spaceGrotesk.variable,
           kumbhSans.variable,
-          'font-body text-neutral-900',
+          'flex flex-col font-body text-neutral-900',
         )}
       >
         {children}
