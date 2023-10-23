@@ -29,14 +29,14 @@ const Dropdown = ({ options, selected, onSelect }: DropdownProps) => {
       </DropdownMenu.Trigger>
       <DropdownMenu.Content
         align='start'
-        className='mt-2 flex flex-col gap-2 rounded-lg border border-neutral-400 px-2 py-1'
+        className='mt-2 flex flex-col overflow-hidden rounded-lg border border-neutral-400'
       >
         {options.map((option) => (
           <DropdownMenu.Item
             key={option}
             onSelect={() => onSelect(option)}
             className={cn(
-              'cursor-pointer outline-none hover:underline',
+              'cursor-pointer px-2 py-2 outline-none hover:bg-neutral-200',
               option === selected && 'font-bold',
             )}
           >
