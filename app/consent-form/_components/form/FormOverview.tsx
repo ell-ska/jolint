@@ -1,3 +1,4 @@
+import { useForm } from '@/hooks/useForm'
 import Chapter from '@/app/consent-form/_components/chapter/Chapter'
 import type { State } from '@/app/consent-form/_components/chapter/Chapter'
 
@@ -6,6 +7,8 @@ type FormOverviewProps = {
 }
 
 const FormOverview = ({ states }: FormOverviewProps) => {
+  const { goTo } = useForm((state) => ({ goTo: state.goTo }))
+
   const amountOfDone = states.filter((state) => state === 'done').length
 
   return (
