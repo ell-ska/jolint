@@ -20,12 +20,12 @@ const Chapter = ({ state, icon, title, desc }: ChapterProps) => {
   return (
     <div
       className={cn(
-        'aspect-square flex-1 space-y-6 rounded-xl border border-neutral-400 bg-neutral-100 p-6',
+        'space-y-4 rounded-xl border border-neutral-400 bg-neutral-100 p-4 md:space-y-6 md:p-6 xl:aspect-square',
         state === 'locked' && 'bg-neutral-200 text-neutral-700',
       )}
     >
       <div className='flex justify-between'>
-        <ChapterIcon icon={icon} state={state} />
+        <ChapterIcon icon={icon} state={state} className='h-8 md:h-12' />
         <Checkbox.Root
           className='h-6 w-6 rounded-md border-neutral-400 data-[state=unchecked]:border data-[state=checked]:bg-green'
           checked={state === 'done'}
@@ -35,8 +35,8 @@ const Chapter = ({ state, icon, title, desc }: ChapterProps) => {
           </Checkbox.Indicator>
         </Checkbox.Root>
       </div>
-      <div className='space-y-2'>
-        <h3 className='text-2xl font-bold'>{title}</h3>
+      <div className='md:space-y-2'>
+        <h3 className='text-lg font-bold md:text-2xl'>{title}</h3>
         <p>{desc}</p>
       </div>
     </div>

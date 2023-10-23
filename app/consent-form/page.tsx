@@ -2,8 +2,8 @@ import Chapter from '@/app/consent-form/_components/chapter/Chapter'
 
 const ConsentForm = () => {
   return (
-    <main className='min-h-screen px-20 pt-36'>
-      <div className='relative mb-12 flex gap-8'>
+    <main className='min-h-screen px-6 pt-32 md:px-20 md:pt-36'>
+      <div className='relative mb-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-8'>
         <Chapter
           title='Introduction'
           desc='Let Jolint introduce themselves to you'
