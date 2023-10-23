@@ -6,33 +6,35 @@ type FormOverviewProps = {
 }
 
 const FormOverview = ({ states }: FormOverviewProps) => {
+  const amountOfDone = states.filter((state) => state === 'done').length
+
   return (
     <div className='relative mb-12 flex gap-8'>
       <Chapter
         title='Introduction'
         desc='Let Jolint introduce themselves to you'
         icon='introduction'
-        state='unlocked'
+        state={states[0]}
       />
       <Chapter
         title='Purpose'
         desc='The purpose of having Jolint in your company'
         icon='purpose'
-        state='locked'
+        state={states[1]}
       />
       <Chapter
         title='Your rights'
         desc='Your rights with the processing of your personal data'
         icon='rights'
-        state='locked'
+        state={states[2]}
       />
       <Chapter
         title='Consent'
         desc='Sign in to improve inclusion and belonging in your company'
         icon='consent'
-        state='locked'
+        state={states[3]}
       />
-      <span className='absolute -bottom-8 right-0'>0/4</span>
+      <span className='absolute -bottom-8 right-0'>{amountOfDone}/4</span>
     </div>
   )
 }
