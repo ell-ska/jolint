@@ -71,20 +71,32 @@ const chapters = {
 }
 
 const formContent = [
-  <FormOverview key='overview-1' />,
-  <FormChapter key='chapter-1.1' />,
-  <FormChapter key='chapter-1.2' />,
-  <FormOverview key='overview-2' />,
-  <FormChapter key='chapter-2.1' />,
-  <FormOverview key='overview-3' />,
-  <FormChapter key='chapter-3.1' />,
-  <FormChapter key='chapter-3.2' />,
-  <FormChapter key='chapter-3.3' />,
-  <FormOverview key='overview-4' />,
-  <FormChapter key='chapter-4.1' />,
-  <FormChapter key='chapter-4.2' />,
-  <FormSign key='chapter-4.3-sign' />,
-  <FormOverview key='overview-5' />,
+  <FormOverview
+    key='overview-1'
+    states={['unlocked', 'locked', 'locked', 'locked']}
+  />,
+  <FormChapter key='chapter-1.1' {...chapters[1][1]} />,
+  <FormChapter key='chapter-1.2' {...chapters[1][2]} />,
+  <FormOverview
+    key='overview-2'
+    states={['done', 'unlocked', 'locked', 'locked']}
+  />,
+  <FormChapter key='chapter-2.1' {...chapters[2][1]} />,
+  <FormOverview
+    key='overview-3'
+    states={['done', 'done', 'unlocked', 'locked']}
+  />,
+  <FormChapter key='chapter-3.1' {...chapters[3][1]} />,
+  <FormChapter key='chapter-3.2' {...chapters[3][2]} />,
+  <FormChapter key='chapter-3.3' {...chapters[3][3]} />,
+  <FormOverview
+    key='overview-4'
+    states={['done', 'done', 'done', 'unlocked']}
+  />,
+  <FormChapter key='chapter-4.1' {...chapters[4][1]} />,
+  <FormChapter key='chapter-4.2' {...chapters[4][2]} />,
+  <FormSign key='chapter-4.3-sign' {...chapters[4][3]} />,
+  <FormOverview key='overview-5' states={['done', 'done', 'done', 'done']} />,
   <FormThankYou key='thank-you' />,
 ]
 

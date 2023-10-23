@@ -1,6 +1,11 @@
 import Chapter from '@/app/consent-form/_components/chapter/Chapter'
+import type { State } from '@/app/consent-form/_components/chapter/Chapter'
 
-const FormOverview = () => {
+type FormOverviewProps = {
+  states: [State, State, State, State]
+}
+
+const FormOverview = ({ states }: FormOverviewProps) => {
   return (
     <div className='relative mb-12 flex gap-8'>
       <Chapter
