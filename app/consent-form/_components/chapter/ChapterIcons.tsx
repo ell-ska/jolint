@@ -3,9 +3,10 @@ import type {
   Icon,
 } from '@/app/consent-form/_components/chapter/Chapter'
 
-const Introduction = () => {
+const Introduction = ({ className }: { className?: string }) => {
   return (
     <svg
+      className={className}
       width='48'
       height='48'
       viewBox='0 0 48 48'
@@ -137,9 +138,10 @@ const Introduction = () => {
   )
 }
 
-const Purpose = () => {
+const Purpose = ({ className }: { className?: string }) => {
   return (
     <svg
+      className={className}
       width='48'
       height='48'
       viewBox='0 0 48 48'
@@ -255,9 +257,10 @@ const Purpose = () => {
   )
 }
 
-const PurposeDisabled = () => {
+const PurposeDisabled = ({ className }: { className?: string }) => {
   return (
     <svg
+      className={className}
       width='48'
       height='48'
       viewBox='0 0 48 48'
@@ -370,9 +373,10 @@ const PurposeDisabled = () => {
   )
 }
 
-const Rights = () => {
+const Rights = ({ className }: { className?: string }) => {
   return (
     <svg
+      className={className}
       width='48'
       height='48'
       viewBox='0 0 48 48'
@@ -436,9 +440,10 @@ const Rights = () => {
   )
 }
 
-const RightsDisabled = () => {
+const RightsDisabled = ({ className }: { className?: string }) => {
   return (
     <svg
+      className={className}
       width='48'
       height='48'
       viewBox='0 0 48 48'
@@ -502,9 +507,10 @@ const RightsDisabled = () => {
   )
 }
 
-const Consent = () => {
+const Consent = ({ className }: { className?: string }) => {
   return (
     <svg
+      className={className}
       width='48'
       height='48'
       viewBox='0 0 48 48'
@@ -560,9 +566,10 @@ const Consent = () => {
   )
 }
 
-const ConsentDisabled = () => {
+const ConsentDisabled = ({ className }: { className?: string }) => {
   return (
     <svg
+      className={className}
       width='48'
       height='48'
       viewBox='0 0 48 48'
@@ -621,17 +628,30 @@ const ConsentDisabled = () => {
 type ChapterIconsProps = {
   icon: Icon
   state: State
+  className?: string
 }
 
-const ChapterIcon = ({ icon, state }: ChapterIconsProps) => {
+const ChapterIcon = ({ icon, state, className }: ChapterIconsProps) => {
   if (icon === 'introduction') {
-    return <Introduction />
+    return <Introduction className={className} />
   } else if (icon === 'purpose') {
-    return state === 'locked' ? <PurposeDisabled /> : <Purpose />
+    return state === 'locked' ? (
+      <PurposeDisabled className={className} />
+    ) : (
+      <Purpose className={className} />
+    )
   } else if (icon === 'rights') {
-    return state === 'locked' ? <RightsDisabled /> : <Rights />
+    return state === 'locked' ? (
+      <RightsDisabled className={className} />
+    ) : (
+      <Rights className={className} />
+    )
   } else if (icon === 'consent') {
-    return state === 'locked' ? <ConsentDisabled /> : <Consent />
+    return state === 'locked' ? (
+      <ConsentDisabled className={className} />
+    ) : (
+      <Consent className={className} />
+    )
   }
 }
 
