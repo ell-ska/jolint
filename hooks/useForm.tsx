@@ -31,7 +31,7 @@ const useForm = create<State & Actions>((set, get) => ({
     set(() => {
       const currentIndex = get().stepIndex
       const nextStep =
-        get().steps.length - 1 < currentIndex ? currentIndex : currentIndex + 1
+        get().steps.length - 1 <= currentIndex ? currentIndex : currentIndex + 1
 
       return {
         stepIndex: nextStep,

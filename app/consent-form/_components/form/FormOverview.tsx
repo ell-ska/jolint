@@ -18,24 +18,28 @@ const FormOverview = ({ states }: FormOverviewProps) => {
         desc='Let Jolint introduce themselves to you'
         icon='introduction'
         state={states[0]}
+        onClick={() => goTo(1)}
       />
       <Chapter
         title='Purpose'
         desc='The purpose of having Jolint in your company'
         icon='purpose'
         state={states[1]}
+        onClick={() => goTo(4)}
       />
       <Chapter
         title='Your rights'
         desc='Your rights with the processing of your personal data'
         icon='rights'
         state={states[2]}
+        onClick={() => goTo(6)}
       />
       <Chapter
         title='Consent'
         desc='Sign in to improve inclusion and belonging in your company'
         icon='consent'
         state={states[3]}
+        onClick={() => goTo(10)}
       />
       <span className='absolute -bottom-8 right-0'>{amountOfDone}/4</span>
     </div>
