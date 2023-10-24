@@ -12,7 +12,7 @@ const FormOverview = ({ states }: FormOverviewProps) => {
   const amountOfDone = states.filter((state) => state === 'done').length
 
   return (
-    <div className='relative mb-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-8'>
+    <div className='relative mb-16 grid grid-cols-1 gap-4 md:mb-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8'>
       <Chapter
         title='Introduction'
         desc='Let Jolint introduce themselves to you'

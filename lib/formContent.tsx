@@ -96,7 +96,10 @@ const formContent = [
   <FormChapter key='chapter-4.1' {...chapters[4][1]} />,
   <FormChapter key='chapter-4.2' {...chapters[4][2]} />,
   <FormSign key='chapter-4.3-sign' {...chapters[4][3]} />,
-  <FormOverview key='overview-5' states={['done', 'done', 'done', 'done']} />,
+  <FormOverview
+    key='overview-5-submit'
+    states={['done', 'done', 'done', 'done']}
+  />,
   <FormThankYou key='thank-you' />,
 ]
 

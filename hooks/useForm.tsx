@@ -7,8 +7,6 @@ type State = {
   steps: JSX.Element[]
   step: JSX.Element
   stepIndex: number
-  isFirstStep: boolean
-  isLastStep: boolean
 }
 
 type Actions = {
@@ -21,8 +19,6 @@ const initialState: State = {
   steps: formContent,
   step: formContent[0],
   stepIndex: 0,
-  isFirstStep: true,
-  isLastStep: false,
 }
 
 const useForm = create<State & Actions>((set, get) => ({
@@ -30,8 +26,8 @@ const useForm = create<State & Actions>((set, get) => ({
   next: () =>
     set(() => {
       const currentIndex = get().stepIndex
-      const nextStep =
-        get().steps.length - 1 <= currentIndex ? currentIndex : currentIndex + 1
+      const isLastStep = get().steps.length - 1 <= currentIndex
+      const nextStep = isLastStep ? currentIndex : currentIndex + 1
 
       return {
         stepIndex: nextStep,
@@ -41,7 +37,8 @@ const useForm = create<State & Actions>((set, get) => ({
   back: () =>
     set(() => {
       const currentIndex = get().stepIndex
-      const nextStep = currentIndex === 0 ? currentIndex : currentIndex - 1
+      const isFirstStep = currentIndex === 0
+      const nextStep = isFirstStep ? currentIndex : currentIndex - 1
 
       return {
         stepIndex: nextStep,
