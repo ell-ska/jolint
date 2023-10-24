@@ -15,11 +15,4 @@
       rgba(7, 63, 234, 0.28) 100%
     );
   }
-  .orange-gradient {
-    background: linear-gradient(
-      179.98deg,
-      #fde8d6 0.02%,
-      rgba(255, 255, 255, 0) 145.91%
-    );
-  }
 }
