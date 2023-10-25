@@ -4,7 +4,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Header />
-      <main className='relative px-6 pt-20 md:px-20 md:pt-28'>{children}</main>
+      {/* <main className='relative px-6 pt-20 md:px-20 md:pt-28'> */}
+      <main className='relative pt-20 md:pt-28'>
+        {children}
+      </main>
     </>
   )
 }
