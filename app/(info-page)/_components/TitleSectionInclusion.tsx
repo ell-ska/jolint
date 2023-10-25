@@ -1,6 +1,6 @@
 const TitleSectionInclusion = () => {
   return (
-    <section className='flex max-w-full flex-col px-6 pb-20 md:px-20 md:pb-16'>
+    <section className='flex max-w-full flex-col pb-20 md:pb-16'>
       <h1 className='text-dark-900 w-full pb-6 pt-20 font-heading text-3xl font-bold md:pt-28 md:text-5xl'>
         Why inclusion is important
       </h1>
