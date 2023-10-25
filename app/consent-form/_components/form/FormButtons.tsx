@@ -3,14 +3,14 @@
 import Link from 'next/link'
 
 import { useForm } from '@/hooks/useForm'
-import { cn } from '@/utils/classnames'
 import Button, { buttonVariants } from '@/components/Button'
 
 const FormButtons = () => {
-  const { steps, step, stepIndex, next, back } = useForm()
+  const { steps, step, stepIndex, next, back, doneChapters } = useForm()
   const isFirstStep = stepIndex === 0
   const isLastStep = steps.length - 1 <= stepIndex
   const isSubmitStep = step.key === 'overview-5-submit'
+  console.log(doneChapters)
 
   return (
     <div className='mb-16 flex gap-4'>

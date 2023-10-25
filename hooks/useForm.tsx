@@ -7,6 +7,7 @@ type State = {
   steps: JSX.Element[]
   step: JSX.Element
   stepIndex: number
+  doneChapters: number
 }
 
 type Actions = {
@@ -19,6 +20,7 @@ const initialState: State = {
   steps: formContent,
   step: formContent[0],
   stepIndex: 0,
+  doneChapters: 0,
 }
 
 const useForm = create<State & Actions>((set, get) => ({
@@ -29,9 +31,17 @@ const useForm = create<State & Actions>((set, get) => ({
       const isLastStep = get().steps.length - 1 <= currentIndex
       const nextStep = isLastStep ? currentIndex : currentIndex + 1
 
+      const currentDoneChapter = get().step.key?.split('done-')[1]
+      const doneChapters =
+        currentDoneChapter &&
+        (get().doneChapters >= Number(currentDoneChapter)
+          ? get().doneChapters
+          : Number(currentDoneChapter))
+
       return {
         stepIndex: nextStep,
         step: get().steps[nextStep],
+        doneChapters: doneChapters || get().doneChapters,
       }
     }),
   back: () =>
