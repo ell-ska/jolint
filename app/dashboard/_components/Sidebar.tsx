@@ -30,7 +30,7 @@ const Sidebar = ({ urls }: SidebarProps) => {
       </button>
       <aside
         className={cn(
-          'absolute top-0 z-10 flex min-h-screen w-full flex-col justify-center items-center gap-y-28 bg-neutral-900 px-8 py-20 capitalize text-neutral-100 md:relative md:left-0 md:flex md:max-w-[14rem]',
+          'absolute top-0 z-10 flex min-h-screen w-full flex-col items-center justify-center gap-y-28 bg-neutral-900 px-8 py-20 capitalize text-neutral-100 md:relative md:left-0 md:flex md:max-w-[14rem]',
           !open && 'hidden',
         )}
       >
