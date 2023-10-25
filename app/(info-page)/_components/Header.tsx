@@ -26,13 +26,13 @@ const Header = () => {
     <header
       className={cn(
         !isOpen &&
-          'absolute w-full border-b border-neutral-400 bg-neutral-100 p-8',
+          'absolute z-[9999] w-full border-b border-neutral-400 bg-neutral-100 p-8',
       )}
     >
       <div
         className={cn(
           'flex items-center justify-between',
-          isOpen && 'absolute inset-0 justify-center bg-neutral-100',
+          isOpen && 'absolute z-[9999] inset-0 justify-center bg-neutral-100',
         )}
       >
         {!isOpen && (
