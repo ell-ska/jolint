@@ -10,7 +10,6 @@ const FormButtons = () => {
   const isFirstStep = stepIndex === 0
   const isLastStep = steps.length - 1 <= stepIndex
   const isSubmitStep = step.key === 'overview-5-submit'
-  console.log(doneChapters)
 
   return (
     <div className='mb-16 flex gap-4'>
