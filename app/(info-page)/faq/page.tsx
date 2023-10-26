@@ -1,6 +1,6 @@
 import Accordion from '@/components/Accordion'
 
-const QnA = [
+const qna = [
   {
     question: 'Why do i need to sign a consent form?',
     answer:
@@ -35,23 +35,23 @@ const QnA = [
 
 const Faq = () => {
   return (
-    <section className='min-h-[calc(100vh-5rem)] from-neutral-900 pt-20 md:min-h-[calc(100vh-7rem)] md:pt-28'>
+    <section className='min-h-[calc(100vh-5rem)] pb-12 pt-20 md:min-h-[calc(100vh-7rem)] md:pt-28'>
       <div className='orange-gradient absolute inset-0 -z-10' />
       <h1 className='font-heading text-3xl font-bold md:text-5xl'>FAQ</h1>
       <p className='pt-6 text-lg md:pt-6 md:text-2xl'>
         Learn more about Jolint and our work method
       </p>
-      <div className='pb-12 pt-8 md:grid md:grid-cols-3 md:gap-4 md:pt-20'>
-        {QnA.map(({ question, answer }) => (
+      <div className='grid grid-cols-1 gap-6 pt-8 md:grid-cols-3 md:gap-8 md:pt-20'>
+        {qna.map(({ question, answer }) => (
           <Accordion
-            className='mt-6 flex flex-col justify-center rounded-2xl bg-neutral-100 p-4 md:mt-0'
+            className='flex flex-col justify-center gap-4 rounded-2xl bg-neutral-100 p-4'
             key={question}
             trigger={
               <h4 className='font-body text-lg font-bold md:text-xl'>
                 {question}
               </h4>
             }
-            content={<p className='pt-4 md:text-base'>{answer}</p>}
+            content={<p>{answer}</p>}
             icon
           />
         ))}
