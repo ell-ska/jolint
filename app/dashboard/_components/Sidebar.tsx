@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { cn } from '@/utils/classnames'
 import { UserCircle2, X, Menu } from 'lucide-react'
 import { usePathname } from 'next/navigation'
@@ -20,9 +20,17 @@ const Sidebar = ({ urls }: SidebarProps) => {
     setOpen(!open)
   }
 
-  /**
-   * on Mobile: if user scrolls & nav is open -> they only see the opened side bar
-   */
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflowY = 'hidden'
+    } else {
+      document.body.style.overflowY = 'scroll'
+    }
+
+    return () => {
+      document.body.style.overflowY = 'scroll'
+    }
+  }, [open])
 
   return (
     <>
@@ -41,7 +49,7 @@ const Sidebar = ({ urls }: SidebarProps) => {
           !open && 'hidden',
         )}
       >
-        <div className=' flex flex-col items-center justify-center gap-y-28 md:fixed md:top-0 md:h-screen md:justify-start md:pt-20'>
+        <div className='flex flex-col items-center justify-center gap-y-28 md:fixed md:top-0 md:h-screen md:justify-start md:pt-20'>
           <div className='flex flex-col items-center gap-y-4'>
             <UserCircle2 size={64} />
             <h3 className='text-center font-bold'>Welcome, Anna</h3>
