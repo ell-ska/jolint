@@ -1,9 +1,11 @@
-import OurMissionSection from "@/app/(info-page)/_components/OurMissionSection"
+import OurMissionSection from '@/app/(info-page)/_components/OurMissionSection'
 
 const About = () => {
-  return <div>
-    <OurMissionSection />
-  </div>
+  return (
+    <>
+      <OurMissionSection />
+    </>
+  )
 }
 
 export default About
