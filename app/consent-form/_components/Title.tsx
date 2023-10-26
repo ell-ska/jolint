@@ -1,16 +1,13 @@
-import { Volume2 } from 'lucide-react'
-
 type TitleProps = {
   text?: string
 }
 
-const Title = ({ text = 'Default Title' }: TitleProps) => {
+const Title = ({ text = 'Consent Form for Data Processing' }: TitleProps) => {
   return (
     <div>
-      <h1 className='font-heading inline-flex items-center space-x-8 text-4xl font-bold text-neutral-900'>
+      <h1 className='mb-4 font-heading text-2xl font-bold text-neutral-900 md:text-4xl'>
         {text}
       </h1>
-      <Volume2 />
     </div>
   )
 }
