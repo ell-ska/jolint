@@ -15,6 +15,24 @@
       rgba(7, 63, 234, 0.28) 100%
     );
   }
+  .colorfull-gradient-inclusion {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        #ffffff 94.79%
+      ),
+      linear-gradient(
+        294.06deg,
+        rgba(7, 63, 234, 0.28) 3.45%,
+        rgba(84, 124, 235, 0.321729) 16.23%,
+        rgba(209, 223, 237, 0.39) 37.14%,
+        rgba(250, 252, 255, 0.9) 56.35%,
+        rgba(250, 220, 194, 0.81) 72.85%,
+        rgba(250, 187, 132, 0.88) 81.4%,
+        rgba(229, 32, 48, 0.432) 100%,
+        rgba(229, 32, 48, 0.87) 100%
+      );
+  }
   .orange-gradient {
     background: linear-gradient(
       179.98deg,
