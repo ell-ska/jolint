@@ -16,11 +16,7 @@
     );
   }
   .colorfull-gradient-inclusion {
-    background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0) 0%,
-        #ffffff 94.79%
-      ),
+    background: linear-gradient(180deg, #ffffff00 25%, #ffffff 100%),
       linear-gradient(
         294.06deg,
         rgba(7, 63, 234, 0.28) 3.45%,
