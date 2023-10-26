@@ -1,7 +1,9 @@
 'use client'
 
-import { formContent } from '@/lib/formContent'
 import { create } from 'zustand'
+
+import { formContent } from '@/lib/formContent'
+import { ChapterKeys } from '@/utils/types'
 
 type State = {
   steps: JSX.Element[]
@@ -13,7 +15,7 @@ type State = {
 type Actions = {
   next: () => void
   back: () => void
-  goTo: (step: number) => void
+  goTo: (step: ChapterKeys) => void
 }
 
 const initialState: State = {
@@ -55,7 +57,15 @@ const useForm = create<State & Actions>((set, get) => ({
         step: get().steps[nextStep],
       }
     }),
-  goTo: (step) => set({ stepIndex: step, step: get().steps[step] }),
+  goTo: (chosenStep) =>
+    set(() => {
+      const stepIndex = get().steps.findIndex((step) => step.key === chosenStep)
+
+      return {
+        stepIndex,
+        step: get().steps[stepIndex],
+      }
+    }),
 }))
 
 export { useForm }
