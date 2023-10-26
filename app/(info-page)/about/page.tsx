@@ -1,5 +1,9 @@
+import OurMissionSection from "../_components/OurMissionSection"
+
 const About = () => {
-  return <div>about</div>
+  return <div>
+    <OurMissionSection />
+  </div>
 }
 
 export default About
