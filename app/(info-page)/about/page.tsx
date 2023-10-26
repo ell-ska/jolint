@@ -1,6 +1,6 @@
 const Background = () => {
   return (
-    <div className='absolute inset-0 -z-10 bg-gradient-to-b from-[#EEF3F8]'></div>
+    <div className='absolute inset-0 -z-10 bg-gradient-to-b from-[#EEF3F8]'/>
   )
 }
 
