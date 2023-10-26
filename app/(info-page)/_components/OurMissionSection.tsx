@@ -1,10 +1,10 @@
 const OurMissionSection = () => {
   return (
     <section className='flex w-full flex-col pt-12 md:pt-16'>
-      <h3 className='text-neutural-900 w-full pb-8 pt-12 font-heading text-2xl font-bold md:pb-4 md:pt-16 md:text-4xl'>
+      <h3 className='text-neutural-900 w-full pb-8 pt-12 font-heading text-2xl font-bold md:pb-4 md:pt-16'>
         Our Mission
       </h3>
-      <p className='text-neutural-900 font-body text-base md:max-w-4xl'>
+      <p className='text-neutural-900 font-body text-base leading-loose md:max-w-4xl'>
         At Jolint, we are driven by a passion for <b>improving workplaces</b>{' '}
         and creating a better world for everyone. We make sure to keep ethics
         and privacy at the forefront when gathering data. Throughout our
