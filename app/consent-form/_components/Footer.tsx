@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <footer className='bg-blue-dull px-8 pb-4 text-center text-base text-neutral-100 md:space-y-8 md:px-32 md:pb-8 md:pt-20 md:text-left md:text-xl'>
-      <div className='flex flex-col items-center pt-8 md:flex-row md:justify-between'>
+    <footer className='bg-blue-dull px-8 pb-4 pt-8 text-center text-base text-neutral-100 md:space-y-8 md:px-32 md:pb-8 md:pt-20 md:text-left md:text-xl'>
+      <div className='flex flex-col items-center md:flex-row md:justify-between'>
         <div className='space-y-2 md:space-y-4'>
           <p>Jolint Network Analytics AB</p>
           <p>Org. Nr.559324-1770</p>
