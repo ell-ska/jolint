@@ -14,32 +14,45 @@ type ChapterProps = {
   icon: Icon
   title: string
   desc: string
+  onClick: () => void
 }
 
-const Chapter = ({ state, icon, title, desc }: ChapterProps) => {
+const Chapter = ({ state, icon, title, desc, onClick }: ChapterProps) => {
   return (
-    <div
+    <button
       className={cn(
-        'aspect-square flex-1 space-y-6 rounded-xl border border-neutral-400 bg-neutral-100 p-6',
+        'flex flex-col gap-4 rounded-xl border border-neutral-400 bg-neutral-100 p-4 text-left md:gap-6 md:p-6 xl:aspect-square',
         state === 'locked' && 'bg-neutral-200 text-neutral-700',
       )}
+      disabled={state === 'locked'}
+      onClick={(e) => {
+        e.preventDefault()
+        onClick()
+      }}
     >
-      <div className='flex justify-between'>
-        <ChapterIcon icon={icon} state={state} />
+      <div className='flex w-full justify-between'>
+        <ChapterIcon
+          icon={icon}
+          state={state}
+          className='h-8 w-8 md:h-12 md:w-12'
+        />
         <Checkbox.Root
+          asChild
           className='h-6 w-6 rounded-md border-neutral-400 data-[state=unchecked]:border data-[state=checked]:bg-green'
           checked={state === 'done'}
         >
-          <Checkbox.Indicator>
-            <Check className='text-neutral-100' />
-          </Checkbox.Indicator>
+          <div>
+            <Checkbox.Indicator>
+              <Check className='text-neutral-100' />
+            </Checkbox.Indicator>
+          </div>
         </Checkbox.Root>
       </div>
-      <div className='space-y-2'>
-        <h3 className='text-2xl font-bold'>{title}</h3>
+      <div className='md:space-y-2'>
+        <h3 className='text-lg font-bold md:text-2xl'>{title}</h3>
         <p>{desc}</p>
       </div>
-    </div>
+    </button>
   )
 }
 
