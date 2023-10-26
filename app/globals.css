@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer utilities {
-  .colorfull-gradient {
+  .colorful-gradient {
     background: linear-gradient(
       to bottom right,
       rgba(229, 32, 50, 0.79) 0%,
@@ -13,6 +13,27 @@
       rgba(209, 223, 237, 0.39) 70%,
       rgba(84, 124, 235, 0.32) 80%,
       rgba(7, 63, 234, 0.28) 100%
+    );
+  }
+  .colorfull-gradient-inclusion {
+    background: linear-gradient(180deg, #ffffff00 25%, #ffffff 100%),
+      linear-gradient(
+        294.06deg,
+        rgba(7, 63, 234, 0.28) 3.45%,
+        rgba(84, 124, 235, 0.321729) 16.23%,
+        rgba(209, 223, 237, 0.39) 37.14%,
+        rgba(250, 252, 255, 0.9) 56.35%,
+        rgba(250, 220, 194, 0.81) 72.85%,
+        rgba(250, 187, 132, 0.88) 81.4%,
+        rgba(229, 32, 48, 0.432) 100%,
+        rgba(229, 32, 48, 0.87) 100%
+      );
+  }
+  .orange-gradient {
+    background: linear-gradient(
+      179.98deg,
+      #fde8d6 0.02%,
+      rgba(255, 255, 255, 0) 145.91%
     );
   }
 }
