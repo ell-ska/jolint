@@ -15,7 +15,7 @@ const Accordion = ({ trigger, content, icon, className }: AccordionProps) => {
     <AccordionPrimitive.Root type='single' collapsible>
       <AccordionPrimitive.Item value='accordion' className={className}>
         <AccordionPrimitive.Trigger asChild className='group cursor-pointer'>
-          <div className='flex justify-between gap-4'>
+          <div className='flex items-center justify-between gap-4'>
             {trigger}
             {icon && (
               <ChevronDown className='group-data-[state=open]:rotate-180' />
