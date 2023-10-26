@@ -1,28 +1,28 @@
 'use client'
 
-import { formContent } from '@/lib/formContent'
 import { create } from 'zustand'
+
+import { formContent } from '@/lib/formContent'
+import { ChapterKeys } from '@/utils/types'
 
 type State = {
   steps: JSX.Element[]
   step: JSX.Element
   stepIndex: number
-  isFirstStep: boolean
-  isLastStep: boolean
+  doneChapters: number
 }
 
 type Actions = {
   next: () => void
   back: () => void
-  goTo: (step: number) => void
+  goTo: (step: ChapterKeys) => void
 }
 
 const initialState: State = {
   steps: formContent,
   step: formContent[0],
   stepIndex: 0,
-  isFirstStep: true,
-  isLastStep: false,
+  doneChapters: 0,
 }
 
 const useForm = create<State & Actions>((set, get) => ({
@@ -30,25 +30,42 @@ const useForm = create<State & Actions>((set, get) => ({
   next: () =>
     set(() => {
       const currentIndex = get().stepIndex
-      const nextStep =
-        get().steps.length - 1 < currentIndex ? currentIndex : currentIndex + 1
+      const isLastStep = get().steps.length - 1 <= currentIndex
+      const nextStep = isLastStep ? currentIndex : currentIndex + 1
+
+      const currentDoneChapter = get().step.key?.split('done-')[1]
+      const doneChapters =
+        currentDoneChapter &&
+        (get().doneChapters >= Number(currentDoneChapter)
+          ? get().doneChapters
+          : Number(currentDoneChapter))
 
       return {
         stepIndex: nextStep,
         step: get().steps[nextStep],
+        doneChapters: doneChapters || get().doneChapters,
       }
     }),
   back: () =>
     set(() => {
       const currentIndex = get().stepIndex
-      const nextStep = currentIndex === 0 ? currentIndex : currentIndex - 1
+      const isFirstStep = currentIndex === 0
+      const nextStep = isFirstStep ? currentIndex : currentIndex - 1
 
       return {
         stepIndex: nextStep,
         step: get().steps[nextStep],
       }
     }),
-  goTo: (step) => set({ stepIndex: step, step: get().steps[step] }),
+  goTo: (chosenStep) =>
+    set(() => {
+      const stepIndex = get().steps.findIndex((step) => step.key === chosenStep)
+
+      return {
+        stepIndex,
+        step: get().steps[stepIndex],
+      }
+    }),
 }))
 
 export { useForm }
