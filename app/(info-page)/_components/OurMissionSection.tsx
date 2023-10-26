@@ -1,7 +1,7 @@
 const OurMissionSection = () => {
   return (
     <section className='flex w-full flex-col pt-12 md:pt-16'>
-      <h3 className='text-neutural-900 w-full pb-8 pt-12 font-heading text-2xl font-bold md:pb-4 md:pt-16'>
+      <h3 className='text-neutural-900 w-full pb-8 font-heading text-2xl font-bold md:pb-4'>
         Our Mission
       </h3>
       <p className='text-neutural-900 font-body text-base leading-loose md:max-w-4xl'>
