@@ -1,17 +1,34 @@
-const TitleSectionInclusion = () => {
+const InclusionSection = () => {
+  const inclusionData = [
+    { label: 'Less isolation', percentage: '31%' },
+    { label: 'Lower sick leave', percentage: '41%' },
+    { label: 'Lower staff turnover', percentage: '59%' },
+    { label: 'More satisfied employees', percentage: '61%' },
+  ]
+
   return (
-    <section className='flex max-w-full flex-col pb-20 md:pb-16'>
-      <h1 className='text-neutural-900 w-full pb-6 font-heading text-3xl font-bold md:text-5xl'>
-        Why inclusion is important
-      </h1>
-      <p className='text-neutural-900 w-full font-body text-lg md:max-w-4xl md:text-2xl'>
-        Inclusion and diversity play crucial roles in helping a workplace
-        thrive. By fostering an inclusive environment, several positive outcomes
-        can be achieved, including happiness, creativity, innovation, and
-        success. Let&apos;s explore each of these aspects.
+    <div className='mt-28 md:mt-20'>
+      <h2 className='text-center font-heading text-2xl font-bold md:text-3xl'>
+        Inclusion makes a difference
+      </h2>
+      <p className='mt-4 text-center font-body text-base md:text-xl'>
+        Organizations with higher inclusion among coworkers have, according to
+        [source].
       </p>
-    </section>
+      <div className='mt-10 flex flex-col items-center gap-8 md:flex-row md:justify-between'>
+        {inclusionData.map((item) => (
+          <div key={item.label} className='flex grow flex-col items-center'>
+            <p className='text-3xl font-bold text-blue-bright md:text-4xl'>
+              {item.percentage}
+            </p>
+            <h3 className='mt-2 text-center text-lg md:text-xl'>
+              {item.label}
+            </h3>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 
-export default TitleSectionInclusion
+export default InclusionSection
