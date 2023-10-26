@@ -4,7 +4,7 @@ type FormChapterProps = {
 }
 
 const FormChapter = ({ content, title }: FormChapterProps) => {
-  return <div>chapter</div>
+  return <div>{title}</div>
 }
 
 export default FormChapter
