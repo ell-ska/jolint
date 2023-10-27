@@ -20,7 +20,7 @@ const CoFoundersSection = () => {
       <h3 className='font-heading text-2xl font-bold text-neutral-900 md:text-4xl'>
         Co-Founders
       </h3>
-      <div className='flex flex-col items-center justify-evenly gap-12 md:gap-20'></div>
+      <div className='flex flex-col gap-12 md:gap-20'></div>
     </section>
   )
 }
