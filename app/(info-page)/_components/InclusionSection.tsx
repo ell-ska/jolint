@@ -7,7 +7,7 @@ const InclusionSection = () => {
   ]
 
   return (
-    <div className='mt-28 md:mt-20'>
+    <div className='mb-20 mt-20 md:mb-28 md:mt-28'>
       <h2 className='text-center font-heading text-2xl font-bold md:text-3xl'>
         Inclusion makes a difference
       </h2>
