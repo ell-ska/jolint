@@ -1,5 +1,5 @@
-import OurMissionSection from "@/app/(info-page)/_components/OurMissionSection"
-import CoFoundersSection from "../_components/CoFounders"
+import OurMissionSection from '@/app/(info-page)/_components/OurMissionSection'
+import CoFoundersSection from '@/app/(info-page)/_components/CoFounders'
 
 const Background = () => {
   return (
