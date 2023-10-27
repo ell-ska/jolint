@@ -1,4 +1,5 @@
 import OurMissionSection from "@/app/(info-page)/_components/OurMissionSection"
+import PersonCard from "../_components/PersonCard"
 
 const Background = () => {
   return (
@@ -14,6 +15,7 @@ const About = () => {
         about us
       </h1>
       <OurMissionSection />
+      <PersonCard />
     </section>
   )
 }
