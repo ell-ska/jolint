@@ -1,4 +1,5 @@
 import OurMissionSection from "@/app/(info-page)/_components/OurMissionSection"
+import CoFoundersSection from "../_components/CoFounders"
 
 const Background = () => {
   return (
@@ -14,6 +15,7 @@ const About = () => {
         about us
       </h1>
       <OurMissionSection />
+      <CoFoundersSection />
     </section>
   )
 }
