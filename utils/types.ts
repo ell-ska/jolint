@@ -27,6 +27,9 @@ export type CardHeaderProps = {
     metric: string
     circleColor: string
   }[]
+} & DropdownProps
+
+export type DropdownProps = {
   options: string[]
   selected: string
   onSelect: (value: string) => void
