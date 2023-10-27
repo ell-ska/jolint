@@ -20,18 +20,18 @@ const PersonCard = ({ title, desc, image }: PersonType) => {
     <div className='flex flex-col items-center pt-12 md:flex-row md:pt-16'>
       {image && (
         <Image
-          className='h-48 w-48 pb-8 md:py-6 md:pl-8'
+          className='h-48 w-48 pb-8 md:py-6 md:pr-8'
           src={image}
           alt={title}
           width={192}
           height={192}
         />
       )}
-      <div className='font-body'>
+      <div className='font-body text-neutral-900'>
         <h4 className='text-xl font-bold leading-8 md:text-2xl md:leading-loose'>
           {title}
         </h4>
-        <p className='pt-4 text-base md:leading-loose'>{desc}</p>
+        <p className='pt-4 text-base md:leading-loose max-w-6xl'>{desc}</p>
       </div>
     </div>
   )
