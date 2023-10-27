@@ -31,7 +31,7 @@ const PersonCard = ({ title, desc, image }: PersonType) => {
         <h4 className='text-xl font-bold leading-8 md:text-2xl md:leading-loose'>
           {title}
         </h4>
-        <p className='pt-4 text-base md:leading-loose max-w-6xl'>{desc}</p>
+        <p className='max-w-6xl pt-4 text-base md:leading-loose'>{desc}</p>
       </div>
     </div>
   )
