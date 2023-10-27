@@ -4,6 +4,11 @@ export type UrlsType = {
   icon: React.ReactNode
 }[]
 
+export type FormChapterProps = {
+  title: string
+  content: string[]
+}
+
 export type ChapterKeys =
   | 'overview-1'
   | 'chapter-1.1'
