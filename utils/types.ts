@@ -20,3 +20,14 @@ export type ChapterKeys =
   | 'chapter-4.3-sign-done-4'
   | 'overview-5-submit'
   | 'thank-you'
+
+export type CardHeaderProps = {
+  title: string
+  currentData?: {
+    metric: string
+    circleColor: string
+  }[]
+  options: string[]
+  selected: string
+  onSelect: (value: string) => void
+}

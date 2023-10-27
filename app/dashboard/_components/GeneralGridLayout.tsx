@@ -4,7 +4,7 @@ type Props = {
 
 const GeneralGridLayout = ({ children }: Props) => {
   return (
-    <div className='bg-neutural-300 grid min-h-screen w-full grid-cols-6 gap-8'>
+    <div className='bg-neutural-300 grid min-h-screen w-full grow grid-cols-6 gap-8 p-8'>
       {children}
     </div>
   )
