@@ -1,7 +1,5 @@
-import React from 'react'
 import IMG1 from '@/public/klaudia.png'
 import IMG2 from '@/public/faheem.png'
-import PersonCard from '@/app/(info-page)/_components/PersonCard'
 
 const coFounderData = [
   {
@@ -23,9 +21,6 @@ const CoFoundersSection = () => {
         Co-Founders
       </h3>
       <div className='flex flex-col items-center justify-evenly gap-12 md:gap-20'></div>
-      {coFounderData.map((data) => (
-        <PersonCard key={data.title} {...data} />
-      ))}
     </section>
   )
 }
