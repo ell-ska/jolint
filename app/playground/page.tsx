@@ -1,33 +1,20 @@
-import Accordion from '@/components/Accordion'
-import GeneralGridLayout from '../dashboard/_components/GeneralGridLayout'
-import Sidebar from '@/app/dashboard/_components/Sidebar'
-import { Gauge, Settings } from 'lucide-react'
-import { UrlsType } from '@/utils/types'
-
-const urls: UrlsType = [
-  {
-    name: 'dashboard',
-    href: '/dashboard',
-    icon: <Gauge />,
-  },
-  {
-    name: 'settings',
-    href: '/dashboard/settings',
-    icon: <Settings />,
-  },
-]
+'use client'
+import Dropdown from '../dashboard/_components/Dropdown'
 
 const Playground = () => {
   return (
-    <main className='flex min-h-screen flex-col md:flex-row'>
-      <Sidebar urls={urls} />
-
-      <div>
-        <GeneralGridLayout>
-          <div className='col-span-2 bg-neutral-400'>hi</div>
-        </GeneralGridLayout>
-        <div className='h-screen'></div>
-      </div>
+    <main className='flex justify-between bg-green p-8'>
+      <Dropdown
+        onSelect={() => {}}
+        options={['hello', 'im left aligned']}
+        selected='hello'
+        align='start'
+      />
+      <Dropdown
+        onSelect={() => {}}
+        options={['test', 'veeeeeery long test', 'right aligned']}
+        selected='test'
+      />
     </main>
   )
 }
