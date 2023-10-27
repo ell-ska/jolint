@@ -1,16 +1,13 @@
 import FormIndicator from '@/app/consent-form/_components/form/FormIndicator'
-
-type FormChapterProps = {
-  title: string
-  content: string[]
-}
+import FormContent from '@/app/consent-form/_components/form/FormContent'
+import type { FormChapterProps } from '@/utils/types'
 
 const FormChapter = ({ content, title }: FormChapterProps) => {
   return (
-    <div>
+    <>
       <FormIndicator subchapterTitle={title} />
-      {title}
-    </div>
+      <FormContent content={content} title={title} />
+    </>
   )
 }
 
