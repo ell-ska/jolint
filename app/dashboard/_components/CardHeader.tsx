@@ -12,7 +12,7 @@ const CardHeader = ({
   selected,
 }: CardHeaderProps) => {
   return (
-    <div className='flex flex-col items-start gap-2 md:flex-row md:flex-wrap lg:items-center md:justify-between'>
+    <div className='flex flex-col items-start gap-2 md:flex-row md:flex-wrap md:items-center md:justify-between'>
       <h3 className='font-heading text-xl font-bold capitalize'>{title}</h3>
       <div className='flex flex-col gap-2 md:flex-row'>
         <div className='flex gap-2'>
@@ -30,7 +30,3 @@ const CardHeader = ({
 }
 
 export default CardHeader
-
-
-//TODO
-// breakpoint styling 
