@@ -1,4 +1,5 @@
 import OurMissionSection from '@/app/(info-page)/_components/OurMissionSection'
+import PersonCard from '../_components/PersonCard'
 
 const Background = () => {
   return (
