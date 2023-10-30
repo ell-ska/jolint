@@ -6,7 +6,7 @@ import { CardHeaderProps } from '@/utils/types'
 
 const CardHeader = ({
   title,
-  currentData,
+  currentMetrics,
   options,
   onSelect,
   selected,
@@ -16,7 +16,7 @@ const CardHeader = ({
       <h3 className='font-heading text-xl font-bold capitalize'>{title}</h3>
       <div className='flex flex-col gap-2 md:flex-row'>
         <div className='flex gap-2'>
-          {currentData?.map(({ metric, circleColor }) => (
+          {currentMetrics?.map(({ metric, circleColor }) => (
             <div key={metric} className='flex items-center gap-1'>
               <div className={cn('h-2 w-2 rounded-full', circleColor)} />
               <p className='text-xs capitalize'>{metric}</p>
