@@ -18,7 +18,7 @@ const coFounderData = [
 const CoFoundersSection = () => {
   return (
     <section className='pt-20 md:pt-28'>
-      <h3 className='font-heading text-2xl font-bold text-neutral-900 md:text-4xl'>
+      <h3 className='pb-12 font-heading text-2xl font-bold text-neutral-900 md:flex-row md:pb-16 md:text-4xl'>
         Co-Founders
       </h3>
       <div className='flex flex-col gap-12 md:gap-20'>
