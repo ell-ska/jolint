@@ -27,6 +27,10 @@ const ConsentForm = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  useEffect(() => {
+    window.scroll(0, 0)
+  }, [step])
+
   const isThankYouPage = step.key === 'thank-you'
   const isLastStep = steps?.length - 1 <= stepIndex
 
