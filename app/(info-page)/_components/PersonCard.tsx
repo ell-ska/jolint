@@ -16,7 +16,7 @@ type PersonType = {
 
 const PersonCard = ({ title, desc, image }: PersonType) => {
   return (
-    <div className='flex flex-col items-center pt-12 md:flex-row md:pt-16 gap-8'>
+    <div className='flex flex-col items-center gap-8 pt-12 md:flex-row md:pt-16'>
       {image && (
         <Image
           className='h-48 w-48'
