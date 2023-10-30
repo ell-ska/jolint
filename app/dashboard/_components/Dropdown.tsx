@@ -21,7 +21,7 @@ const Dropdown = ({
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <button className='group flex cursor-pointer items-center gap-2 rounded-lg border border-neutral-400 bg-neutral-100 px-2 py-1 outline-none'>
+        <button className='group flex cursor-pointer items-center gap-2 rounded-lg border border-neutral-400 bg-neutral-100 px-2 py-1 text-xs outline-none'>
           {selected}
           <ChevronDown
             size={14}
@@ -35,7 +35,7 @@ const Dropdown = ({
       </DropdownMenu.Trigger>
       <DropdownMenu.Content
         align={align}
-        className='mt-2 flex flex-col overflow-hidden rounded-lg border border-neutral-400 bg-neutral-100'
+        className='z-50 mt-2 flex flex-col overflow-hidden rounded-lg border border-neutral-400 bg-neutral-100 text-xs'
       >
         {options.map((option) => (
           <DropdownMenu.Item
