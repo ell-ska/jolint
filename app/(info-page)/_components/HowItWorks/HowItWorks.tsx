@@ -8,8 +8,13 @@ const HowItWorks = () => {
         How it works
       </h3>
       <div className='flex flex-col gap-16 md:gap-28'>
-        {howItWorksContent.map((item) => (
-          <HowItWorksItem key={item.title} {...item} />
+        {howItWorksContent.map((item, index) => (
+          <HowItWorksItem
+            key={item.title}
+            {...item}
+            firstItem={index === 0}
+            lastItem={index === howItWorksContent.length - 1}
+          />
         ))}
       </div>
     </section>
