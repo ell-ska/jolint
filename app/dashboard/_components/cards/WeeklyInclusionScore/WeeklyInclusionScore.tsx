@@ -19,9 +19,9 @@ const WeeklyInclusionScore = ({
   const [week, setWeek] = useState(formatWeek(isoWeeks[0]))
 
   return (
-    <Card classname='col-span-full md:col-span-2 h-min'>
-      <div>
-        <h3 className='mb-2 font-heading text-xl font-bold'>{title}</h3>
+    <Card classname='col-span-full lg:col-span-2 h-min'>
+      <div className='flex flex-col items-start justify-between gap-2 sm:flex-row lg:flex-col'>
+        <h3 className='font-heading text-xl font-bold'>{title}</h3>
         <Dropdown
           onSelect={(value) => setWeek(value)}
           selected={week}
