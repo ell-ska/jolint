@@ -8,6 +8,7 @@ type FormIndicatorProps = {
 
 const FormIndicator = ({ subchapterTitle }: FormIndicatorProps) => {
   const { step } = useForm((state) => ({ step: state.step }))
+
   const currentChapter = Number(step.key?.split('chapter-')[1].charAt(0))
   const subchapter = currentChapter ? chapters[currentChapter - 1] : 0
 
