@@ -1,10 +1,11 @@
 import GeneralGridLayout from '@/app/dashboard/_components/GeneralGridLayout'
+import WeeklyInclusionScore from '@/app/dashboard/_components/cards/WeeklyInclusionScore/WeeklyInclusionScore'
 
 const Dashboard = () => {
   return (
-    <div>
-      <GeneralGridLayout></GeneralGridLayout>
-    </div>
+    <GeneralGridLayout>
+      <WeeklyInclusionScore />
+    </GeneralGridLayout>
   )
 }
 
