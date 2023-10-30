@@ -20,7 +20,7 @@ const PersonCard = ({ title, desc, image }: PersonType) => {
         />
       )}
       <div className='font-body text-neutral-900'>
-        <h4 className='text-xl font-bold  md:text-2xl'>{title}</h4>
+        <h4 className='text-xl font-bold md:text-2xl'>{title}</h4>
         <p className='max-w-6xl pt-4 text-base leading-loose'>{desc}</p>
       </div>
     </div>
