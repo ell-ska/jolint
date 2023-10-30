@@ -23,7 +23,7 @@ export type ChapterKeys =
 
 export type CardHeaderProps = {
   title: string
-  currentData?: {
+  currentMetrics?: {
     metric: string
     circleColor: string
   }[]
