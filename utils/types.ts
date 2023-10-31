@@ -40,6 +40,7 @@ export type DropdownProps = {
   selected: string
   onSelect: (value: string) => void
   align?: 'start' | 'end'
+  formater?: (option: string) => string
 }
 
 export type ImageCard = { img: string; imgTitle: string; imgText: string }
