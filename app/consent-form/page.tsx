@@ -6,9 +6,9 @@ import { Loader2 } from 'lucide-react'
 import { useForm } from '@/hooks/useForm'
 import { cn } from '@/utils/classnames'
 import Title from '@/app/consent-form/_components/Title'
+import InfoText from '@/app/consent-form/_components/InfoText'
 import FormButtons from '@/app/consent-form/_components/form/FormButtons'
 import type { ChapterKeys } from '@/utils/types'
-import InfoText from '@/app/consent-form/_components/InfoText'
 
 const ConsentForm = () => {
   const { step, steps, stepIndex, goTo } = useForm((state) => ({
