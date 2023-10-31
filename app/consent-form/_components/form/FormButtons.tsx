@@ -7,9 +7,10 @@ import Button, { buttonVariants } from '@/components/Button'
 import { cn } from '@/utils/classnames'
 
 const FormButtons = () => {
-  const { steps, step, stepIndex, next, back, doneChapters } = useForm()
+  const { steps, step, stepIndex, next, back } = useForm()
+
   const isFirstStep = stepIndex === 0
-  const isLastStep = steps.length - 1 <= stepIndex
+  const isLastStep = steps?.length - 1 <= stepIndex
   const isSubmitStep = step.key === 'overview-5-submit'
 
   return (
