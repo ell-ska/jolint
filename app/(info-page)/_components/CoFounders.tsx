@@ -1,6 +1,6 @@
 import IMG1 from '@/public/klaudia.png'
 import IMG2 from '@/public/faheem.png'
-import PersonCard from './PersonCard'
+import PersonCard from '@/app/(info-page)/_components/PersonCard'
 
 const coFounderData = [
   {
