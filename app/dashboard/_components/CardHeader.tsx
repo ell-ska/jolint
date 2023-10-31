@@ -1,6 +1,6 @@
 'use client'
 
-import Dropdown from './Dropdown'
+import Dropdown from '@/app/dashboard/_components/Dropdown'
 import { cn } from '@/utils/classnames'
 import { CardHeaderProps } from '@/utils/types'
 
