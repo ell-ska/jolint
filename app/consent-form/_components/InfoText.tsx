@@ -1,12 +1,12 @@
 type InfoTextProp = {
-  infoTextContent?: string
+  text?: string
 }
 
-const defualtInfoTextContent: string =
+const defualtText =
   'Empower your workplace by authorizing consent for reliable data to enhance inclusion and belonging. Click on the steps below to read and access the consent form.'
 
-const InfoText = ({ infoTextContent = defualtInfoTextContent }: InfoTextProp) => {
-  return <p className='max-w-3xl pb-12 md:pb-20'>{infoTextContent}</p>
+const InfoText = ({ text = defualtText }: InfoTextProp) => {
+  return <p className='max-w-3xl pb-12 md:pb-20'>{text}</p>
 }
 
 export default InfoText
