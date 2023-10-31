@@ -23,7 +23,7 @@ const Chapter = ({ state, icon, title, desc, onClick }: ChapterProps) => {
       className={cn(
         'flex flex-col gap-4 rounded-xl border border-neutral-400 bg-neutral-100 p-4 text-left transition md:gap-6 md:p-6 xl:aspect-square',
         state === 'locked' && 'bg-neutral-200 text-neutral-700',
-        state === 'unlocked' && 'hover:scale-[1.02]',
+        (state === 'unlocked' || state === 'done') && 'hover:scale-[1.02]',
       )}
       disabled={state === 'locked'}
       onClick={(e) => {
