@@ -25,3 +25,19 @@ export type ChapterKeys =
   | 'chapter-4.3-sign-done-4'
   | 'overview-5-submit'
   | 'thank-you'
+
+export type CardHeaderProps = {
+  title: string
+  currentMetrics?: {
+    metric: string
+    circleColor: string
+  }[]
+  dropdown: DropdownProps
+}
+
+export type DropdownProps = {
+  options: string[]
+  selected: string
+  onSelect: (value: string) => void
+  align?: 'start' | 'end'
+}
