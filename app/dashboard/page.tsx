@@ -1,11 +1,9 @@
+'use client'
+
 import GeneralGridLayout from '@/app/dashboard/_components/GeneralGridLayout'
 
 const Dashboard = () => {
-  return (
-    <div>
-      <GeneralGridLayout></GeneralGridLayout>
-    </div>
-  )
+  return <GeneralGridLayout></GeneralGridLayout>
 }
 
 export default Dashboard
