@@ -4,6 +4,11 @@ export type UrlsType = {
   icon: React.ReactNode
 }[]
 
+export type FormChapterProps = {
+  title: string
+  content: string[]
+}
+
 export type ChapterKeys =
   | 'overview-1'
   | 'chapter-1.1'
@@ -22,3 +27,19 @@ export type ChapterKeys =
   | 'thank-you'
 
 export type ImageCard = { img: string; imgTitle: string; imgText: string }
+
+export type CardHeaderProps = {
+  title: string
+  currentMetrics?: {
+    metric: string
+    circleColor: string
+  }[]
+  dropdown: DropdownProps
+}
+
+export type DropdownProps = {
+  options: string[]
+  selected: string
+  onSelect: (value: string) => void
+  align?: 'start' | 'end'
+}
