@@ -11,7 +11,7 @@ import {
 } from 'recharts'
 
 import { getDataTeamsAndScores } from '@/utils/getDataTeamsAndScores'
-import { mockData } from '@/lib/mockData.json'
+import data from '@/lib/mockData.json'
 
 interface DataItem {
   month: string
@@ -33,15 +33,20 @@ interface ChartComponentProps {
 const ChartComponent: React.FC<ChartComponentProps> = ({ data }) => {
   const originalData: DataItem[] = data
 
+  const HR = 'HR'
+  const CA = 'company_average'
+  const Marketing = 'Marketing'
+  const Sales = 'Sales'
+  const Finance = 'Finance'
   // gör en array av teamsen man vill ha en score från
-  const teamsToAggregate = ['HR', 'company_average', 'Marketing']
+  const teamsToAggregate = [Finance, Marketing, HR]
 
   // kallar på functionen som tar teams och vilken score man vill åt
   // och sedan får ut en ny array med innehållet
   const result = getDataTeamsAndScores(
     originalData,
     teamsToAggregate,
-    'inclusion_score',
+    'informal_influence',
   )
 
   return (
@@ -69,7 +74,7 @@ const ChartComponent: React.FC<ChartComponentProps> = ({ data }) => {
         <CartesianGrid strokeDasharray='3' />
         <XAxis dataKey='month' stroke='#0f172a' tick={{ fontSize: 12 }} />
         <YAxis
-          dataKey='HR'
+          dataKey='Score'
           type='number'
           domain={[0, 100]}
           stroke='#0f172a'
@@ -78,14 +83,14 @@ const ChartComponent: React.FC<ChartComponentProps> = ({ data }) => {
         <Tooltip />
         <Area
           type='monotone'
-          dataKey='Marketing'
+          dataKey='Finance'
           stroke='#0015CE'
           fill='url(#colorMA)'
           strokeWidth={2}
         />
         <Area
           type='monotone'
-          dataKey='company_average'
+          dataKey={Marketing}
           stroke='#ee9015'
           fill='url(#colorCA)'
           strokeWidth={2}
@@ -123,8 +128,8 @@ type Props = {
   } */
 const Timeline = () => {
   return (
-    <section className='col-start-1 col-end-4 row-start-1 row-end-2 max-h-72'>
-      <ChartComponent data={mockData} />
+    <section className='col-start-1 col-end-4 row-start-1 row-end-2 max-h-96'>
+      <ChartComponent data={data} />
     </section>
   )
 }
