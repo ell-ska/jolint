@@ -1,5 +1,6 @@
 import IMG1 from '@/public/klaudia.png'
 import IMG2 from '@/public/faheem.png'
+import PersonCard from './PersonCard'
 
 const coFounderData = [
   {
@@ -20,7 +21,11 @@ const CoFoundersSection = () => {
       <h3 className='pb-12 font-heading text-2xl font-bold text-neutral-900 md:flex-row md:pb-16 md:text-4xl'>
         Co-Founders
       </h3>
-      <div className='flex flex-col gap-12 md:gap-20'></div>
+      <div className='flex flex-col gap-12 md:gap-20'>
+        {coFounderData.map((data) => (
+          <PersonCard key={data.title} {...data} />
+        ))}
+      </div>
     </section>
   )
 }
