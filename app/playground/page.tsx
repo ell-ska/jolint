@@ -1,22 +1,39 @@
 'use client'
-import Dropdown from '../dashboard/_components/Dropdown'
 
-const Playground = () => {
+import GeneralGridLayout from '@/app/dashboard/_components/GeneralGridLayout'
+import { CardHeaderProps } from '@/utils/types'
+
+// Testing code
+import Card from '@/components/Card'
+import CardHeader from '@/app/dashboard/_components/CardHeader'
+
+// Prop testing
+const onSelectTestFunction = (option: string) => {
+  console.log({ option })
+}
+
+const CardheaderProps: CardHeaderProps = {
+  title: 'title',
+  currentMetrics: [
+    { metric: 'men', circleColor: 'bg-orange' },
+    { metric: 'women', circleColor: 'bg-blue-bright' },
+  ],
+  dropdown: {
+    options: ['option 1', 'option 2'],
+    selected: 'option x',
+    onSelect: onSelectTestFunction,
+  },
+}
+// ------------
+
+const Dashboard = () => {
   return (
-    <main className='flex justify-between bg-green p-8'>
-      <Dropdown
-        onSelect={() => {}}
-        options={['hello', 'im left aligned']}
-        selected='hello'
-        align='start'
-      />
-      <Dropdown
-        onSelect={() => {}}
-        options={['test', 'veeeeeery long test', 'right aligned']}
-        selected='test'
-      />
-    </main>
+    <GeneralGridLayout>
+      <Card classname='bg-neutral-600 col-span-4'>
+        <CardHeader {...CardheaderProps} />
+      </Card>
+    </GeneralGridLayout>
   )
 }
 
-export default Playground
+export default Dashboard
