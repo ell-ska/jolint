@@ -41,3 +41,5 @@ export type DropdownProps = {
   onSelect: (value: string) => void
   align?: 'start' | 'end'
 }
+
+export type ImageCard = { img: string; imgTitle: string; imgText: string }
