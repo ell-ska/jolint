@@ -127,6 +127,7 @@ const WeeklyInclusionScore = ({
             score={score}
             trend={trend}
             benchmark={benchmark}
+            desc={name + ' description'}
           />
         ))}
       </div>

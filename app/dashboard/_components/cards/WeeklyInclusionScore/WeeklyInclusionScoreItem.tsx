@@ -1,14 +1,15 @@
 import * as Progress from '@radix-ui/react-progress'
-// import { Info } from 'lucide-react'
 
 import { cn } from '@/utils/classnames'
 import WeeklyInclusionScoreTrend from '@/app/dashboard/_components/cards/WeeklyInclusionScore/WeeklyInclusionScoreTrend'
+import WeeklyInclusionScoreInfo from './WeeklyInclusionScoreInfo'
 
 type WeeklyInclusionScoreItemProps = {
   name: string
   score: number
   benchmark: number
   trend: number
+  desc?: string
 }
 
 const WeeklyInclusionScoreItem = ({
@@ -16,14 +17,14 @@ const WeeklyInclusionScoreItem = ({
   score,
   benchmark,
   trend,
+  desc,
 }: WeeklyInclusionScoreItemProps) => {
   return (
     <div className='space-y-1'>
-      <div className='flex justify-between'>
+      <div className='relative flex justify-between'>
         <div className='flex items-center gap-2'>
           <p>{name}</p>
-          {/* Whats supposed to happen here? */}
-          {/* <Info size={16} className='text-neutral-600' /> */}
+          {desc && <WeeklyInclusionScoreInfo desc={desc} />}
         </div>
         <WeeklyInclusionScoreTrend trend={trend} />
       </div>
