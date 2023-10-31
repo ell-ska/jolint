@@ -7,9 +7,7 @@ import { CardHeaderProps } from '@/utils/types'
 const CardHeader = ({
   title,
   currentMetrics,
-  options,
-  onSelect,
-  selected,
+  dropdown
 }: CardHeaderProps) => {
   return (
     <div className='flex flex-col items-start gap-2 md:flex-row md:flex-wrap md:items-center md:justify-between'>
@@ -23,7 +21,7 @@ const CardHeader = ({
             </div>
           ))}
         </div>
-        <Dropdown options={options} onSelect={onSelect} selected={selected} />
+        <Dropdown {...dropdown} />
       </div>
     </div>
   )
