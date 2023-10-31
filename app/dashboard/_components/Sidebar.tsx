@@ -7,6 +7,7 @@ import { UserCircle2, X, Menu } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 
 import { UrlsType } from '@/utils/types'
+import { useLockScroll } from '@/hooks/useLockScroll'
 
 type SidebarProps = {
   urls: UrlsType
@@ -20,17 +21,11 @@ const Sidebar = ({ urls }: SidebarProps) => {
     setOpen(!open)
   }
 
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflowY = 'hidden'
-    } else {
-      document.body.style.overflowY = 'scroll'
-    }
+  useLockScroll(open)
 
-    return () => {
-      document.body.style.overflowY = 'scroll'
-    }
-  }, [open])
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
 
   return (
     <>
@@ -65,7 +60,6 @@ const Sidebar = ({ urls }: SidebarProps) => {
                   'flex items-center gap-2',
                   pathname === item.href && 'font-bold text-neutral-100',
                 )}
-                onClick={() => setOpen(false)}
               >
                 {item.icon}
                 <p>{item.name}</p>

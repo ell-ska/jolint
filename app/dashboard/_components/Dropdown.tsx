@@ -4,14 +4,7 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
 import { cn } from '@/utils/classnames'
-
-type DropdownProps = {
-  options: string[]
-  selected: string
-  onSelect: (value: string) => void
-  align?: 'start' | 'end'
-  formater?: (option: string) => string
-}
+import { DropdownProps } from '@/utils/types'
 
 const Dropdown = ({
   options,
