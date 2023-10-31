@@ -6,6 +6,7 @@ import { X, Menu } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 
+import { useLockScroll } from '@/hooks/useLockScroll'
 import { cn } from '@/utils/classnames'
 import Button from '@/components/Button'
 import Logo from '@/public/Jolint-logo.svg'
@@ -17,6 +18,8 @@ const Header = () => {
   useEffect(() => {
     setIsOpen(false)
   }, [pathname])
+
+  useLockScroll(isOpen)
 
   const handleClick = () => {
     setIsOpen(!isOpen)

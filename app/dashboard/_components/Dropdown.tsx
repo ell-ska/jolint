@@ -9,9 +9,15 @@ type DropdownProps = {
   options: string[]
   selected: string
   onSelect: (value: string) => void
+  align?: 'start' | 'end'
 }
 
-const Dropdown = ({ options, selected, onSelect }: DropdownProps) => {
+const Dropdown = ({
+  options,
+  selected,
+  onSelect,
+  align = 'end',
+}: DropdownProps) => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
@@ -28,8 +34,8 @@ const Dropdown = ({ options, selected, onSelect }: DropdownProps) => {
         </button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content
-        align='start'
-        className='mt-2 flex flex-col overflow-hidden rounded-lg border border-neutral-400'
+        align={align}
+        className='mt-2 flex flex-col overflow-hidden rounded-lg border border-neutral-400 bg-neutral-100'
       >
         {options.map((option) => (
           <DropdownMenu.Item
