@@ -1,4 +1,4 @@
-import { ArrowUpCircle, ArrowDownCircle } from 'lucide-react'
+import { ArrowUpCircle, ArrowDownCircle, ArrowRightCircle } from 'lucide-react'
 
 type WeeklyInclusionScoreTrendProps = {
   trend: number
@@ -7,15 +7,19 @@ type WeeklyInclusionScoreTrendProps = {
 const WeeklyInclusionScoreTrend = ({
   trend,
 }: WeeklyInclusionScoreTrendProps) => {
-  if (Math.sign(trend) === 0) return null
+  const Icon = () => {
+    if (Math.sign(trend) === 1)
+      return <ArrowUpCircle size={16} className='text-green' />
+
+    if (Math.sign(trend) === -1)
+      return <ArrowDownCircle size={16} className='text-red' />
+
+    return <ArrowRightCircle size={16} className='text-neutral-400' />
+  }
 
   return (
     <div className='flex items-center gap-1'>
-      {Math.sign(trend) === 1 ? (
-        <ArrowUpCircle size={16} className='text-green' />
-      ) : (
-        <ArrowDownCircle size={16} className='text-red' />
-      )}
+      <Icon />
       <span>{Math.sign(trend) === 1 ? `+${trend}` : trend}</span>
     </div>
   )
