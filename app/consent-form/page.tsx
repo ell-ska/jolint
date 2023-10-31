@@ -8,6 +8,7 @@ import { cn } from '@/utils/classnames'
 import Title from '@/app/consent-form/_components/Title'
 import FormButtons from '@/app/consent-form/_components/form/FormButtons'
 import type { ChapterKeys } from '@/utils/types'
+import InfoText from '@/app/consent-form/_components/InfoText'
 
 const ConsentForm = () => {
   const { step, steps, stepIndex, goTo } = useForm((state) => ({
@@ -33,6 +34,7 @@ const ConsentForm = () => {
 
   const isThankYouPage = step.key === 'thank-you'
   const isLastStep = steps?.length - 1 <= stepIndex
+  const isOverview = step.key?.includes('overview')
 
   return (
     <main className='flex min-h-screen flex-col px-6 pt-32 md:px-20 md:pt-36'>
@@ -43,6 +45,7 @@ const ConsentForm = () => {
           )}
         >
           {!isThankYouPage && <Title />}
+          {isOverview && <InfoText />}
           {step}
           <FormButtons />
         </form>
