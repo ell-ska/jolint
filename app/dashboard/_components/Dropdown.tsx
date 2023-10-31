@@ -10,6 +10,7 @@ type DropdownProps = {
   selected: string
   onSelect: (value: string) => void
   align?: 'start' | 'end'
+  formater?: (option: string) => string
 }
 
 const Dropdown = ({
@@ -17,12 +18,13 @@ const Dropdown = ({
   selected,
   onSelect,
   align = 'end',
+  formater,
 }: DropdownProps) => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
         <button className='group flex cursor-pointer items-center gap-2 rounded-lg border border-neutral-400 bg-neutral-100 px-2 py-1 text-xs outline-none'>
-          {selected}
+          {formater ? formater(selected) : selected}
           <ChevronDown
             size={14}
             className='text-neutral-400 group-data-[state=open]:hidden'
@@ -46,7 +48,7 @@ const Dropdown = ({
               option === selected && 'font-bold',
             )}
           >
-            {option}
+            {formater ? formater(option) : option}
           </DropdownMenu.Item>
         ))}
       </DropdownMenu.Content>
