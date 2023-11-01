@@ -38,7 +38,10 @@ interface ChartComponentProps {
   selectedTeam: string
 }
 
-const ChartComponent: React.FC<ChartComponentProps> = ({ data, selectedTeam }) => {
+const ChartComponent: React.FC<ChartComponentProps> = ({
+  data,
+  selectedTeam,
+}) => {
   console.log('data from chart', data)
   return (
     <ResponsiveContainer width={600} height={300} className='pt-16'>
@@ -109,10 +112,13 @@ const InclusionScoreTimeline = () => {
   const result = getDataTeamsAndScores(
     originalData,
     teamsToAggregate,
-    'informal_influence',
+    'inclusion_score',
   )
 
-  const keys = Object.keys(result[0]).filter(key => key !== 'month' && key !== 'benchmark' && key !== 'company_average');
+  const keys = Object.keys(result[0]).filter(
+    (key) =>
+      key !== 'month' && key !== 'benchmark' && key !== 'company_average',
+  )
 
   console.log(keys)
 

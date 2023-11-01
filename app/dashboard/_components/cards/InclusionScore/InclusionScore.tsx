@@ -1,10 +1,6 @@
 'use client'
 import Card from '@/components/Card'
-import InclusionScoreTopBar from './InclusionScoreTopBar'
 import InclusionScoreTimeline from './InclusionScoreTimeline'
-
-import { getDataTeamsAndScores } from '@/utils/getDataTeamsAndScores'
-import data from '@/lib/mockData.json'
 
 const InclusionScore = () => {
   return (

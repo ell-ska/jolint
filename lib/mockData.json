@@ -4,7 +4,7 @@
       "first_day_of_week": 1675036800000,
       "iso_week": "2023-W05",
       "team": "company_average",
-      "inclusion_score": 83.4321,
+      "inclusion_score": 73.4321,
       "work_habits": 78.9012,
       "cross_functional_inclusion": 54.3210,
       "informal_influence": 90.1234,
@@ -15,8 +15,8 @@
       "first_day_of_week": 1677648000000,
       "iso_week": "2023-W09",
       "team": "company_average",
-      "inclusion_score": 75.9876,
-      "work_habits": 98.7654,
+      "inclusion_score": 69.9876,
+      "work_habits": 86.7654,
       "cross_functional_inclusion": 65.4321,
       "informal_influence": 98.1234,
       "benchmark": 50
@@ -27,7 +27,7 @@
       "iso_week": "2023-W13",
       "team": "company_average",
       "inclusion_score": 68.1234,
-      "work_habits": 99.8765,
+      "work_habits": 72.8765,
       "cross_functional_inclusion": 70.1234,
       "informal_influence": 99.4321,
       "benchmark": 50
@@ -38,7 +38,7 @@
       "iso_week": "2023-W18",
       "team": "company_average",
       "inclusion_score": 73.4321,
-      "work_habits": 99.9876,
+      "work_habits": 82.9876,
       "cross_functional_inclusion": 75.9876,
       "informal_influence": 99.9876,
       "benchmark": 50
@@ -49,9 +49,9 @@
       "iso_week": "2023-W22",
       "team": "company_average",
       "inclusion_score": 85.1234,
-      "work_habits": 100,
+      "work_habits": 72,
       "cross_functional_inclusion": 80.1234,
-      "informal_influence": 100,
+      "informal_influence": 76,
       "benchmark": 50
     },
     {
@@ -62,7 +62,7 @@
       "inclusion_score": 75.9876,
       "work_habits": 98.7654,
       "cross_functional_inclusion": 65.4321,
-      "informal_influence": 98.1234,
+      "informal_influence": 91.1234,
       "benchmark": 50
     },
     {
@@ -70,10 +70,10 @@
       "first_day_of_week": 1680249600000,
       "iso_week": "2023-W31",
       "team": "company_average",
-      "inclusion_score": 80.1234,
-      "work_habits": 99.8765,
+      "inclusion_score": 71.1234,
+      "work_habits": 87.8765,
       "cross_functional_inclusion": 70.1234,
-      "informal_influence": 99.4321,
+      "informal_influence": 78.4321,
       "benchmark": 50
     },
     {
@@ -82,9 +82,9 @@
       "iso_week": "2023-W35",
       "team": "company_average",
       "inclusion_score": 68.4321,
-      "work_habits": 99.9876,
+      "work_habits": 73.9876,
       "cross_functional_inclusion": 75.9876,
-      "informal_influence": 99.9876,
+      "informal_influence": 83.9876,
       "benchmark": 50
     },
     {
@@ -95,7 +95,7 @@
       "inclusion_score": 67.1234,
       "work_habits": 100,
       "cross_functional_inclusion": 80.1234,
-      "informal_influence": 100,
+      "informal_influence": 92,
       "benchmark": 500
     },
   
