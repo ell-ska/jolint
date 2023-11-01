@@ -27,46 +27,29 @@ interface DataItem {
   [key: string]: number | string
 }
 
-interface ChartComponentProps {
-  data: DataItem[]
+interface AggregatedDataEntry {
+  month: string
+  [team: string]: number | string | null
+  benchmark: number
 }
 
-const ChartComponent: React.FC<ChartComponentProps> = ({ data }) => {
-  const originalData: DataItem[] = data
+interface ChartComponentProps {
+  data: DataItem[] | AggregatedDataEntry[]
+  selectedTeam: string
+}
 
-  const HR = 'HR'
-  const CA = 'company_average'
-  const Marketing = 'Marketing'
-  const Sales = 'Sales'
-  const Finance = 'Finance'
-  // gör en array av teamsen man vill ha en score från
-  const teamsToAggregate = [Finance, Marketing, HR, CA, Sales]
-
-  // kallar på functionen som tar teams och vilken score man vill åt
-  // och sedan får ut en ny array med innehållet
-  const result = getDataTeamsAndScores(
-    originalData,
-    teamsToAggregate,
-    'informal_influence',
-  )
-
+const ChartComponent: React.FC<ChartComponentProps> = ({ data, selectedTeam }) => {
+  console.log('data from chart', data)
   return (
-    <ResponsiveContainer
-    width='100%'
-    height='100%'
-    >
+    <ResponsiveContainer width={600} height={300} className='pt-16'>
       <AreaChart
-        data={result}
+        data={data}
         margin={{ top: 0, right: 10, left: -25, bottom: -7 }}
       >
         <defs>
           <linearGradient id='colorMA' x1='0' y1='0' x2='0' y2='1'>
             <stop offset='5%' stopColor=' #687af6' stopOpacity={0.8} />
             <stop offset='95%' stopColor='#9ba6f8' stopOpacity={0} />
-          </linearGradient>
-          <linearGradient id='colorCA' x1='0' y1='0' x2='0' y2='1'>
-            <stop offset='5%' stopColor=' #d48e31' stopOpacity={0.8} />
-            <stop offset='95%' stopColor='#e9bb7e' stopOpacity={0} />
           </linearGradient>
           <linearGradient id='colorHR' x1='0' y1='0' x2='0' y2='1'>
             <stop offset='5%' stopColor='#bec3ee' stopOpacity={0.8} />
@@ -85,21 +68,14 @@ const ChartComponent: React.FC<ChartComponentProps> = ({ data }) => {
         <Tooltip />
         <Area
           type='monotone'
-          dataKey='Finance'
+          dataKey={selectedTeam}
           stroke='#0015CE'
           fill='url(#colorMA)'
           strokeWidth={2}
         />
         <Area
           type='monotone'
-          dataKey={Marketing}
-          stroke='#ee9015'
-          fill='url(#colorCA)'
-          strokeWidth={2}
-        />
-        <Area
-          type='monotone'
-          dataKey='HR'
+          dataKey='company_average'
           stroke='#91BBE7'
           fill='url(#colorHR)'
           strokeWidth={2}
@@ -118,10 +94,40 @@ const ChartComponent: React.FC<ChartComponentProps> = ({ data }) => {
 }
 
 const InclusionScoreTimeline = () => {
-  const [selectedTeam, setSelectedTeam] = useState(null)
+  const originalData: DataItem[] = data
+
+  const HR = 'HR'
+  const CA = 'company_average'
+  const Marketing = 'Marketing'
+  const Sales = 'Sales'
+  const Finance = 'Finance'
+  // gör en array av teamsen man vill ha en score från
+  const teamsToAggregate = [Finance, Marketing, HR, CA, Sales]
+
+  // kallar på functionen som tar teams och vilken score man vill åt
+  // och sedan får ut en ny array med innehållet
+  const result = getDataTeamsAndScores(
+    originalData,
+    teamsToAggregate,
+    'informal_influence',
+  )
+
+  const keys = Object.keys(result[0]).filter(key => key !== 'month' && key !== 'benchmark' && key !== 'company_average');
+
+  console.log(keys)
+
+  const [selectedTeam, setSelectedTeam] = useState(keys[2])
   return (
     <section className='max-w-96 max-h-96'>
-      <ChartComponent data={data} />
+      <InclusionScoreTopBar
+        title='Timeline'
+        companyAverage='Company average'
+        team={selectedTeam}
+        teams={keys}
+        selectedTeam={selectedTeam}
+        setSelectedTeam={setSelectedTeam}
+      />
+      <ChartComponent data={result} selectedTeam={selectedTeam} />
     </section>
   )
 }
