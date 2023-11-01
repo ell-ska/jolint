@@ -115,9 +115,9 @@ const ChartComponent: React.FC<ChartComponentProps> = ({ data }) => {
   )
 }
 
-type Props = {
-  children: React.ReactNode
-}
+type InclusionScoreProps = {
+    title?: string
+  }
 
 /* const Timeline = ({ children }: Props) => {
     return (
@@ -126,7 +126,9 @@ type Props = {
       </section>
     )
   } */
-const Timeline = () => {
+const Timeline = ({
+    title = 'Timeline',
+  }: InclusionScoreProps) => {
   return (
     <section className='col-start-1 col-end-4 row-start-1 row-end-2 max-h-96'>
       <ChartComponent data={data} />

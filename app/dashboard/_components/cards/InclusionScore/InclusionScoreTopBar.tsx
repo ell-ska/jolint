@@ -8,8 +8,8 @@ type InclusionScoreProps = {
   title?: string
 }
 
-const InclusionScore = ({
-  title = 'Inclusion score',
+const InclusionScoreTopBar = ({
+  title = 'Timeline',
 }: InclusionScoreProps) => {
 
 
@@ -28,4 +28,4 @@ const InclusionScore = ({
   )
 }
 
-export default InclusionScore
+export default InclusionScoreTopBar
