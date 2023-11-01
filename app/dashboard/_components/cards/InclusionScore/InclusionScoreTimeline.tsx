@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import {
   AreaChart,
   Area,
@@ -12,6 +12,7 @@ import {
 
 import { getDataTeamsAndScores } from '@/utils/getDataTeamsAndScores'
 import data from '@/lib/mockData.json'
+import InclusionScoreTopBar from './InclusionScoreTopBar'
 
 interface DataItem {
   month: string
@@ -39,7 +40,7 @@ const ChartComponent: React.FC<ChartComponentProps> = ({ data }) => {
   const Sales = 'Sales'
   const Finance = 'Finance'
   // gör en array av teamsen man vill ha en score från
-  const teamsToAggregate = [Finance, Marketing, HR]
+  const teamsToAggregate = [Finance, Marketing, HR, CA, Sales]
 
   // kallar på functionen som tar teams och vilken score man vill åt
   // och sedan får ut en ny array med innehållet
@@ -50,10 +51,11 @@ const ChartComponent: React.FC<ChartComponentProps> = ({ data }) => {
   )
 
   return (
-    <ResponsiveContainer className='relative h-full w-full pt-16'>
+    <ResponsiveContainer
+    width='100%'
+    height='100%'
+    >
       <AreaChart
-        width={800}
-        height={500}
         data={result}
         margin={{ top: 0, right: 10, left: -25, bottom: -7 }}
       >
@@ -115,25 +117,13 @@ const ChartComponent: React.FC<ChartComponentProps> = ({ data }) => {
   )
 }
 
-type InclusionScoreProps = {
-    title?: string
-  }
-
-/* const Timeline = ({ children }: Props) => {
-    return (
-      <section className='max-h-72 col-start-1 col-end-4 row-start-1 row-end-2'>
-        <ChartComponent />
-      </section>
-    )
-  } */
-const Timeline = ({
-    title = 'Timeline',
-  }: InclusionScoreProps) => {
+const InclusionScoreTimeline = () => {
+  const [selectedTeam, setSelectedTeam] = useState(null)
   return (
-    <section className='col-start-1 col-end-4 row-start-1 row-end-2 max-h-96'>
+    <section className='max-w-96 max-h-96'>
       <ChartComponent data={data} />
     </section>
   )
 }
 
-export default Timeline
+export default InclusionScoreTimeline
