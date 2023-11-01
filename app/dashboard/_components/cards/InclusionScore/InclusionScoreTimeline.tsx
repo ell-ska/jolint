@@ -48,7 +48,7 @@ const InclusionScoreTimeline = () => {
 
   const [selectedTeam, setSelectedTeam] = useState(keys[2])
   return (
-    <section className='max-w-96 max-h-96'>
+    <div className='flex flex-col relative'>
       <InclusionScoreTopBar
         title='Timeline'
         companyAverage='Company average'
@@ -57,8 +57,10 @@ const InclusionScoreTimeline = () => {
         selectedTeam={selectedTeam}
         setSelectedTeam={setSelectedTeam}
       />
-      <InclusionScoreChart data={result} selectedTeam={selectedTeam} />
-    </section>
+      <div className='h-full w-full relative'>
+        <InclusionScoreChart data={result} selectedTeam={selectedTeam} />
+      </div>
+    </div>
   )
 }
 

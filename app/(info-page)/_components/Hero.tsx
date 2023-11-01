@@ -31,6 +31,7 @@ const Hero = () => {
         className='absolute right-0 hidden object-contain lg:block lg:max-w-lg xl:max-w-xl'
         src={heroImg}
         alt='jolint image'
+        priority
       />
     </div>
   )

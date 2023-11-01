@@ -4,25 +4,20 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
 import { cn } from '@/utils/classnames'
-
-type DropdownProps = {
-  options: string[]
-  selected: string
-  onSelect: (value: string) => void
-  align?: 'start' | 'end'
-}
+import { DropdownProps } from '@/utils/types'
 
 const Dropdown = ({
   options,
   selected,
   onSelect,
   align = 'end',
+  formater,
 }: DropdownProps) => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <button className='group flex cursor-pointer items-center gap-2 rounded-lg border border-neutral-400 bg-neutral-100 px-2 py-1 outline-none'>
-          {selected}
+        <button className='group flex cursor-pointer items-center gap-2 rounded-lg border border-neutral-400 bg-neutral-100 px-2 py-1 text-xs outline-none'>
+          {formater ? formater(selected) : selected}
           <ChevronDown
             size={14}
             className='text-neutral-400 group-data-[state=open]:hidden'
@@ -35,7 +30,7 @@ const Dropdown = ({
       </DropdownMenu.Trigger>
       <DropdownMenu.Content
         align={align}
-        className='mt-2 flex flex-col overflow-hidden rounded-lg border border-neutral-400 bg-neutral-100'
+        className='z-50 mt-2 flex flex-col overflow-hidden rounded-lg border border-neutral-400 bg-neutral-100 text-xs'
       >
         {options.map((option) => (
           <DropdownMenu.Item
@@ -46,7 +41,7 @@ const Dropdown = ({
               option === selected && 'font-bold',
             )}
           >
-            {option}
+            {formater ? formater(option) : option}
           </DropdownMenu.Item>
         ))}
       </DropdownMenu.Content>

@@ -21,8 +21,9 @@ const Chapter = ({ state, icon, title, desc, onClick }: ChapterProps) => {
   return (
     <button
       className={cn(
-        'flex flex-col gap-4 rounded-xl border border-neutral-400 bg-neutral-100 p-4 text-left md:gap-6 md:p-6 xl:aspect-square',
+        'flex flex-col gap-4 rounded-xl border border-neutral-400 bg-neutral-100 p-4 text-left transition md:gap-6 md:p-6 xl:aspect-square',
         state === 'locked' && 'bg-neutral-200 text-neutral-700',
+        (state === 'unlocked' || state === 'done') && 'hover:scale-[1.02]',
       )}
       disabled={state === 'locked'}
       onClick={(e) => {

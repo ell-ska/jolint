@@ -5,10 +5,8 @@ import InclusionScoreTimeline from './InclusionScoreTimeline'
 const InclusionScore = () => {
   return (
     <Card classname='col-span-full lg:col-span-4 h-min flex'>
-      <div className='h-64 p-8 w-[220px]'>container</div>
-      <div className='p-8'>
-        <InclusionScoreTimeline />
-      </div>
+      <div className='h-64 w-[220px]'>container</div>
+      <InclusionScoreTimeline />
     </Card>
   )
 }

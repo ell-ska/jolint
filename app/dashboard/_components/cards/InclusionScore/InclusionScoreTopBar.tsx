@@ -19,8 +19,8 @@ const InclusionScoreTopBar = ({
   setSelectedTeam,
 }: InclusionScoreProps) => {
   return (
-    <div className='relative z-10 flex flex-col items-start justify-between pl-8 sm:flex-row md:items-center lg:flex-row'>
-      <h3 className='pr-8 font-heading text-xl font-bold lg:w-1/4'>{title}</h3>
+    <div className='relative z-10 flex flex-col items-start justify-between sm:flex-row md:items-center lg:flex-row'>
+      <h3 className='pr-8 font-heading text-xl font-bold lg:w-1/5'>{title}</h3>
       <div className='flex flex-row items-center gap-1 text-base lg:w-3/5'>
         <div className='flex items-center'>
           <div className='h-2 w-2 rounded-full bg-[#91BBE7]'></div>
@@ -31,7 +31,7 @@ const InclusionScoreTopBar = ({
           <p className='px-1'>Team {team}</p>
         </div>
       </div>
-      <div className='flex w-1/4 pr-2 lg:justify-end'>
+      <div className='flex pr-2 min-w-[88px] lg:justify-end'>
         <Dropdown
           onSelect={(value) => setSelectedTeam(value)}
           selected={selectedTeam}
