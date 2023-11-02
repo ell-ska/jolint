@@ -69,7 +69,3 @@ const FormSign = ({ title, content }: FormSignProps) => {
 }
 
 export default FormSign
-
-/** TODO
- *  if you update the page, should the values be saved?
- */
