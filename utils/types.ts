@@ -1,3 +1,5 @@
+import { ChangeEvent } from 'react'
+
 export type UrlsType = {
   name: string
   href: string
@@ -51,7 +53,7 @@ export type InputFieldType = {
   labelValue: string
   name: string
   type: string
-  handleForm: (e: any) => void;
+  handleForm: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 export type HtmlInputField = InputFieldType[]
