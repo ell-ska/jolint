@@ -40,10 +40,10 @@ const InclusionScoreChart: React.FC<ChartComponentProps> = ({
 }) => {
   console.log('data from chart', data)
   return (
-    <ResponsiveContainer width="100%" height={186} className='pt-16'>
+    <ResponsiveContainer width='100%' height={186} className='pt-16'>
       <AreaChart
         data={data}
-        style={{strokeWidth: 0, width: 500}}
+        style={{ strokeWidth: 0, width: 500 }}
         /* margin={{ top: 0, right: 10, left: -25, bottom: -7 }} */
       >
         <defs>

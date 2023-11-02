@@ -2,9 +2,8 @@
 import React, { useState } from 'react'
 import { getDataTeamsAndScores } from '@/utils/getDataTeamsAndScores'
 import data from '@/lib/mockData.json'
-import InclusionScoreTopBar from './InclusionScoreTopBar'
-import InclusionScoreChart from './InclusionScoreChart'
-import CardHeader from '../../CardHeader'
+import InclusionScoreChart from '@/app/dashboard/_components/cards/InclusionScore/InclusionScoreChart'
+import CardHeader from '@/app/dashboard/_components/CardHeader'
 
 interface DataItem {
   month: string
@@ -49,18 +48,13 @@ const InclusionScoreTimeline = () => {
 
   const [selectedTeam, setSelectedTeam] = useState(teamkeys[2])
   return (
-    <div className='flex flex-col relative'>
-      <InclusionScoreTopBar
-        title='Timeline'
-        companyAverage='Company average'
-        team={selectedTeam}
-        teams={teamkeys}
-        selectedTeam={selectedTeam}
-        setSelectedTeam={setSelectedTeam}
-      />
+    <div className='relative flex flex-col'>
       <CardHeader
         title='Timeline'
-        currentMetrics={[{ metric: 'Company Average', circleColor: '#91BBE7' }, { metric: selectedTeam, circleColor: '#0015CE' }]}
+        currentMetrics={[
+          { metric: 'Company Average', circleColor: 'bg-[#91BBE7]' },
+          { metric: selectedTeam, circleColor: 'bg-[#0015CE]' },
+        ]}
         dropdown={{
           onSelect: (value) => setSelectedTeam(value),
           selected: selectedTeam,
@@ -69,7 +63,7 @@ const InclusionScoreTimeline = () => {
           // Add other props as needed
         }}
       />
-      <div className='h-full w-full relative'>
+      <div className='relative h-full w-full'>
         <InclusionScoreChart data={result} selectedTeam={selectedTeam} />
       </div>
     </div>
