@@ -1,7 +1,7 @@
 import { cn } from '@/utils/classnames'
 
 type CardProps = {
-  classname: string
+  classname?: string
   children: React.ReactNode
 }
 
