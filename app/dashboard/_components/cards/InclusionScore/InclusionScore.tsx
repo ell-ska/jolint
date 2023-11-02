@@ -5,7 +5,6 @@ import InclusionScoreTimeline from '@/app/dashboard/_components/cards/InclusionS
 const InclusionScore = () => {
   return (
     <Card classname='col-span-full lg:col-span-4 h-min flex'>
-      <div className='h-64 w-[220px]'>container</div>
       <InclusionScoreTimeline />
     </Card>
   )
