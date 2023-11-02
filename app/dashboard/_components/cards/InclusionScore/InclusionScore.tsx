@@ -9,14 +9,17 @@ type InclusionScoreProps = {
   score?: number
   benchmark?: number
   trend?: number
+  text?: string
 }
 
 const trendData = [
   {
     trend: +5,
+    text: 'since last month',
   },
   {
     trend: +12,
+    text: 'above benchmark',
   },
 ]
 
@@ -26,8 +29,8 @@ const InclusionScore = ({
   benchmark = 50,
 }: InclusionScoreProps) => {
   return (
-    <Card classname='col-span-full lg:col-span-4 h-min'>
-      <div className='flex max-w-[220px] flex-col items-center gap-8 sm:flex-row lg:flex-col'>
+    <Card classname='col-span-full lg:col-span-4 h-min flex items-center flex-col lg:flex-row lg:items-start'>
+      <div className='flex max-w-[220px] flex-col gap-8 lg:flex-col '>
         <h3 className='font-heading text-3xl font-bold'>{title}</h3>
         <div className='self-center font-heading text-5xl font-bold'>
           {score}
@@ -41,9 +44,12 @@ const InclusionScore = ({
             style={{ transform: `translateX(-${100 - score}%)` }}
           />
         </Progress.Root>
-        <div className='gap-4'>
-          {trendData.map(({ trend }) => (
-            <InclusionTrend trend={trend} key={trend} />
+        <div>
+          {trendData.map(({ trend, text }) => (
+            <div key={trend} className='flex gap-2  first-of-type:pb-4'>
+              <InclusionTrend trend={trend} />
+              <p>{text}</p>
+            </div>
           ))}
         </div>
       </div>
