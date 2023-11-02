@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import FormContent from '@/app/consent-form/_components/form/FormContent'
 import InputField from '@/app/consent-form/_components/InputField'
@@ -51,10 +51,6 @@ const FormSign = ({ title, content }: FormSignProps) => {
     const value = e.target.value
     setUserInput((prev) => ({ ...prev, [key]: value }))
   }
-
-  useEffect(() => {
-    console.log({ userInput })
-  }, [userInput])
 
   return (
     <div>
