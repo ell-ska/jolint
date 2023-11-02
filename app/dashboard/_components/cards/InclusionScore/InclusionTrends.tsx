@@ -1,10 +1,10 @@
 import { ArrowUpCircle, ArrowDownCircle, ArrowRightCircle } from 'lucide-react'
 
-type WeeklyInclusionScoreTrendProps = {
+type InclusionScoreTrendProps = {
   trend: number
 }
 
-const InclusionTrend = ({ trend }: WeeklyInclusionScoreTrendProps) => {
+const InclusionTrend = ({ trend }: InclusionScoreTrendProps) => {
   const Icon = () => {
     if (Math.sign(trend) === 1)
       return <ArrowUpCircle size={16} className='text-green' />

@@ -20,16 +20,18 @@ const trendData = [
   },
 ]
 
-const InclusionScoreComp = ({
+const InclusionScore = ({
   title = 'Inclusion score',
   score = 76,
   benchmark = 50,
 }: InclusionScoreProps) => {
   return (
     <Card classname='col-span-full lg:col-span-4 h-min'>
-        <div className='flex flex-col items-start justify-between sm:flex-row lg:flex-col max-w-[220px] gap-8'>
-          <h3 className='font-heading text-3xl font-bold'>{title}</h3>
-          <div className='text-5xl self-center font-bold font-heading'>{score}</div>
+      <div className='flex max-w-[220px] flex-col items-center gap-8 sm:flex-row lg:flex-col'>
+        <h3 className='font-heading text-3xl font-bold'>{title}</h3>
+        <div className='self-center font-heading text-5xl font-bold'>
+          {score}
+        </div>
         <Progress.Root className='relative h-8 w-full overflow-hidden rounded-sm bg-neutral-200'>
           <Progress.Indicator
             className={cn(
@@ -39,12 +41,14 @@ const InclusionScoreComp = ({
             style={{ transform: `translateX(-${100 - score}%)` }}
           />
         </Progress.Root>
-        {trendData.map(({trend}) => (
-          <InclusionTrend trend={trend} key={trend} />
-        ))}
+        <div className='gap-4'>
+          {trendData.map(({ trend }) => (
+            <InclusionTrend trend={trend} key={trend} />
+          ))}
+        </div>
       </div>
     </Card>
   )
 }
 
-export default InclusionScoreComp
+export default InclusionScore
