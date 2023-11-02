@@ -34,10 +34,10 @@ const InclusionScore = ({
         <div className='self-center font-heading text-5xl font-bold'>
           {score}
         </div>
-        <Progress.Root className='relative h-8 w-full overflow-hidden rounded-sm bg-neutral-200'>
+        <Progress.Root className='relative h-8 w-full overflow-hidden rounded-md bg-neutral-200'>
           <Progress.Indicator
             className={cn(
-              'absolute h-full w-full rounded-sm',
+              'absolute h-full w-full rounded-md',
               score >= benchmark ? 'bg-green' : 'bg-red',
             )}
             style={{ transform: `translateX(-${100 - score}%)` }}
