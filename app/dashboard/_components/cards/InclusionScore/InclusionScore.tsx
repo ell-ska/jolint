@@ -2,7 +2,7 @@ import React from 'react'
 import * as Progress from '@radix-ui/react-progress'
 import { cn } from '@/utils/classnames'
 import Card from '@/components/Card'
-import InclusionTrend from './InclusionTrends'
+import InclusionTrend from '@/app/dashboard/_components/cards/InclusionScore/InclusionTrends'
 
 type InclusionScoreProps = {
   title?: string
