@@ -1,3 +1,5 @@
+import { ChangeEvent } from 'react'
+
 export type UrlsType = {
   name: string
   href: string
@@ -44,3 +46,14 @@ export type DropdownProps = {
 }
 
 export type ImageCard = { img: string; imgTitle: string; imgText: string }
+
+export type InputFieldType = {
+  htmlFor: string
+  id: string
+  labelValue: string
+  name: string
+  type: string
+  handleForm: (e: ChangeEvent<HTMLInputElement>) => void
+}
+
+export type HtmlInputField = InputFieldType[]
