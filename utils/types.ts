@@ -44,3 +44,14 @@ export type DropdownProps = {
   align?: 'start' | 'end'
   formater?: (option: string) => string
 }
+
+export type InputFieldType = {
+  htmlFor: string
+  id: string
+  labelValue: string
+  name: string
+  type: string
+  handleForm: (e: any) => void;
+}
+
+export type HtmlInputField = InputFieldType[]
