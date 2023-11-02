@@ -40,6 +40,9 @@ const InclusionScoreChart: React.FC<ChartComponentProps> = ({
 }) => {
   console.log('data from chart', data)
   return (
+    <div className='relative w-full- h-full'>
+      <div>
+
     <ResponsiveContainer width='100%' height={186} className='pt-16'>
       <AreaChart
         data={data}
@@ -90,6 +93,8 @@ const InclusionScoreChart: React.FC<ChartComponentProps> = ({
         />
       </AreaChart>
     </ResponsiveContainer>
+      </div>
+    </div>
   )
 }
 

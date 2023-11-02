@@ -1,6 +1,6 @@
 'use client'
 import Card from '@/components/Card'
-import InclusionScoreTimeline from './InclusionScoreTimeline'
+import InclusionScoreTimeline from '@/app/dashboard/_components/cards/InclusionScore/InclusionScoreTimeline'
 
 const InclusionScore = () => {
   return (
