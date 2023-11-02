@@ -5,7 +5,7 @@ import Image from 'next/image'
 const inclusionCard = ({ img, imgTitle, imgText }: ImageCard) => {
   return (
     <Accordion
-      className='space-y-4'
+      className='space-y-4 transition hover:scale-[1.02]'
       trigger={
         <div className='flex w-full flex-col'>
           <div className='relative aspect-[3/2]'>
