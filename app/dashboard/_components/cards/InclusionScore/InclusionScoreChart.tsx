@@ -40,59 +40,58 @@ const InclusionScoreChart: React.FC<ChartComponentProps> = ({
 }) => {
   console.log('data from chart', data)
   return (
-    <div className='relative w-full- h-full'>
+    <div className='w-full- relative h-full'>
       <div>
-
-    <ResponsiveContainer width='100%' height={186} className='pt-16'>
-      <AreaChart
-        data={data}
-        style={{ strokeWidth: 0, width: 500 }}
-        /* margin={{ top: 0, right: 10, left: -25, bottom: -7 }} */
-      >
-        <defs>
-          <linearGradient id='colorMA' x1='0' y1='0' x2='0' y2='1'>
-            <stop offset='5%' stopColor=' #687af6' stopOpacity={0.8} />
-            <stop offset='95%' stopColor='#9ba6f8' stopOpacity={0} />
-          </linearGradient>
-          <linearGradient id='colorHR' x1='0' y1='0' x2='0' y2='1'>
-            <stop offset='5%' stopColor='#bec3ee' stopOpacity={0.8} />
-            <stop offset='95%' stopColor='#dee1f7' stopOpacity={0} />
-          </linearGradient>
-        </defs>
-        <CartesianGrid strokeDasharray='3' />
-        <XAxis dataKey='month' stroke='#0f172a' tick={{ fontSize: 12 }} />
-        <YAxis
-          dataKey='Score'
-          type='number'
-          domain={[0, 100]}
-          stroke='#0f172a'
-          tick={{ fontSize: 12 }}
-        />
-        <Tooltip />
-        <Area
-          type='monotone'
-          dataKey={selectedTeam}
-          stroke='#0015CE'
-          fill='url(#colorMA)'
-          strokeWidth={2}
-        />
-        <Area
-          type='monotone'
-          dataKey='company_average'
-          stroke='#91BBE7'
-          fill='url(#colorHR)'
-          strokeWidth={2}
-        />
-        <Area
-          type='monotone'
-          dataKey='benchmark'
-          stroke='#D3383B'
-          fill='transparent'
-          strokeWidth={2}
-          strokeDasharray='6'
-        />
-      </AreaChart>
-    </ResponsiveContainer>
+        <ResponsiveContainer width='100%' height={186} className='pt-16'>
+          <AreaChart
+            data={data}
+            style={{ strokeWidth: 0, width: 500 }}
+            margin={{ top: 0, right: 10, left: -25, bottom: 0 }}
+          >
+            <defs>
+              <linearGradient id='colorMA' x1='0' y1='0' x2='0' y2='1'>
+                <stop offset='5%' stopColor=' #687af6' stopOpacity={0.8} />
+                <stop offset='95%' stopColor='#9ba6f8' stopOpacity={0} />
+              </linearGradient>
+              <linearGradient id='colorHR' x1='0' y1='0' x2='0' y2='1'>
+                <stop offset='5%' stopColor='#bec3ee' stopOpacity={0.8} />
+                <stop offset='95%' stopColor='#dee1f7' stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <CartesianGrid strokeDasharray='3' />
+            <XAxis dataKey='month' stroke='#0f172a' tick={{ fontSize: 12 }} />
+            <YAxis
+              dataKey='Score'
+              type='number'
+              domain={[0, 100]}
+              stroke='#0f172a'
+              tick={{ fontSize: 12 }}
+            />
+            <Tooltip />
+            <Area
+              type='monotone'
+              dataKey={selectedTeam}
+              stroke='#0015CE'
+              fill='url(#colorMA)'
+              strokeWidth={2}
+            />
+            <Area
+              type='monotone'
+              dataKey='company_average'
+              stroke='#91BBE7'
+              fill='url(#colorHR)'
+              strokeWidth={2}
+            />
+            <Area
+              type='monotone'
+              dataKey='benchmark'
+              stroke='#D3383B'
+              fill='transparent'
+              strokeWidth={2}
+              strokeDasharray='6'
+            />
+          </AreaChart>
+        </ResponsiveContainer>
       </div>
     </div>
   )
