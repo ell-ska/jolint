@@ -4,6 +4,7 @@ import { getDataTeamsAndScores } from '@/utils/getDataTeamsAndScores'
 import data from '@/lib/mockData.json'
 import InclusionScoreTopBar from './InclusionScoreTopBar'
 import InclusionScoreChart from './InclusionScoreChart'
+import CardHeader from '../../CardHeader'
 
 interface DataItem {
   month: string
@@ -39,23 +40,34 @@ const InclusionScoreTimeline = () => {
   )
 
   // tar ut namnen från nya arrayen så man bara har teamsen
-  const keys = Object.keys(result[0]).filter(
+  const teamkeys = Object.keys(result[0]).filter(
     (key) =>
       key !== 'month' && key !== 'benchmark' && key !== 'company_average',
   )
 
-  console.log(keys)
+  console.log(teamkeys)
 
-  const [selectedTeam, setSelectedTeam] = useState(keys[2])
+  const [selectedTeam, setSelectedTeam] = useState(teamkeys[2])
   return (
     <div className='flex flex-col relative'>
       <InclusionScoreTopBar
         title='Timeline'
         companyAverage='Company average'
         team={selectedTeam}
-        teams={keys}
+        teams={teamkeys}
         selectedTeam={selectedTeam}
         setSelectedTeam={setSelectedTeam}
+      />
+      <CardHeader
+        title='Timeline'
+        currentMetrics={[{ metric: 'Company Average', circleColor: '#91BBE7' }, { metric: selectedTeam, circleColor: '#0015CE' }]}
+        dropdown={{
+          onSelect: (value) => setSelectedTeam(value),
+          selected: selectedTeam,
+          options: teamkeys,
+          align: 'start',
+          // Add other props as needed
+        }}
       />
       <div className='h-full w-full relative'>
         <InclusionScoreChart data={result} selectedTeam={selectedTeam} />
