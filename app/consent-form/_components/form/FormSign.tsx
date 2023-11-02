@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 
 import FormContent from '@/app/consent-form/_components/form/FormContent'
 import InputField from '@/app/consent-form/_components/InputField'
@@ -17,6 +17,13 @@ const FormSign = ({ title, content }: FormSignProps) => {
     date: '',
     signature: '',
   })
+
+  const handleForm = (e: ChangeEvent<HTMLInputElement>): void => {
+    e.preventDefault()
+    const key = e.target.name
+    const value = e.target.value
+    setUserInput((prev) => ({ ...prev, [key]: value }))
+  }
 
   const htmlInputFields: HtmlInputField = [
     {
@@ -44,13 +51,6 @@ const FormSign = ({ title, content }: FormSignProps) => {
       handleForm: (e) => handleForm(e),
     },
   ]
-
-  const handleForm = (e: any): void => {
-    e.preventDefault()
-    const key = e.target.name
-    const value = e.target.value
-    setUserInput((prev) => ({ ...prev, [key]: value }))
-  }
 
   return (
     <div>
