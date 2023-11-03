@@ -4,7 +4,7 @@ import WeeklyInclusionScore from '@/app/dashboard/_components/cards/WeeklyInclus
 import Trends from '@/app/dashboard/_components/cards/Trends'
 import InclusionScore from '@/app/dashboard/_components/cards/InclusionScore/InclusionScore'
 
-import Risks from '@/app/dashboard/_components/RisksAndOpps'
+import EntireSection from '@/app/dashboard/_components/RiskAndOpps/EntireSection'
 
 const Dashboard = () => {
   return (
@@ -12,6 +12,7 @@ const Dashboard = () => {
       <InclusionScore />
       <WeeklyInclusionScore />
       <Trends />
+      <EntireSection />
     </GeneralGridLayout>
   )
 }
