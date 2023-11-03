@@ -2,6 +2,7 @@ import * as Progress from '@radix-ui/react-progress'
 import { cn } from '@/utils/classnames'
 import Card from '@/components/Card'
 import InclusionTrend from '@/app/dashboard/_components/cards/InclusionScore/InclusionTrends'
+import InclusionScoreTimeline from './InclusionScoreTimeline'
 
 type InclusionScoreProps = {
   title?: string
@@ -28,7 +29,7 @@ const InclusionScore = ({
   benchmark = 50,
 }: InclusionScoreProps) => {
   return (
-    <Card classname='col-span-full lg:col-span-4 h-min flex items-center flex-col lg:flex-row lg:items-start'>
+    <Card classname='col-span-full lg:col-span-4 h-min flex items-center flex-col lg:flex-row lg:items-start lg:justify-between'>
       <div className='flex max-w-[220px] flex-col gap-8 lg:flex-col '>
         <h3 className='font-heading text-3xl font-bold'>{title}</h3>
         <div className='self-center font-heading text-5xl font-bold'>
@@ -52,6 +53,7 @@ const InclusionScore = ({
           ))}
         </div>
       </div>
+      <InclusionScoreTimeline />
     </Card>
   )
 }

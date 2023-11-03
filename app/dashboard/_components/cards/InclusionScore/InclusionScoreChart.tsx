@@ -1,4 +1,5 @@
 'use client'
+import { relative } from 'path'
 import React from 'react'
 import {
   AreaChart,
@@ -40,12 +41,11 @@ const InclusionScoreChart: React.FC<ChartComponentProps> = ({
 }) => {
   console.log('data from chart', data)
   return (
-    <div className='w-full- relative h-full'>
-      <div>
-        <ResponsiveContainer width='100%' height={186} className='pt-16'>
+    
+        <ResponsiveContainer width='100%' height={186} className='relative pt-16'>
           <AreaChart
             data={data}
-            style={{ strokeWidth: 0, width: 500 }}
+            style={{ strokeWidth: 0, width: '700px' }}
             margin={{ top: 0, right: 10, left: -25, bottom: 0 }}
           >
             <defs>
@@ -92,8 +92,6 @@ const InclusionScoreChart: React.FC<ChartComponentProps> = ({
             />
           </AreaChart>
         </ResponsiveContainer>
-      </div>
-    </div>
   )
 }
 
