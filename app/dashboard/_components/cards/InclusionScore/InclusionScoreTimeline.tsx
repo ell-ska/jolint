@@ -48,7 +48,7 @@ const InclusionScoreTimeline = () => {
 
   const [selectedTeam, setSelectedTeam] = useState(teamkeys[2])
   return (
-    <div className='relative flex flex-col'>
+    <div className='relative flex h-full flex-col w-full lg:pl-20'>
       <CardHeader
         title='Timeline'
         currentMetrics={[
@@ -60,10 +60,9 @@ const InclusionScoreTimeline = () => {
           selected: selectedTeam,
           options: teamkeys,
           align: 'start',
-          // Add other props as needed
         }}
       />
-      <div className='relative h-full w-full'>
+      <div className='relative pt-16 min-w-[386]'>
         <InclusionScoreChart data={result} selectedTeam={selectedTeam} />
       </div>
     </div>
