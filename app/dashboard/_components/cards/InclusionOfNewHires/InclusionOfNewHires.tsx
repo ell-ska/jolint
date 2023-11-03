@@ -75,7 +75,7 @@ const InclusionOfNewHires = () => {
     .map((metric, index) => ({ metric, circleColor: colors[index] }))
 
   return (
-    <Card classname='col-span-full lg:col-span-3 h-min'>
+    <Card classname='col-span-full lg:col-span-3 h-min flex flex-col gap-8'>
       <CardHeader
         title='Inclusion of new hires'
         currentMetrics={currentMetrics}
@@ -85,6 +85,7 @@ const InclusionOfNewHires = () => {
           selected: demographic,
         }}
       />
+      <InclusionOfNewHiresChart />
     </Card>
   )
 }

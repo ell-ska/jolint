@@ -1,5 +1,16 @@
 import type { Config } from 'tailwindcss'
 
+export const colors = {
+  blue: {
+    dull: '#2C3386',
+    bright: '#0015CE',
+    light: '#91BBE7',
+  },
+  green: '#7ACD6D',
+  orange: '#F4770A',
+  red: '#D3383B',
+}
+
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -17,14 +28,7 @@ const config: Config = {
         700: '#94A3B8',
         900: '#0F172A',
       },
-      blue: {
-        dull: '#2C3386',
-        bright: '#0015CE',
-        light: '#91BBE7',
-      },
-      green: '#7ACD6D',
-      orange: '#F4770A',
-      red: '#D3383B',
+      ...colors,
     },
     fontFamily: {
       body: 'var(--kumbh-sans)',
@@ -33,4 +37,5 @@ const config: Config = {
   },
   plugins: [],
 }
+
 export default config
