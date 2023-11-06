@@ -2,16 +2,17 @@ import Card from '@/components/Card'
 import { risksData } from '@/app/dashboard/_components/RiskAndOpps/data/RisksData'
 import { opportunitiesData } from '@/app/dashboard/_components/RiskAndOpps/data/OpportunitiesData'
 
-const RiskOppCards = ({ type }) => {
+type RiskOppCardsProps = {
+  type: 'risks' | 'opportunities'
+}
+
+const RiskOppCards = ({ type }: RiskOppCardsProps) => {
   const data = type === 'risks' ? risksData : opportunitiesData
 
   return (
-    <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+    <div className='gap-8'>
       {data.map((item) => (
-        <Card
-          key={item.title}
-          classname='md:col-span-6 col-span-3 rounded-8 mt-4 gap-2'
-        >
+        <Card key={item.title}>
           <h3>{item.title}</h3>
           <p>{item.description}</p>
         </Card>
