@@ -2,7 +2,7 @@ import * as Progress from '@radix-ui/react-progress'
 import { cn } from '@/utils/classnames'
 import Card from '@/components/Card'
 import InclusionTrend from '@/app/dashboard/_components/cards/InclusionScore/InclusionTrends'
-import InclusionScoreTimeline from './InclusionScoreTimeline'
+import InclusionScoreTimeline from '@/app/dashboard/_components/cards/InclusionScore/InclusionScoreTimeline'
 
 type InclusionScoreProps = {
   title?: string
@@ -53,7 +53,7 @@ const InclusionScore = ({
           ))}
         </div>
       </div>
-        <InclusionScoreTimeline />
+      <InclusionScoreTimeline />
     </Card>
   )
 }
