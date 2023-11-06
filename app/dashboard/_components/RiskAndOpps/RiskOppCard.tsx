@@ -12,7 +12,7 @@ const RiskOppCards = ({ type }) => {
           key={item.title}
           classname='md:col-span-6 col-span-3 rounded-8 mt-4 gap-2'
         >
-          <h3 className='font-heading font-bold'>{item.title}</h3>
+          <h3>{item.title}</h3>
           <p>{item.description}</p>
         </Card>
       ))}

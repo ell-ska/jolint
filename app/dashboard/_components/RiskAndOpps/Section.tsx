@@ -19,10 +19,7 @@ const Section = ({ title, items }) => {
       </h2>
       <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
         {items.map((item) => (
-          <Card
-            key={item.title}
-            className='rounded-8 col-span-1 mt-4 flex h-48 w-96 w-full flex-col gap-2 md:col-span-4'
-          >
+          <Card key={item.title}>
             <h3 className='font-heading font-bold'>{item.title}</h3>
             <p className='flex-grow'>{item.description}</p>{' '}
           </Card>
