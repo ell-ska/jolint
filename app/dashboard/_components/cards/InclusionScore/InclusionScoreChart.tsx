@@ -1,6 +1,4 @@
 'use client'
-import { relative } from 'path'
-import React from 'react'
 import {
   AreaChart,
   Area,
