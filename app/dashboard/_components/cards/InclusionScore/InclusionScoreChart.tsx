@@ -37,7 +37,6 @@ const InclusionScoreChart: React.FC<ChartComponentProps> = ({
   data,
   selectedTeam,
 }) => {
-  console.log('data from chart', data)
   return (
     <ResponsiveContainer height={220} width={'100%'}>
       <AreaChart
