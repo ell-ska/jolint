@@ -1,4 +1,3 @@
-// EntireSection.tsx
 import Section from '@/app/dashboard/_components/RiskAndOpps/Section'
 import { risksData } from '@/app/dashboard/_components/RiskAndOpps/data/RisksData'
 import { opportunitiesData } from '@/app/dashboard/_components/RiskAndOpps/data/OpportunitiesData'
