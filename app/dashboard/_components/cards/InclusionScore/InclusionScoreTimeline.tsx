@@ -50,7 +50,6 @@ const InclusionScoreTimeline = () => {
   useEffect(() => {
     const computeTeamKeys = async () => {
       try {
-        //check that fetchedData is not 0
         if (chartData.length > 0 && chartData[0]) {
           const teamkeys = Object.keys(chartData[0]).filter(
             (key) =>
