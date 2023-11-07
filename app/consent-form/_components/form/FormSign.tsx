@@ -16,7 +16,7 @@ type FormSignProps = {
 type UserInputType = {
   name: string
   date: string
-  consent: boolean | string
+  consent: Checkbox.CheckedState
 }
 
 const FormSign = ({ title, content }: FormSignProps) => {
