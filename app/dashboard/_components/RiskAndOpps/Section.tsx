@@ -12,7 +12,7 @@ type SectionProps = {
 
 const Section = ({ title, items }: SectionProps) => {
   return (
-    <section className='md:col-span-full'>
+    <section>
       <h2 className='mb-4 ml-4 font-heading text-3xl font-bold md:text-4xl'>
         {title}
       </h2>
@@ -20,7 +20,7 @@ const Section = ({ title, items }: SectionProps) => {
         {items.map((item) => (
           <Card key={item.title}>
             <h3 className='font-heading text-xl font-bold'>{item.title}</h3>
-            <p className='flex-grow'>{item.description}</p>
+            <p>{item.description}</p>
           </Card>
         ))}
       </div>
