@@ -1,12 +1,12 @@
 
-interface ComboDataEntry {
+type ComboDataEntry = {
   month: string;
   team: string;
   inclusion_score: number;
   [key: string]: any | any;
 }
 
-interface AggregatedDataEntry {
+type AggregatedDataEntry = {
   month: string;
   [team: string]: number | string | null;
   benchmark: number;
