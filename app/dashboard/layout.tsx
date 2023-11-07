@@ -6,11 +6,9 @@ import Sidebar from './_components/Sidebar'
 
 export const metadata: Metadata = {
   title: 'Jolint | Dashboard',
-  description: 'Creating inclusive work cultures',
 }
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-
   const urls: UrlsType = [
     {
       name: 'dashboard',
