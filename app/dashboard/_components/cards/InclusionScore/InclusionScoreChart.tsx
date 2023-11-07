@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 
-interface DataItem {
+type DataItem = {
   month: string
   first_day_of_week: number
   iso_week: string
@@ -22,13 +22,13 @@ interface DataItem {
   [key: string]: number | string
 }
 
-interface AggregatedDataEntry {
+type AggregatedDataEntry = {
   month: string
   [team: string]: number | string | null
   benchmark: number
 }
 
-interface ChartComponentProps {
+type ChartComponentProps = {
   data: DataItem[] | AggregatedDataEntry[]
   selectedTeam: string
 }

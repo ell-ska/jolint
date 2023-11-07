@@ -5,20 +5,7 @@ import InclusionScoreChart from '@/app/dashboard/_components/cards/InclusionScor
 import CardHeader from '@/app/dashboard/_components/CardHeader'
 import { useData } from '@/hooks/useData'
 
-interface DataItem {
-  month: string
-  first_day_of_week: number
-  iso_week: string
-  team: string
-  inclusion_score: number
-  work_habits: number
-  cross_functional_inclusion: number
-  informal_influence: number
-  benchmark: number
-  [key: string]: number | string
-}
-
-interface AggregatedDataEntry {
+type AggregatedDataEntry = {
   month: string
   [team: string]: number | string | null
   benchmark: number
