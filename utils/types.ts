@@ -57,3 +57,16 @@ export type InputFieldType = {
 }
 
 export type HtmlInputField = InputFieldType[]
+
+export type endpoints =
+  | 'inclusionscore'
+  | 'demographic-inclusion'
+  | 'demographic-timeline'
+
+export type dataResponse = {
+  data?: any
+  error?: {
+    status?: number
+    message: string
+  }
+}
