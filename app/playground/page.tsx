@@ -28,8 +28,8 @@ const CardheaderProps: CardHeaderProps = {
 // ------------
 
 const Dashboard = () => {
-  const data = useData('inclusionscore')
-  console.log(data)
+  const { data, error, isLoading } = useData('inclusionscore')
+  console.log({ data, error, isLoading })
 
   return (
     <GeneralGridLayout>
