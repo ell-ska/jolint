@@ -1,17 +1,12 @@
 import { useEffect, useState } from 'react'
-import axios, { AxiosResponse, isAxiosError } from 'axios'
 
 import { useToaster } from '@/hooks/useToaster'
-
-type endpoints =
-  | 'inclusionscore'
-  | 'demographic-inclusion'
-  | 'demographic-timeline'
-
-const baseUrl = 'https://jolintdb.cyclic.app/'
+import { fetchData } from '@/lib/fetchData'
+import type { dataResponse, endpoints } from '@/utils/types'
 
 const useData = (endpoint: endpoints) => {
-  const [data, setData] = useState<AxiosResponse>()
+  const [data, setData] = useState<dataResponse | undefined>()
+  const [isLoading, setIsLoading] = useState(true)
   const { setToaster, setMessage } = useToaster((state) => ({
     setToaster: state.setToaster,
     setMessage: state.setMessage,
@@ -19,23 +14,26 @@ const useData = (endpoint: endpoints) => {
 
   useEffect(() => {
     const fetcher = async () => {
-      try {
-        const response = await axios.get(baseUrl + endpoint)
-        setData(response)
-      } catch (error) {
-        console.log(error)
-        if (isAxiosError(error)) {
-          setToaster(true)
-          setMessage(error.message)
-        }
+      setIsLoading(true)
+
+      const { data, error } = await fetchData(endpoint)
+
+      if (data) {
+        setData({ data, error })
       }
+
+      if (error) {
+        setToaster(true)
+        setMessage(error.message)
+      }
+
+      setIsLoading(false)
     }
 
     fetcher()
-    // eslint-disable-next-line
-  }, [endpoint])
+  }, [endpoint, setMessage, setToaster])
 
-  return data
+  return { data: data?.data, error: data?.error, isLoading }
 }
 
 export { useData }
