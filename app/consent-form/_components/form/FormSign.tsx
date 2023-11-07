@@ -7,7 +7,6 @@ import { Check } from 'lucide-react'
 import FormContent from '@/app/consent-form/_components/form/FormContent'
 import InputField from '@/app/consent-form/_components/InputField'
 import type { HtmlInputField } from '@/utils/types'
-import { log } from 'console'
 
 type FormSignProps = {
   title: string
