@@ -4,11 +4,9 @@ import { opportunitiesData } from '@/app/dashboard/_components/RiskAndOpps/data/
 
 const RiskAndOppsSection = () => {
   return (
-    <div className='col-span-6 md:col-span-6 lg:col-span-4'>
+    <div className='col-span-6 space-y-8 lg:col-span-4'>
       <Section title='Risks' items={risksData} />
-      <div className='mt-8'>
-        <Section title='Opportunities' items={opportunitiesData} />
-      </div>
+      <Section title='Opportunities' items={opportunitiesData} />
     </div>
   )
 }

@@ -1,4 +1,3 @@
-// data/opportunitiesData.ts
 export const opportunitiesData = [
   {
     title: 'Isolation',
