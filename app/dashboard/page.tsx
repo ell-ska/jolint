@@ -7,7 +7,7 @@ import Trends from '@/app/dashboard/_components/cards/Trends'
 import InclusionScore from '@/app/dashboard/_components/cards/InclusionScore/InclusionScore'
 
 const Dashboard = () => {
-  const data = useData()
+  const data = useData('inclusionscore')
   console.log(data)
 
   return (

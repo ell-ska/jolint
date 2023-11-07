@@ -3,7 +3,14 @@ import axios, { AxiosResponse, isAxiosError } from 'axios'
 
 import { useToaster } from '@/hooks/useToaster'
 
-const useData = () => {
+type endpoints =
+  | 'inclusionscore'
+  | 'demographic-inclusion'
+  | 'demographic-timeline'
+
+const baseUrl = 'https://jolintdb.cyclic.app/'
+
+const useData = (endpoint: endpoints) => {
   const [data, setData] = useState<AxiosResponse>()
   const { setToaster, setMessage } = useToaster((state) => ({
     setToaster: state.setToaster,
@@ -13,7 +20,7 @@ const useData = () => {
   useEffect(() => {
     const fetcher = async () => {
       try {
-        const response = await axios.get('/api/metrics')
+        const response = await axios.get(baseUrl + endpoint)
         setData(response)
       } catch (error) {
         console.log(error)
@@ -25,7 +32,8 @@ const useData = () => {
     }
 
     fetcher()
-  }, [setMessage, setToaster])
+    // eslint-disable-next-line
+  }, [endpoint])
 
   return data
 }
