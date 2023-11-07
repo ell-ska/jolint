@@ -1,8 +1,10 @@
 import Accordion from '@/components/Accordion'
 import { ImageCard } from '@/utils/types'
+
+import { ChevronDown } from 'lucide-react'
 import Image from 'next/image'
 
-const inclusionCard = ({ img, imgTitle, imgText }: ImageCard) => {
+const InclusionCard = ({ img, imgTitle, imgText }: ImageCard) => {
   return (
     <Accordion
       className='space-y-4 transition hover:scale-[1.02]'
@@ -16,14 +18,17 @@ const inclusionCard = ({ img, imgTitle, imgText }: ImageCard) => {
               fill
             />
           </div>
-          <h4 className='pt-6 text-xl font-bold md:pt-4 md:text-2xl'>
-            {imgTitle}
-          </h4>
+          <div className='flex justify-between'>
+            <h4 className='pt-6 text-xl font-bold md:pt-4 md:text-2xl'>
+              {imgTitle}
+            </h4>
+            <ChevronDown className='mt-7 shrink-0 group-data-[state=open]:rotate-180 md:mt-5' />
+          </div>
         </div>
       }
-      content={<p className=''>{imgText}</p>}
+      content={<p>{imgText}</p>}
     />
   )
 }
 
-export default inclusionCard
+export default InclusionCard
