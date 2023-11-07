@@ -30,12 +30,14 @@ export type ChapterKeys =
 
 export type ImageCard = { img: string; imgTitle: string; imgText: string }
 
+export type metrics = {
+  metric: string
+  circleColor: string
+}[]
+
 export type CardHeaderProps = {
   title: string
-  currentMetrics?: {
-    metric: string
-    circleColor: string
-  }[]
+  currentMetrics?: metrics
   dropdown: DropdownProps
 }
 

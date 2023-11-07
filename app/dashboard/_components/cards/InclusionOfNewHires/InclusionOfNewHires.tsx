@@ -1,90 +1,57 @@
 'use client'
 
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
+import { useData } from '@/hooks/useData'
+import { getUnique } from '@/utils/getUnique'
+import { getCurrentMetrics } from '@/utils/getCurrentMetrics'
 import Card from '@/components/Card'
 import CardHeader from '@/app/dashboard/_components/CardHeader'
 import InclusionOfNewHiresChart from '@/app/dashboard/_components/cards/InclusionOfNewHires/InclusionOfNewHiresChart'
-
-const fakeData = [
-  {
-    demographic_category: 'Gender',
-    demographic_value: 'Male',
-    variation: 53.1173113189,
-  },
-  {
-    demographic_category: 'Gender',
-    demographic_value: 'Female',
-    variation: 42.008177974,
-  },
-  {
-    demographic_category: 'Gender',
-    demographic_value: 'Non-Binary',
-    variation: 45.9125760396,
-  },
-  {
-    demographic_category: 'Age Group',
-    demographic_value: '18-25',
-    variation: 38.1924863752,
-  },
-  {
-    demographic_category: 'Age Group',
-    demographic_value: '26-35',
-    variation: 56.5897195942,
-  },
-  {
-    demographic_category: 'Age Group',
-    demographic_value: '36-45',
-    variation: 52.9797421484,
-  },
-  {
-    demographic_category: 'Age Group',
-    demographic_value: '46-55',
-    variation: 65.3888535223,
-  },
-  {
-    demographic_category: 'Age Group',
-    demographic_value: '56+',
-    variation: 59.6451771796,
-  },
-]
-
-const colors = [
-  'bg-blue-bright',
-  'bg-orange',
-  'bg-green',
-  'bg-red',
-  'bg-blue-light',
-]
+import type { metrics } from '@/utils/types'
 
 const InclusionOfNewHires = () => {
-  const [demographic, setDemographic] = useState(
-    fakeData[0].demographic_category,
+  const { data: initial, error, isLoading } = useData('demographic-timeline')
+  const [currentDemographic, setCurrentDemographic] = useState<string | null>(
+    null,
   )
-  const currentDemographicData = fakeData.filter(
-    (data) => data.demographic_category === demographic,
+  const [categories, setCategories] = useState<string[] | null>(null)
+  const [currentMetrics, setCurrentMetrics] = useState<metrics | null>(null)
+
+  const update = useCallback(
+    (demographic?: string) => {
+      if (isLoading || error || !initial) return
+
+      const data = initial?.demographic_timeline
+      const currentDemographic = demographic || data[0].demographic_category
+      const currentData = data.filter(
+        (data: any) => data.demographic_category === currentDemographic,
+      )
+
+      setCurrentDemographic(currentDemographic)
+      setCategories(getUnique(data, 'demographic_category'))
+      setCurrentMetrics(getCurrentMetrics(currentData, 'demographic_value'))
+    },
+    [initial, error, isLoading],
   )
 
-  const allDemographics = fakeData.map((data) => data.demographic_category)
-  const uniqueDemographics = allDemographics.filter(
-    (item, index) => allDemographics.indexOf(item) === index,
-  )
-
-  const currentMetrics = currentDemographicData
-    .map((data) => data.demographic_value)
-    .map((metric, index) => ({ metric, circleColor: colors[index] }))
+  useEffect(() => {
+    update()
+  }, [initial, isLoading, error, update])
 
   return (
     <Card classname='col-span-full lg:col-span-3 h-min flex flex-col gap-8'>
-      <CardHeader
-        title='Inclusion of new hires'
-        currentMetrics={currentMetrics}
-        dropdown={{
-          options: uniqueDemographics,
-          onSelect: (value) => setDemographic(value),
-          selected: demographic,
-        }}
-      />
+      {currentDemographic && categories && currentMetrics && (
+        <CardHeader
+          title='Inclusion of new hires'
+          currentMetrics={currentMetrics}
+          dropdown={{
+            options: categories,
+            onSelect: (value) => update(value),
+            selected: currentDemographic,
+          }}
+        />
+      )}
       <InclusionOfNewHiresChart />
     </Card>
   )
