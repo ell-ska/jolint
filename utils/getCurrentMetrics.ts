@@ -1,5 +1,5 @@
-import { getUnique } from './getUnique'
-import type { metrics } from './types'
+import { getUnique } from '@/utils/getUnique'
+import type { metrics } from '@/utils/types'
 
 const colors = [
   'bg-blue-bright',
