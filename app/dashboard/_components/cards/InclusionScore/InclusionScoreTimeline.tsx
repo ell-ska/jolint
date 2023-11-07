@@ -24,65 +24,50 @@ interface AggregatedDataEntry {
   benchmark: number
 }
 
-/* const GetData = () => {
-  const data = useData('inclusionscore')
-  return data
-} */
-
 const InclusionScoreTimeline = () => {
   const [chartData, setChartData] = useState<AggregatedDataEntry[]>([])
   const [selectedTeam, setSelectedTeam] = useState<string>('')
   const [teamKeys, setTeamKeys] = useState<string[]>([])
-  const {data, isLoading, error} = useData('inclusionscore')
+  const { data: originalData, isLoading, error } = useData('inclusionscore')
 
-  if (!isLoading) {
-    setChartData(data?.data.inclusion_metrics)
-    console.log('från is loading i timeline', chartData)
- }
+  useEffect(() => {
+    if (isLoading || error || !originalData) return
 
-  console.log(data?.data.inslusion_metrics)
+    const teamsToAggregate = [
+      'Finance',
+      'Marketing',
+      'HR',
+      'company_average',
+      'Sales',
+      'Engineering',
+    ]
 
-  const teamsToAggregate = [
-    'Finance',
-    'Marketing',
-    'HR',
-    'company_average',
-    'Sales',
-    'Engineering',
-  ]
+    const result = originalData?.inclusion_metrics
+    const d = getDataTeamsAndScores(result, teamsToAggregate, 'inclusion_score')
+    setChartData(d)
+  }, [isLoading, error, originalData])
 
-/*   if (data !== null && data !== undefined) {
-    setChartData(data?.data.inclusion_metrics)
-    const result = getDataTeamsAndScores(
-      data?.data.inclusion_metrics,
-      teamsToAggregate,
-      'inclusion_score',
-    )
-  
-  
-    const teamkeys = Object.keys(result[0]).filter(
-      (key) =>
-        key !== 'month' &&
-        key !== 'benchmark' &&
-        key !== 'company_average',
-    )
-    setSelectedTeam(teamkeys[2])
-    console.log(teamkeys)
-    setTeamKeys(teamkeys)
-  } */
+  useEffect(() => {
+    const computeTeamKeys = async () => {
+      try {
+        //check that fetchedData is not 0
+        if (chartData.length > 0 && chartData[0]) {
+          const teamkeys = Object.keys(chartData[0]).filter(
+            (key) =>
+              key !== 'month' &&
+              key !== 'benchmark' &&
+              key !== 'company_average',
+          )
+          setSelectedTeam(teamkeys[2])
+          setTeamKeys(teamkeys)
+        }
+      } catch (error) {
+        console.error('Error computing team keys:', error)
+      }
+    }
+    computeTeamKeys()
+  }, [chartData])
 
-
-  // tar ut namnen från nya arrayen så man bara har teamsen
-  /*   const teamkeys = Object.keys(result[0]).filter(
-    (key) =>
-      key !== 'month' && key !== 'benchmark' && key !== 'company_average',
-  )
-
-  console.log(teamkeys) */
-  /* 
-  const [selectedTeam, setSelectedTeam] = useState(teamkeys[2]) */
-  /*   const [selectedTeam, setSelectedTeam] = useState('HR')
-  const teamkeys = ['1', '2', '3'] */
   return (
     <div className='relative flex h-full w-full flex-col lg:pl-20'>
       <CardHeader
