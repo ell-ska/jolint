@@ -1,8 +1,11 @@
+import { AxiosResponse } from "axios";
+
 interface ComboDataEntry {
   month: string;
   team: string;
   inclusion_score: number;
-  [key: string]: number | string;
+  [key: string]: any | any;
+  data: AxiosResponse<any, any>
 }
 
 interface AggregatedDataEntry {

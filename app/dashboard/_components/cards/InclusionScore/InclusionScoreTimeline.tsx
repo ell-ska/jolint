@@ -1,9 +1,9 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { getDataTeamsAndScores } from '@/utils/getDataTeamsAndScores'
-import data from '@/lib/mockData.json'
 import InclusionScoreChart from '@/app/dashboard/_components/cards/InclusionScore/InclusionScoreChart'
 import CardHeader from '@/app/dashboard/_components/CardHeader'
+import { useData } from '@/hooks/useData'
 
 interface DataItem {
   month: string
@@ -18,37 +18,70 @@ interface DataItem {
   [key: string]: number | string
 }
 
+interface AggregatedDataEntry {
+  month: string
+  [team: string]: number | string | null
+  benchmark: number
+}
+
+/* const GetData = () => {
+  const data = useData('inclusionscore')
+  return data
+} */
+
 const InclusionScoreTimeline = () => {
-  const originalData: DataItem[] = data
+  const [chartData, setChartData] = useState<AggregatedDataEntry[]>([])
+  const [selectedTeam, setSelectedTeam] = useState<string>('')
+  const [teamKeys, setTeamKeys] = useState<string[]>([])
+  const data = useData('inclusionscore')
 
-  const HR = 'HR'
-  const CA = 'company_average'
-  const Marketing = 'Marketing'
-  const Sales = 'Sales'
-  const Finance = 'Finance'
-  // gör en array av teamsen man vill ha en score från
-  const teamsToAggregate = [Finance, Marketing, HR, CA, Sales]
+ 
 
-  // kallar på functionen som tar teams och vilken score man vill åt
-  // och sedan får ut en ny array med innehållet
-  // ex på parametrar inclusion_score, work_habits, cross_functional_inclusion, informal_influence
-  const result = getDataTeamsAndScores(
-    originalData,
-    teamsToAggregate,
-    'inclusion_score',
-  )
+  console.log(data?.data.inslusion_metrics)
+
+  const teamsToAggregate = [
+    'Finance',
+    'Marketing',
+    'HR',
+    'company_average',
+    'Sales',
+    'Engineering',
+  ]
+
+/*   if (data !== null && data !== undefined) {
+    setChartData(data?.data.inclusion_metrics)
+    const result = getDataTeamsAndScores(
+      data?.data.inclusion_metrics,
+      teamsToAggregate,
+      'inclusion_score',
+    )
+  
+  
+    const teamkeys = Object.keys(result[0]).filter(
+      (key) =>
+        key !== 'month' &&
+        key !== 'benchmark' &&
+        key !== 'company_average',
+    )
+    setSelectedTeam(teamkeys[2])
+    console.log(teamkeys)
+    setTeamKeys(teamkeys)
+  } */
+
 
   // tar ut namnen från nya arrayen så man bara har teamsen
-  const teamkeys = Object.keys(result[0]).filter(
+  /*   const teamkeys = Object.keys(result[0]).filter(
     (key) =>
       key !== 'month' && key !== 'benchmark' && key !== 'company_average',
   )
 
-  console.log(teamkeys)
-
-  const [selectedTeam, setSelectedTeam] = useState(teamkeys[2])
+  console.log(teamkeys) */
+  /* 
+  const [selectedTeam, setSelectedTeam] = useState(teamkeys[2]) */
+  /*   const [selectedTeam, setSelectedTeam] = useState('HR')
+  const teamkeys = ['1', '2', '3'] */
   return (
-    <div className='relative flex h-full flex-col w-full lg:pl-20'>
+    <div className='relative flex h-full w-full flex-col lg:pl-20'>
       <CardHeader
         title='Timeline'
         currentMetrics={[
@@ -58,12 +91,12 @@ const InclusionScoreTimeline = () => {
         dropdown={{
           onSelect: (value) => setSelectedTeam(value),
           selected: selectedTeam,
-          options: teamkeys,
+          options: teamKeys,
           align: 'start',
         }}
       />
-      <div className='relative pt-16 min-w-[386]'>
-        <InclusionScoreChart data={result} selectedTeam={selectedTeam} />
+      <div className='relative min-w-[386] pt-16'>
+        <InclusionScoreChart data={chartData} selectedTeam={selectedTeam} />
       </div>
     </div>
   )
