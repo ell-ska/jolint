@@ -1,6 +1,6 @@
 'use client'
 
-import { ChangeEvent, useEffect, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import * as Checkbox from '@radix-ui/react-checkbox'
 import { Check } from 'lucide-react'
 
@@ -28,12 +28,14 @@ const FormSign = ({ title, content }: FormSignProps) => {
   })
 
   const handleForm = (e: ChangeEvent<HTMLInputElement>): void => {
-    // e.preventDefault()
-
     const key = e.target.name
     const value = e.target.value
 
     setUserInput((prev) => ({ ...prev, [key]: value }))
+  }
+
+  const handleCheckboxChange = (checked: Checkbox.CheckedState): void => {
+    setUserInput({ ...userInput, consent: checked })
   }
 
   const htmlInputFields: HtmlInputField = [
@@ -55,10 +57,6 @@ const FormSign = ({ title, content }: FormSignProps) => {
     },
   ]
 
-  useEffect(() => {
-    console.log({ userInput })
-  }, [userInput])
-
   return (
     <div>
       <FormContent title={title} content={content} />
@@ -71,9 +69,7 @@ const FormSign = ({ title, content }: FormSignProps) => {
           <Checkbox.Root
             className='h-6 w-6 rounded-md border-neutral-400 data-[state=unchecked]:border data-[state=checked]:bg-green'
             id='consent'
-            onCheckedChange={(checked) =>
-              setUserInput({ ...userInput, consent: checked })
-            }
+            onCheckedChange={(checked) => handleCheckboxChange(checked)}
           >
             <Checkbox.Indicator>
               <Check className='text-neutral-100' />
