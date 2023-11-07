@@ -33,9 +33,12 @@ const InclusionScoreTimeline = () => {
   const [chartData, setChartData] = useState<AggregatedDataEntry[]>([])
   const [selectedTeam, setSelectedTeam] = useState<string>('')
   const [teamKeys, setTeamKeys] = useState<string[]>([])
-  const data = useData('inclusionscore')
+  const {data, isLoading, error} = useData('inclusionscore')
 
- 
+  if (!isLoading) {
+    setChartData(data?.data.inclusion_metrics)
+    console.log('från is loading i timeline', chartData)
+ }
 
   console.log(data?.data.inslusion_metrics)
 
