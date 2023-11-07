@@ -13,6 +13,9 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: 'Jolint',
   description: 'Creating inclusive work cultures',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({
