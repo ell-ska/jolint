@@ -1,6 +1,6 @@
 'use client'
 
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import * as Checkbox from '@radix-ui/react-checkbox'
 import { Check } from 'lucide-react'
 
@@ -55,6 +55,10 @@ const FormSign = ({ title, content }: FormSignProps) => {
       handleForm: (e) => handleForm(e),
     },
   ]
+
+  useEffect(() => {
+    console.log({ userInput })
+  }, [userInput])
 
   return (
     <div>
