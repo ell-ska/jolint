@@ -34,7 +34,7 @@ const FormSign = ({ title, content }: FormSignProps) => {
   }
 
   const handleCheckboxChange = (checked: Checkbox.CheckedState): void => {
-    setUserInput({ ...userInput, consent: checked })
+    setUserInput((prev) => ({ ...prev, consent: checked }))
   }
 
   const htmlInputFields: HtmlInputField = [
