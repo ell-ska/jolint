@@ -1,5 +1,6 @@
 'use client'
 
+import { useData } from '@/hooks/useData'
 import GeneralGridLayout from '@/app/dashboard/_components/GeneralGridLayout'
 import { CardHeaderProps } from '@/utils/types'
 
@@ -27,6 +28,9 @@ const CardheaderProps: CardHeaderProps = {
 // ------------
 
 const Dashboard = () => {
+  const data = useData('inclusionscore')
+  console.log(data)
+
   return (
     <GeneralGridLayout>
       <Card classname='bg-neutral-600 col-span-4'>
