@@ -1,14 +1,14 @@
 import type { Config } from 'tailwindcss'
 
 export const colors = {
-  blue: {
-    dull: '#2C3386',
-    bright: '#0015CE',
-    light: '#91BBE7',
-  },
   green: '#7ACD6D',
   orange: '#F4770A',
   red: '#D3383B',
+  blue: {
+    bright: '#0015CE',
+    light: '#91BBE7',
+    dull: '#2C3386',
+  },
 }
 
 const config: Config = {
