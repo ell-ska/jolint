@@ -10,15 +10,14 @@ import {
 } from 'recharts'
 
 import { formatChartData } from '@/utils/formatChartData'
+import { getColors } from '@/utils/getColors'
 
 type InclusionOfNewHiresChartProps = {
   currentData: any[]
-  categories: string[]
 }
 
 const InclusionOfNewHiresChart = ({
   currentData,
-  categories,
 }: InclusionOfNewHiresChartProps) => {
   const { data, metrics } = formatChartData({
     data: currentData,
@@ -26,6 +25,8 @@ const InclusionOfNewHiresChart = ({
     category: 'demographic_value',
     value: 'inclusion_value',
   })
+
+  const gradients = getColors(metrics)
 
   return (
     <>
@@ -35,10 +36,23 @@ const InclusionOfNewHiresChart = ({
           margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
         >
           <defs>
-            <linearGradient id='test' x1='0' y1='0' x2='0' y2='1'>
-              <stop offset='5%' stopColor='#8884d8' stopOpacity={0.8} />
-              <stop offset='95%' stopColor='#8884d8' stopOpacity={0} />
-            </linearGradient>
+            {gradients.map((gradient) => (
+              <linearGradient
+                key={gradient.id}
+                id={gradient.id}
+                x1='0'
+                y1='0'
+                x2='0'
+                y2='1'
+              >
+                <stop
+                  offset='5%'
+                  stopColor={gradient.color}
+                  stopOpacity={0.8}
+                />
+                <stop offset='95%' stopColor={gradient.color} stopOpacity={0} />
+              </linearGradient>
+            ))}
           </defs>
           <XAxis dataKey='time' axisLine={false} tickLine={false} />
           <YAxis
@@ -48,14 +62,14 @@ const InclusionOfNewHiresChart = ({
             tickLine={false}
           />
           <Tooltip />
-          {metrics.map((metric) => (
+          {metrics.map((metric, index) => (
             <Area
               key={metric}
               type='monotone'
               dataKey={metric}
-              stroke='#8884d8'
+              stroke={gradients[index].color}
               fillOpacity={1}
-              fill={`url(#test)`}
+              fill={`url(#${gradients[index].id})`}
             />
           ))}
         </AreaChart>
