@@ -12,7 +12,17 @@ const CardHeader = ({ title, currentMetrics, dropdown }: CardHeaderProps) => {
         <div className='flex gap-2'>
           {currentMetrics?.map(({ metric, circleColor }) => (
             <div key={metric} className='flex items-center gap-1'>
-              <div className={cn('h-2 w-2 rounded-full', circleColor)} />
+              <div
+                style={{
+                  backgroundColor: circleColor.startsWith('#')
+                    ? circleColor
+                    : undefined,
+                }}
+                className={cn(
+                  'h-2 w-2 rounded-full',
+                  circleColor.startsWith('bg-') && circleColor,
+                )}
+              />
               <p className='text-xs'>{metric}</p>
             </div>
           ))}
