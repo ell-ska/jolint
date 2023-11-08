@@ -71,7 +71,7 @@ const InclusionScoreTimeline = () => {
           align: 'start',
         }}
       />
-      <div className='relative min-w-[386] pt-16'>
+      <div className='relative pt-16'>
         <InclusionScoreChart data={chartData} selectedTeam={selectedTeam} />
       </div>
     </div>
