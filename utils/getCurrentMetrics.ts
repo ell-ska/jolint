@@ -1,7 +1,7 @@
 import { getUnique } from '@/utils/getUnique'
+import { extractHexColors } from '@/utils/getColors'
 import { colors } from '@/tailwind.config'
 import type { metrics } from '@/utils/types'
-import { extractHexColors } from '@/utils/getColors'
 
 const getCurrentMetrics = (data: any[], metric: string): metrics => {
   const uniqueMetrics = getUnique(data, metric)
