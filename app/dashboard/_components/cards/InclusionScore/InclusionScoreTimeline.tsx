@@ -1,9 +1,11 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+
+import { useState, useEffect } from 'react'
+
+import { useData } from '@/hooks/useData'
 import { getDataTeamsAndScores } from '@/utils/getDataTeamsAndScores'
 import InclusionScoreChart from '@/app/dashboard/_components/cards/InclusionScore/InclusionScoreChart'
 import CardHeader from '@/app/dashboard/_components/CardHeader'
-import { useData } from '@/hooks/useData'
 
 type AggregatedDataEntry = {
   month: string

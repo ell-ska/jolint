@@ -1,4 +1,5 @@
 'use client'
+
 import {
   AreaChart,
   Area,
@@ -33,10 +34,7 @@ type ChartComponentProps = {
   selectedTeam: string
 }
 
-const InclusionScoreChart: React.FC<ChartComponentProps> = ({
-  data,
-  selectedTeam,
-}) => {
+const InclusionScoreChart = ({ data, selectedTeam }: ChartComponentProps) => {
   return (
     <ResponsiveContainer height={220} width={'100%'}>
       <AreaChart
@@ -54,7 +52,7 @@ const InclusionScoreChart: React.FC<ChartComponentProps> = ({
             <stop offset='95%' stopColor='#dee1f7' stopOpacity={0} />
           </linearGradient>
         </defs>
-        <CartesianGrid strokeDasharray='3' />
+        {/* <CartesianGrid strokeDasharray='3' /> */}
         <XAxis dataKey='month' stroke='#0f172a' tick={{ fontSize: 12 }} />
         <YAxis
           dataKey='Score'

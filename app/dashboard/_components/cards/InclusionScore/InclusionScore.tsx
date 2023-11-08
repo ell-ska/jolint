@@ -1,4 +1,5 @@
 import * as Progress from '@radix-ui/react-progress'
+
 import { cn } from '@/utils/classnames'
 import Card from '@/components/Card'
 import InclusionTrend from '@/app/dashboard/_components/cards/InclusionScore/InclusionTrends'
