@@ -44,21 +44,21 @@ const InclusionScoreChart = ({ data, selectedTeam }: ChartComponentProps) => {
       >
         <defs>
           <linearGradient id='colorMA' x1='0' y1='0' x2='0' y2='1'>
-            <stop offset='5%' stopColor=' #687af6' stopOpacity={0.8} />
-            <stop offset='95%' stopColor='#9ba6f8' stopOpacity={0} />
+            <stop offset='5%' stopColor='#91BBE7' stopOpacity={0.8} />
+            <stop offset='95%' stopColor='#2C3386' stopOpacity={0} />
           </linearGradient>
           <linearGradient id='colorHR' x1='0' y1='0' x2='0' y2='1'>
-            <stop offset='5%' stopColor='#bec3ee' stopOpacity={0.8} />
-            <stop offset='95%' stopColor='#dee1f7' stopOpacity={0} />
+            <stop offset='5%' stopColor='#CBD5E1' stopOpacity={0.8} />
+            <stop offset='95%' stopColor='#E2E8F0' stopOpacity={0} />
           </linearGradient>
         </defs>
         {/* <CartesianGrid strokeDasharray='3' /> */}
-        <XAxis dataKey='month' stroke='#0f172a' tick={{ fontSize: 12 }} />
+        <XAxis dataKey='month' stroke='#0F172A' tick={{ fontSize: 12 }} />
         <YAxis
           dataKey='Score'
           type='number'
           domain={[0, 100]}
-          stroke='#0f172a'
+          stroke='#0F172A'
           tick={{ fontSize: 12 }}
         />
         <Tooltip />

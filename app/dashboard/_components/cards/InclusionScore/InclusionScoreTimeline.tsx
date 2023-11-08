@@ -61,8 +61,8 @@ const InclusionScoreTimeline = () => {
       <CardHeader
         title='Timeline'
         currentMetrics={[
-          { metric: 'Company Average', circleColor: 'bg-[#91BBE7]' },
-          { metric: selectedTeam, circleColor: 'bg-[#0015CE]' },
+          { metric: 'Company Average', circleColor: 'bg-blue-light' },
+          { metric: selectedTeam, circleColor: 'bg-blue-bright' },
         ]}
         dropdown={{
           onSelect: (value) => setSelectedTeam(value),
