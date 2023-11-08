@@ -1,19 +1,15 @@
 import { getUnique } from '@/utils/getUnique'
+import { colors } from '@/tailwind.config'
 import type { metrics } from '@/utils/types'
-
-const colors = [
-  'bg-blue-bright',
-  'bg-orange',
-  'bg-green',
-  'bg-red',
-  'bg-blue-light',
-]
+import { extractHexColors } from '@/utils/getColors'
 
 const getCurrentMetrics = (data: any[], metric: string): metrics => {
   const uniqueMetrics = getUnique(data, metric)
+  const hexColors = extractHexColors(colors)
+
   return uniqueMetrics.map((metric, index) => ({
     metric,
-    circleColor: colors[index],
+    circleColor: hexColors[index],
   }))
 }
 

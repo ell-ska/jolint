@@ -54,12 +54,7 @@ const InclusionOfNewHires = () => {
           }}
         />
       )}
-      {currentData && categories && (
-        <InclusionOfNewHiresChart
-          currentData={currentData}
-          categories={categories}
-        />
-      )}
+      {currentData && <InclusionOfNewHiresChart currentData={currentData} />}
     </Card>
   )
 }
