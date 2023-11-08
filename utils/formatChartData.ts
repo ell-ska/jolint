@@ -1,15 +1,17 @@
 type formatChartDataParams = {
   data: any[]
   xAxis: string
-  metric: string
+  category: string
   value: string
+  id: string
 }
 
 const formatChartData = ({
   data,
   xAxis,
-  metric,
+  category,
   value,
+  id,
 }: formatChartDataParams) => {
   let restructuredData: any[] = []
 
@@ -19,11 +21,12 @@ const formatChartData = ({
     )
 
     if (existingEntry) {
-      existingEntry[originalEntry[metric]] = originalEntry[value]
+      existingEntry[originalEntry[category]] = originalEntry[value]
     } else {
       const newEntry = {
         [xAxis]: originalEntry[xAxis],
-        [originalEntry[metric]]: originalEntry[value],
+        [originalEntry[category]]: originalEntry[value],
+        id: originalEntry[id],
       }
 
       restructuredData = [...restructuredData, newEntry]
