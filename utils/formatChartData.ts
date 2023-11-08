@@ -3,7 +3,6 @@ type formatChartDataParams = {
   xAxis: string
   category: string
   value: string
-  id: string
 }
 
 const formatChartData = ({
@@ -11,13 +10,12 @@ const formatChartData = ({
   xAxis,
   category,
   value,
-  id,
 }: formatChartDataParams) => {
   let restructuredData: any[] = []
 
   data.forEach((originalEntry) => {
     const existingEntry = restructuredData.find(
-      (entry) => entry.time === originalEntry.time,
+      (entry) => entry[xAxis] === originalEntry[xAxis],
     )
 
     if (existingEntry) {
@@ -26,14 +24,17 @@ const formatChartData = ({
       const newEntry = {
         [xAxis]: originalEntry[xAxis],
         [originalEntry[category]]: originalEntry[value],
-        id: originalEntry[id],
       }
 
       restructuredData = [...restructuredData, newEntry]
     }
   })
 
-  return restructuredData
+  const metrics = Object.keys(restructuredData[0]).filter(
+    (metric) => metric !== xAxis,
+  )
+
+  return { data: restructuredData, metrics }
 }
 
 export { formatChartData }
