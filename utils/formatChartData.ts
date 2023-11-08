@@ -19,11 +19,11 @@ const formatChartData = ({
     )
 
     if (existingEntry) {
-      existingEntry[originalEntry[category]] = originalEntry[value]
+      existingEntry[originalEntry[category]] = originalEntry[value].toFixed(1)
     } else {
       const newEntry = {
         [xAxis]: originalEntry[xAxis],
-        [originalEntry[category]]: originalEntry[value],
+        [originalEntry[category]]: originalEntry[value].toFixed(1),
       }
 
       restructuredData = [...restructuredData, newEntry]
