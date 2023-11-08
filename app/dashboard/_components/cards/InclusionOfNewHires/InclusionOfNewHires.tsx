@@ -17,6 +17,7 @@ const InclusionOfNewHires = () => {
   )
   const [categories, setCategories] = useState<string[] | null>(null)
   const [currentMetrics, setCurrentMetrics] = useState<metrics | null>(null)
+  const [currentData, setCurrentData] = useState<any[] | null>(null)
 
   const update = useCallback(
     (demographic?: string) => {
@@ -28,6 +29,7 @@ const InclusionOfNewHires = () => {
         (data: any) => data.demographic_category === currentDemographic,
       )
 
+      setCurrentData(currentData)
       setCurrentDemographic(currentDemographic)
       setCategories(getUnique(data, 'demographic_category'))
       setCurrentMetrics(getCurrentMetrics(currentData, 'demographic_value'))
@@ -52,7 +54,7 @@ const InclusionOfNewHires = () => {
           }}
         />
       )}
-      <InclusionOfNewHiresChart />
+      {currentData && <InclusionOfNewHiresChart currentData={currentData} />}
     </Card>
   )
 }
