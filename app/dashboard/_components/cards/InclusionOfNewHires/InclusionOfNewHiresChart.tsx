@@ -54,12 +54,18 @@ const InclusionOfNewHiresChart = ({
               </linearGradient>
             ))}
           </defs>
-          <XAxis dataKey='time' axisLine={false} tickLine={false} />
-          <YAxis
-            domain={[0, 100]}
-            width={32}
+          <XAxis
+            interval={'preserveStartEnd'}
+            dataKey='time'
             axisLine={false}
             tickLine={false}
+            height={32}
+          />
+          <YAxis
+            domain={[0, 100]}
+            axisLine={false}
+            tickLine={false}
+            width={32}
           />
           <Tooltip />
           {metrics.map((metric, index) => (
