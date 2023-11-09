@@ -17,7 +17,7 @@ const Dropdown = ({
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
         <button className='group flex max-w-max cursor-pointer items-center gap-2 rounded-lg border border-neutral-400 bg-neutral-100 px-2 py-1 text-xs outline-none'>
-          {formater ? formater(selected) : selected}
+          <p className='whitespace-nowrap'>{formater ? formater(selected) : selected}</p>
           <ChevronDown
             size={14}
             className='text-neutral-400 group-data-[state=open]:hidden'
