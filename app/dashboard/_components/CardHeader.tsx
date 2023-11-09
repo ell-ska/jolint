@@ -6,10 +6,10 @@ import { CardHeaderProps } from '@/utils/types'
 
 const CardHeader = ({ title, currentMetrics, dropdown }: CardHeaderProps) => {
   return (
-    <div className='flex flex-col items-start gap-2 md:flex-row md:flex-wrap md:items-center md:justify-between'>
-      <h3 className='font-heading text-xl font-bold'>{title}</h3>
-      <div className='flex flex-col gap-2 md:flex-row'>
-        <div className='flex gap-2'>
+    <div className='flex flex-col items-start gap-2 md:flex-row md:justify-between md:items-baseline	'>
+      <div className='flex flex-col flex-wrap gap-2 md:flex-grow md:flex-row md:justify-between'>
+        <h3 className='font-heading text-xl font-bold'>{title}</h3>
+        <div className='flex gap-2 whitespace-nowrap'>
           {currentMetrics?.map(({ metric, circleColor }) => (
             <div key={metric} className='flex items-center gap-1'>
               <div
@@ -27,8 +27,8 @@ const CardHeader = ({ title, currentMetrics, dropdown }: CardHeaderProps) => {
             </div>
           ))}
         </div>
-        <Dropdown {...dropdown} />
       </div>
+      <Dropdown {...dropdown} />
     </div>
   )
 }
