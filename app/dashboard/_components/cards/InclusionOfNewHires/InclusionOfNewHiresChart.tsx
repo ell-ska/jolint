@@ -52,8 +52,15 @@ const InclusionOfNewHiresChart = ({
           axisLine={false}
           tickLine={false}
           height={32}
+          className='text-xs'
         />
-        <YAxis domain={[0, 100]} axisLine={false} tickLine={false} width={32} />
+        <YAxis
+          domain={[0, 100]}
+          axisLine={false}
+          tickLine={false}
+          width={32}
+          className='text-xs'
+        />
         <Tooltip />
         {metrics.map((metric, index) => (
           <Area
