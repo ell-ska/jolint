@@ -6,12 +6,7 @@ import { useData } from '@/hooks/useData'
 import { getDataTeamsAndScores } from '@/utils/getDataTeamsAndScores'
 import InclusionScoreChart from '@/app/dashboard/_components/cards/InclusionScore/InclusionScoreChart'
 import CardHeader from '@/app/dashboard/_components/CardHeader'
-
-type AggregatedDataEntry = {
-  month: string
-  [team: string]: number | string | null
-  benchmark: number
-}
+import type { AggregatedDataEntry } from '@/utils/types'
 
 const InclusionScoreTimeline = () => {
   const [chartData, setChartData] = useState<AggregatedDataEntry[]>([])
@@ -32,8 +27,8 @@ const InclusionScoreTimeline = () => {
     ]
 
     const result = originalData?.inclusion_metrics
-    const d = getDataTeamsAndScores(result, teamsToAggregate, 'inclusion_score')
-    setChartData(d)
+    const data = getDataTeamsAndScores(result, teamsToAggregate, 'inclusion_score')
+    setChartData(data)
   }, [isLoading, error, originalData])
 
   useEffect(() => {
@@ -57,7 +52,7 @@ const InclusionScoreTimeline = () => {
   }, [chartData])
 
   return (
-    <div className='relative flex h-full w-full flex-col'>
+    <div className='flex w-full flex-col gap-16'>
       <CardHeader
         title='Timeline'
         currentMetrics={[
@@ -71,9 +66,7 @@ const InclusionScoreTimeline = () => {
           align: 'start',
         }}
       />
-      <div className='relative pt-16'>
-        <InclusionScoreChart data={chartData} selectedTeam={selectedTeam} />
-      </div>
+      <InclusionScoreChart data={chartData} selectedTeam={selectedTeam} />
     </div>
   )
 }

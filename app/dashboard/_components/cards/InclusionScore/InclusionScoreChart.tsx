@@ -5,10 +5,11 @@ import {
   Area,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
+
+import type { AggregatedDataEntry } from '@/utils/types'
 
 type DataItem = {
   month: string
@@ -23,12 +24,6 @@ type DataItem = {
   [key: string]: number | string
 }
 
-type AggregatedDataEntry = {
-  month: string
-  [team: string]: number | string | null
-  benchmark: number
-}
-
 type ChartComponentProps = {
   data: DataItem[] | AggregatedDataEntry[]
   selectedTeam: string
@@ -36,10 +31,10 @@ type ChartComponentProps = {
 
 const InclusionScoreChart = ({ data, selectedTeam }: ChartComponentProps) => {
   return (
-    <ResponsiveContainer height={220} width={'100%'}>
+    <ResponsiveContainer height={220}>
       <AreaChart
         data={data}
-        margin={{ top: 0, right: -20, left: -25, bottom: -10 }}
+        margin={{ top: 0, right: -20, left: -30, bottom: -10 }}
         style={{ strokeWidth: 0 }}
       >
         <defs>
@@ -52,7 +47,6 @@ const InclusionScoreChart = ({ data, selectedTeam }: ChartComponentProps) => {
             <stop offset='95%' stopColor='#E2E8F0' stopOpacity={0} />
           </linearGradient>
         </defs>
-        {/* <CartesianGrid strokeDasharray='3' /> */}
         <XAxis dataKey='month' stroke='#0F172A' tick={{ fontSize: 12 }} />
         <YAxis
           dataKey='Score'
