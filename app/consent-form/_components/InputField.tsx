@@ -11,7 +11,13 @@ const InputField = ({
   return (
     <div className='flex gap-2 border-b'>
       <label htmlFor={htmlFor}>{labelValue}</label>
-      <input className='focus:outline-none' type={type} id={id} name={name} onChange={handleForm} />
+      <input
+        className='focus:outline-none'
+        type={type}
+        id={id}
+        name={name}
+        onChange={handleForm}
+      />
     </div>
   )
 }
