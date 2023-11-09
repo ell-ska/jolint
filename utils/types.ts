@@ -28,12 +28,16 @@ export type ChapterKeys =
   | 'overview-5-submit'
   | 'thank-you'
 
+export type ImageCard = { img: string; imgTitle: string; imgText: string }
+
+export type metrics = {
+  metric: string
+  circleColor: string
+}[]
+
 export type CardHeaderProps = {
   title: string
-  currentMetrics?: {
-    metric: string
-    circleColor: string
-  }[]
+  currentMetrics?: metrics
   dropdown: DropdownProps
 }
 
@@ -44,8 +48,6 @@ export type DropdownProps = {
   align?: 'start' | 'end'
   formater?: (option: string) => string
 }
-
-export type ImageCard = { img: string; imgTitle: string; imgText: string }
 
 export type InputFieldType = {
   htmlFor: string
