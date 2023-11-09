@@ -30,7 +30,7 @@ const InclusionScore = ({
   benchmark = 50,
 }: InclusionScoreProps) => {
   return (
-    <Card classname='relative col-span-full lg:col-span-4 h-min flex items-center flex-col lg:flex-row lg:items-start'>
+    <Card classname='relative gap-8 lg:gap-20 col-span-full lg:col-span-4 h-min flex items-center flex-col lg:flex-row lg:items-start'>
       <div className='flex min-w-[220px] flex-col gap-8 lg:flex-col '>
         <h3 className='font-heading text-3xl font-bold'>{title}</h3>
         <div className='self-center font-heading text-5xl font-bold'>
@@ -54,6 +54,7 @@ const InclusionScore = ({
           ))}
         </div>
       </div>
+
       <InclusionScoreTimeline />
     </Card>
   )

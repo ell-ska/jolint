@@ -57,7 +57,7 @@ const InclusionScoreTimeline = () => {
   }, [chartData])
 
   return (
-    <div className='relative flex h-full w-full flex-col lg:pl-20'>
+    <div className='relative flex h-full w-full flex-col'>
       <CardHeader
         title='Timeline'
         currentMetrics={[
