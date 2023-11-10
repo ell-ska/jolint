@@ -7,7 +7,7 @@ import WeeklyInclusionScore from '@/app/dashboard/_components/cards/WeeklyInclus
 import InclusionOfNewHires from '@/app/dashboard/_components/cards/InclusionOfNewHires/InclusionOfNewHires'
 import Differences from '@/app/dashboard/_components/cards/Differences/Differences'
 import Trends from '@/app/dashboard/_components/cards/Trends'
-import RiskAndOppsSection from '@/app/dashboard/_components/RiskAndOpps/RiskAndOpportunitiesSection'
+import RiskAndOppsSection from '@/app/dashboard/_components/cards/RiskAndOpps/RiskAndOpportunitiesSection'
 
 const Dashboard = () => {
   return (

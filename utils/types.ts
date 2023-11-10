@@ -73,6 +73,11 @@ export type dataResponse = {
   }
 }
 
+export type AggregatedDataEntry = {
+  month: string
+  [team: string]: number | string | null
+  benchmark: number
+}
 export type WeeklyData = {
   name: string
   score: number

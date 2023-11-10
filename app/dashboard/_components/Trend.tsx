@@ -1,11 +1,16 @@
+import { cn } from '@/utils/classnames'
 import { ArrowUpCircle, ArrowDownCircle, ArrowRightCircle } from 'lucide-react'
 
 type WeeklyInclusionScoreTrendProps = {
   trend: number
+  ending?: string
+  className?: string
 }
 
 const WeeklyInclusionScoreTrend = ({
   trend,
+  ending,
+  className,
 }: WeeklyInclusionScoreTrendProps) => {
   const Icon = () => {
     if (Math.sign(trend) === 1)
@@ -18,9 +23,11 @@ const WeeklyInclusionScoreTrend = ({
   }
 
   return (
-    <div className='flex items-center gap-1'>
+    <div className={cn('flex items-center gap-1', className)}>
       <Icon />
-      <span>{Math.sign(trend) === 1 ? `+${trend}` : trend}</span>
+      <span>
+        {Math.sign(trend) === 1 ? `+${trend}` : trend} {ending}
+      </span>
     </div>
   )
 }
