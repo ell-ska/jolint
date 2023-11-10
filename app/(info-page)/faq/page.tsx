@@ -41,7 +41,7 @@ const Faq = () => {
       <p className='pt-6 text-lg md:pt-6 md:text-2xl'>
         Learn more about Jolint and our work method
       </p>
-      <div className='grid grid-cols-1 gap-4 pt-8 xl:grid-cols-2 md:gap-6 md:pt-20'>
+      <div className='grid grid-cols-1 gap-4 pt-8 md:gap-6 md:pt-20 xl:grid-cols-2'>
         {qna.map(({ question, answer }) => (
           <Accordion
             className='flex flex-col justify-center gap-4 rounded-2xl bg-neutral-100 p-4'
