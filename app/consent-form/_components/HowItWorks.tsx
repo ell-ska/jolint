@@ -15,8 +15,9 @@ const HowItWorks = () => {
           className='absolute right-0 z-50 mt-3 w-64 rounded-lg border border-neutral-400 bg-neutral-100 p-4 outline-0'
         >
           <p className='text-sm'>
-            Here is some information about how it works that shows on hover or
-            click.
+            Jolint is an AI-powered tool that enhances workplace inclusion by
+            anonymously analyzing communication patterns, thereby providing
+            insights on metrics of inclusion in a integrity preserving manner.
           </p>
         </Dialog.Content>
       </Dialog.Root>
