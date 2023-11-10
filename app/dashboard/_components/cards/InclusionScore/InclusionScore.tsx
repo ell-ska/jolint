@@ -22,7 +22,6 @@ const InclusionScore = () => {
       if (isLoading || error || !initial) return
 
       const data = initial?.inclusion_metrics
-      console.log(data)
       const teams = getUnique(data, 'team').filter(
         (team) => team !== 'company_average',
       )
