@@ -72,3 +72,11 @@ export type dataResponse = {
     message: string
   }
 }
+
+export type WeeklyData = {
+  name: string
+  score: number
+  benchmark?: number
+  trend?: number
+  desc?: string
+}
