@@ -2,21 +2,16 @@ import * as Progress from '@radix-ui/react-progress'
 
 import { cn } from '@/utils/classnames'
 import WeeklyInclusionScoreTrend from '@/app/dashboard/_components/cards/WeeklyInclusionScore/WeeklyInclusionScoreTrend'
-import WeeklyInclusionScoreInfo from './WeeklyInclusionScoreInfo'
+import WeeklyInclusionScoreInfo from '@/app/dashboard/_components/cards/WeeklyInclusionScore/WeeklyInclusionScoreInfo'
+import type { WeeklyData } from '@/utils/types'
 
-type WeeklyInclusionScoreItemProps = {
-  name: string
-  score: number
-  benchmark: number
-  trend: number
-  desc?: string
-}
+type WeeklyInclusionScoreItemProps = WeeklyData
 
 const WeeklyInclusionScoreItem = ({
   name,
   score,
-  benchmark,
-  trend,
+  benchmark = 50,
+  trend = 0,
   desc,
 }: WeeklyInclusionScoreItemProps) => {
   return (

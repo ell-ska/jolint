@@ -10,4 +10,14 @@ const slugify = (string: string) => {
     .replace(/--+/g, '-')
 }
 
-export { slugify }
+const unslugify = (slug: string) => {
+  return slug
+    .replace(/-/g, ' ')
+    .replace(/_/g, ' ')
+    .replace(
+      /\w\S*/g,
+      (text) => text.charAt(0).toUpperCase() + text.slice(1).toLowerCase(),
+    )
+}
+
+export { slugify, unslugify }
