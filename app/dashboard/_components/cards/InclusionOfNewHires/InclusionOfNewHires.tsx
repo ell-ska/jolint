@@ -9,6 +9,7 @@ import Card from '@/components/Card'
 import CardHeader from '@/app/dashboard/_components/CardHeader'
 import InclusionOfNewHiresChart from '@/app/dashboard/_components/cards/InclusionOfNewHires/InclusionOfNewHiresChart'
 import type { metrics } from '@/utils/types'
+import Loading from '@/app/dashboard/_components/Loading'
 
 const InclusionOfNewHires = () => {
   const { data: initial, error, isLoading } = useData('demographic-timeline')
@@ -43,6 +44,7 @@ const InclusionOfNewHires = () => {
 
   return (
     <Card classname='col-span-full lg:col-span-3 flex flex-col gap-8'>
+      {isLoading && <Loading height={145} />}
       {currentDemographic && categories && currentMetrics && (
         <CardHeader
           title='Inclusion of new hires'

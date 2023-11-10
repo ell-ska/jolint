@@ -7,6 +7,7 @@ import Card from '@/components/Card'
 import CardHeader from '@/app/dashboard/_components/CardHeader'
 import DifferencesGraph from '@/app/dashboard/_components/cards/Differences/DifferencesGraph'
 import type { metrics } from '@/utils/types'
+import Loading from '@/app/dashboard/_components/Loading'
 
 const Differences = () => {
   const { data: initial, error, isLoading } = useData('demographic-inclusion')
@@ -44,6 +45,7 @@ const Differences = () => {
 
   return (
     <Card classname='col-span-full lg:col-span-3 h-min gap-8 flex flex-col'>
+      {isLoading && <Loading height={280} />}
       {currentDemographic && categories && currentMetrics && (
         <CardHeader
           title='Differences'
@@ -55,7 +57,7 @@ const Differences = () => {
           }}
         />
       )}
-      {currentData && <DifferencesGraph currentData={currentData}/>}
+      {currentData && <DifferencesGraph currentData={currentData} />}
     </Card>
   )
 }

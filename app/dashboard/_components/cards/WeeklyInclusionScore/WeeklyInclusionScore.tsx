@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { Suspense, useCallback, useEffect, useState } from 'react'
 
 import { useData } from '@/hooks/useData'
 import { formatWeeklyData } from '@/utils/formatWeeklyData'
@@ -10,6 +10,7 @@ import { descriptions } from '@/lib/inclusionScoreDescriptions'
 import Card from '@/components/Card'
 import Dropdown from '@/app/dashboard/_components/Dropdown'
 import WeeklyInclusionScoreItem from '@/app/dashboard/_components/cards/WeeklyInclusionScore/WeeklyInclusionScoreItem'
+import Loading from '@/app/dashboard/_components/Loading'
 
 type WeeklyInclusionScoreProps = {
   title?: string
@@ -59,6 +60,7 @@ const WeeklyInclusionScore = ({
 
   return (
     <Card classname='col-span-full lg:col-span-2 h-min'>
+      {isLoading && <Loading height={200} padding='mb-6' />}
       {weeks && currentWeek && (
         <div className='flex flex-col items-start justify-between gap-2 sm:flex-row lg:flex-col'>
           <h3 className='font-heading text-xl font-bold'>{title}</h3>
