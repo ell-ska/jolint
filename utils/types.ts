@@ -78,3 +78,10 @@ export type AggregatedDataEntry = {
   [team: string]: number | string | null
   benchmark: number
 }
+export type WeeklyData = {
+  name: string
+  score: number
+  benchmark?: number
+  trend?: number
+  desc?: string
+}
