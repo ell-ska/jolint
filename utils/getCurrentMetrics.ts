@@ -8,7 +8,7 @@ const getCurrentMetrics = (data: any[], metric: string): metrics => {
   const hexColors = extractHexColors(colors)
 
   return uniqueMetrics.map((metric, index) => ({
-    metric,
+    metric: metric === 'company_average' ? 'Company Average' : metric,
     circleColor: hexColors[index],
   }))
 }

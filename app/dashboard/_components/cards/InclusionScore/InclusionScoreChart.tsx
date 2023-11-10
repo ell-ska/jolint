@@ -8,43 +8,49 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
+import { useMediaQuery } from 'usehooks-ts'
 
-import type { AggregatedDataEntry } from '@/utils/types'
+import { formatChartData } from '@/utils/formatChartData'
+import { getColors } from '@/utils/getColors'
+import { colors } from '@/tailwind.config'
 
-type DataItem = {
-  month: string
-  first_day_of_week: number
-  iso_week: string
-  team: string
-  inclusion_score: number
-  work_habits: number
-  cross_functional_inclusion: number
-  informal_influence: number
-  benchmark: number
-  [key: string]: number | string
+type InclusionScoreChartProps = {
+  currentData: any[]
 }
 
-type ChartComponentProps = {
-  data: DataItem[] | AggregatedDataEntry[]
-  selectedTeam: string
-}
+const InclusionScoreChart = ({ currentData }: InclusionScoreChartProps) => {
+  const md = useMediaQuery('(min-width: 768px)')
 
-const InclusionScoreChart = ({ data, selectedTeam }: ChartComponentProps) => {
+  const { data, metrics } = formatChartData({
+    data: currentData,
+    xAxis: 'month',
+    category: 'team',
+    value: 'inclusion_score',
+    benchmark: 50,
+  })
+
+  const gradients = getColors(metrics)
+
   return (
-    <ResponsiveContainer height={220}>
+    <ResponsiveContainer height={md ? 220 : 140}>
       <AreaChart
         data={data}
         margin={{ top: 0, right: -20, left: -30, bottom: -10 }}
       >
         <defs>
-          <linearGradient id='colorMA' x1='0' y1='0' x2='0' y2='1'>
-            <stop offset='5%' stopColor='#91BBE7' stopOpacity={0.8} />
-            <stop offset='95%' stopColor='#2C3386' stopOpacity={0} />
-          </linearGradient>
-          <linearGradient id='colorHR' x1='0' y1='0' x2='0' y2='1'>
-            <stop offset='5%' stopColor='#CBD5E1' stopOpacity={0.8} />
-            <stop offset='95%' stopColor='#E2E8F0' stopOpacity={0} />
-          </linearGradient>
+          {gradients.map((gradient) => (
+            <linearGradient
+              key={gradient.id}
+              id={gradient.id}
+              x1='0'
+              y1='0'
+              x2='0'
+              y2='1'
+            >
+              <stop offset='5%' stopColor={gradient.color} stopOpacity={0.8} />
+              <stop offset='95%' stopColor={gradient.color} stopOpacity={0} />
+            </linearGradient>
+          ))}
         </defs>
         <XAxis
           dataKey='month'
@@ -53,32 +59,27 @@ const InclusionScoreChart = ({ data, selectedTeam }: ChartComponentProps) => {
           tickLine={false}
         />
         <YAxis
-          dataKey='Score'
-          type='number'
           domain={[0, 100]}
           className='text-xs'
           axisLine={false}
           tickLine={false}
         />
         <Tooltip />
+        {metrics.map((metric, index) => (
+          <Area
+            key={metric}
+            type='monotone'
+            dataKey={metric}
+            stroke={gradients[index].color}
+            fill={`url(#${gradients[index].id})`}
+            strokeWidth={2}
+          />
+        ))}
         <Area
-          type='monotone'
-          dataKey={selectedTeam}
-          stroke='#0015CE'
-          fill='url(#colorMA)'
-          strokeWidth={2}
-        />
-        <Area
-          type='monotone'
-          dataKey='company_average'
-          stroke='#91BBE7'
-          fill='url(#colorHR)'
-          strokeWidth={2}
-        />
-        <Area
+          key='benchmark'
           type='monotone'
           dataKey='benchmark'
-          stroke='#D3383B'
+          stroke={colors.red}
           fill='transparent'
           strokeWidth={2}
           strokeDasharray='6'

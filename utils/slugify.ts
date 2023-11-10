@@ -12,7 +12,6 @@ const slugify = (string: string) => {
 
 const unslugify = (slug: string) => {
   return slug
-    .replace(/-/g, ' ')
     .replace(/_/g, ' ')
     .replace(
       /\w\S*/g,

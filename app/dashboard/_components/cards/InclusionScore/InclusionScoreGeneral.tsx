@@ -1,33 +1,30 @@
 import * as Progress from '@radix-ui/react-progress'
 
-import Trend from '@/app/dashboard/_components/Trend'
 import { cn } from '@/utils/classnames'
+import Trend from '@/app/dashboard/_components/Trend'
 
 type InclusionScoreProps = {
-  title?: string
-  score?: number
+  currentData: any[]
   benchmark?: number
 }
 
-const trendData = [
-  {
-    trend: +5,
-    text: 'since last month',
-  },
-  {
-    trend: +12,
-    text: 'above benchmark',
-  },
-]
-
 const InclusionScoreGeneral = ({
-  title = 'Inclusion score',
-  score = 76,
+  currentData,
   benchmark = 50,
 }: InclusionScoreProps) => {
+  const inclusionScore = currentData
+    .filter((data) => data.team === 'company_average')
+    .map((data) => data.inclusion_score)
+
+  const score = inclusionScore[inclusionScore.length - 1].toFixed()
+  const previousScore = inclusionScore[inclusionScore.length - 2].toFixed()
+
+  const comparedToPrevious = Number((score - previousScore).toFixed())
+  const comparedToBenchmark = Number((score - benchmark).toFixed())
+
   return (
-    <div className='flex flex-col gap-8 lg:flex-col'>
-      <h3 className='font-heading text-3xl font-bold'>{title}</h3>
+    <div className='flex flex-col gap-6 lg:flex-col'>
+      <h3 className='font-heading text-3xl font-bold'>Inclusion score</h3>
       <div className='self-center font-heading text-5xl font-bold'>{score}</div>
       <Progress.Root className='relative h-8 w-full overflow-hidden rounded-md bg-neutral-200'>
         <Progress.Indicator
@@ -38,13 +35,21 @@ const InclusionScoreGeneral = ({
           style={{ transform: `translateX(-${100 - score}%)` }}
         />
       </Progress.Root>
-      <div>
-        {trendData.map(({ trend, text }) => (
-          <div key={trend} className='flex gap-2 first-of-type:pb-4'>
-            <Trend trend={trend} />
-            <p>{text}</p>
-          </div>
-        ))}
+      <div className='space-y-4'>
+        <Trend
+          trend={comparedToPrevious}
+          ending='since last month'
+          className='gap-2'
+        />
+        <Trend
+          trend={comparedToBenchmark}
+          ending={
+            Math.sign(comparedToBenchmark) === 1
+              ? 'above'
+              : 'below' + ' benchmark'
+          }
+          className='gap-2'
+        />
       </div>
     </div>
   )

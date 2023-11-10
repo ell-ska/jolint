@@ -4,42 +4,37 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { useData } from '@/hooks/useData'
 import { getUnique } from '@/utils/getUnique'
-import { formatWeeklyData } from '@/utils/formatWeeklyData'
+import { getCurrentMetrics } from '@/utils/getCurrentMetrics'
 import Card from '@/components/Card'
 import InclusionScoreTimeline from '@/app/dashboard/_components/cards/InclusionScore/InclusionScoreTimeline'
 import InclusionScoreGeneral from '@/app/dashboard/_components/cards/InclusionScore/InclusionScoreGeneral'
+import type { metrics } from '@/utils/types'
 
 const InclusionScore = () => {
   const { data: initial, error, isLoading } = useData('inclusionscore')
-  const [currentWeek, setCurrentWeek] = useState<string | null>(null)
-  const [weeks, setWeeks] = useState<string[] | null>(null)
+  const [currentTeam, setCurrentTeam] = useState<string | null>(null)
+  const [categories, setCategories] = useState<string[] | null>(null)
+  const [currentMetrics, setCurrentMetrics] = useState<metrics | null>(null)
   const [currentData, setCurrentData] = useState<any[] | null>(null)
 
   const update = useCallback(
-    (week?: string) => {
+    (team?: string) => {
       if (isLoading || error || !initial) return
 
       const data = initial?.inclusion_metrics
-
-      const currentWeek = week || data.reverse()[0].iso_week
-      const currentData = data.filter(
-        (data: any) => data.iso_week === currentWeek,
+      console.log(data)
+      const teams = getUnique(data, 'team').filter(
+        (team) => team !== 'company_average',
       )
+      const currentTeams = ['company_average', team || teams[0]]
+      const currentData = data.filter((data: any) => {
+        return currentTeams.some((team) => data.team === team)
+      })
 
-      setCurrentData(
-        formatWeeklyData({
-          originalData: data,
-          currentData,
-          categories: [
-            'team_inclusion',
-            'cross_functional_inclusion',
-            'informal_influence',
-            'work_habits',
-          ],
-        }),
-      )
-      setCurrentWeek(currentWeek)
-      setWeeks(getUnique(data, 'iso_week'))
+      setCurrentData(currentData)
+      setCurrentTeam(currentTeams[1])
+      setCategories(teams)
+      setCurrentMetrics(getCurrentMetrics(currentData, 'team'))
     },
     [initial, error, isLoading],
   )
@@ -49,11 +44,19 @@ const InclusionScore = () => {
   }, [initial, isLoading, error, update])
 
   return (
-    <Card classname='col-span-full lg:col-span-4 flex flex-col items-center gap-8 xl:flex-row lg:items-start lg:gap-20'>
-      {/* <InclusionScoreGeneral />
-      <div className='w-full flex-1 overflow-hidden'>
-        <InclusionScoreTimeline />
-      </div> */}
+    <Card classname='col-span-full xl:col-span-4 flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-20'>
+      {currentData && <InclusionScoreGeneral currentData={currentData} />}
+      {currentTeam && categories && currentMetrics && currentData && (
+        <div className='w-full flex-1 overflow-hidden'>
+          <InclusionScoreTimeline
+            currentTeam={currentTeam}
+            categories={categories}
+            currentMetrics={currentMetrics}
+            currentData={currentData}
+            update={update}
+          />
+        </div>
+      )}
     </Card>
   )
 }
