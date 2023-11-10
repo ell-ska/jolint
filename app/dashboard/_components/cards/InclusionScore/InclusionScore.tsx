@@ -1,57 +1,61 @@
-import * as Progress from '@radix-ui/react-progress'
-import { cn } from '@/utils/classnames'
+'use client'
+
+import { useCallback, useEffect, useState } from 'react'
+
+import { useData } from '@/hooks/useData'
+import { getUnique } from '@/utils/getUnique'
+import { getCurrentMetrics } from '@/utils/getCurrentMetrics'
 import Card from '@/components/Card'
-import InclusionTrend from '@/app/dashboard/_components/cards/InclusionScore/InclusionTrends'
+import InclusionScoreTimeline from '@/app/dashboard/_components/cards/InclusionScore/InclusionScoreTimeline'
+import InclusionScoreGeneral from '@/app/dashboard/_components/cards/InclusionScore/InclusionScoreGeneral'
+import type { metrics } from '@/utils/types'
 
-type InclusionScoreProps = {
-  title?: string
-  score?: number
-  benchmark?: number
-  trend?: number
-  text?: string
-}
+const InclusionScore = () => {
+  const { data: initial, error, isLoading } = useData('inclusionscore')
+  const [currentTeam, setCurrentTeam] = useState<string | null>(null)
+  const [categories, setCategories] = useState<string[] | null>(null)
+  const [currentMetrics, setCurrentMetrics] = useState<metrics | null>(null)
+  const [currentData, setCurrentData] = useState<any[] | null>(null)
 
-const trendData = [
-  {
-    trend: +5,
-    text: 'since last month',
-  },
-  {
-    trend: +12,
-    text: 'above benchmark',
-  },
-]
+  const update = useCallback(
+    (team?: string) => {
+      if (isLoading || error || !initial) return
 
-const InclusionScore = ({
-  title = 'Inclusion score',
-  score = 76,
-  benchmark = 50,
-}: InclusionScoreProps) => {
+      const data = initial?.inclusion_metrics
+      const teams = getUnique(data, 'team').filter(
+        (team) => team !== 'company_average',
+      )
+      const currentTeams = ['company_average', team || teams[0]]
+      const currentData = data.filter((data: any) => {
+        return currentTeams.some((team) => data.team === team)
+      })
+
+      setCurrentData(currentData)
+      setCurrentTeam(currentTeams[1])
+      setCategories(teams)
+      setCurrentMetrics(getCurrentMetrics(currentData, 'team'))
+    },
+    [initial, error, isLoading],
+  )
+
+  useEffect(() => {
+    update()
+  }, [initial, isLoading, error, update])
+
   return (
-    <Card classname='col-span-full lg:col-span-4 flex items-center flex-col lg:flex-row lg:items-start'>
-      <div className='flex max-w-[220px] flex-col gap-8 lg:flex-col '>
-        <h3 className='font-heading text-3xl font-bold'>{title}</h3>
-        <div className='self-center font-heading text-5xl font-bold'>
-          {score}
-        </div>
-        <Progress.Root className='relative h-8 w-full overflow-hidden rounded-md bg-neutral-200'>
-          <Progress.Indicator
-            className={cn(
-              'absolute h-full w-full rounded-md',
-              score >= benchmark ? 'bg-green' : 'bg-red',
-            )}
-            style={{ transform: `translateX(-${100 - score}%)` }}
+    <Card classname='col-span-full xl:col-span-4 flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-20'>
+      {currentData && <InclusionScoreGeneral currentData={currentData} />}
+      {currentTeam && categories && currentMetrics && currentData && (
+        <div className='w-full flex-1 overflow-hidden'>
+          <InclusionScoreTimeline
+            currentTeam={currentTeam}
+            categories={categories}
+            currentMetrics={currentMetrics}
+            currentData={currentData}
+            update={update}
           />
-        </Progress.Root>
-        <div>
-          {trendData.map(({ trend, text }) => (
-            <div key={trend} className='flex gap-2  first-of-type:pb-4'>
-              <InclusionTrend trend={trend} />
-              <p>{text}</p>
-            </div>
-          ))}
         </div>
-      </div>
+      )}
     </Card>
   )
 }

@@ -1,6 +1,6 @@
-import Section from '@/app/dashboard/_components/RiskAndOpps/Section'
-import { risksData } from '@/app/dashboard/_components/RiskAndOpps/data/RisksData'
-import { opportunitiesData } from '@/app/dashboard/_components/RiskAndOpps/data/OpportunitiesData'
+import Section from '@/app/dashboard/_components/cards/RiskAndOpps/Section'
+import { risksData } from '@/app/dashboard/_components/cards/RiskAndOpps/data/RisksData'
+import { opportunitiesData } from '@/app/dashboard/_components/cards/RiskAndOpps/data/OpportunitiesData'
 
 const RiskAndOppsSection = () => {
   return (

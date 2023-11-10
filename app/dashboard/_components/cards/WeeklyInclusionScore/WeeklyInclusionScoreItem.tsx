@@ -1,7 +1,7 @@
 import * as Progress from '@radix-ui/react-progress'
 
 import { cn } from '@/utils/classnames'
-import WeeklyInclusionScoreTrend from '@/app/dashboard/_components/cards/WeeklyInclusionScore/WeeklyInclusionScoreTrend'
+import Trend from '@/app/dashboard/_components/Trend'
 import WeeklyInclusionScoreInfo from '@/app/dashboard/_components/cards/WeeklyInclusionScore/WeeklyInclusionScoreInfo'
 import type { WeeklyData } from '@/utils/types'
 
@@ -21,7 +21,7 @@ const WeeklyInclusionScoreItem = ({
           <p>{name}</p>
           {desc && <WeeklyInclusionScoreInfo desc={desc} />}
         </div>
-        <WeeklyInclusionScoreTrend trend={trend} />
+        <Trend trend={trend} />
       </div>
       <div className='flex items-center gap-2'>
         <Progress.Root className='relative h-2 w-full overflow-hidden rounded-sm bg-neutral-200'>
