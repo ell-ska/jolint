@@ -9,6 +9,7 @@ import Title from '@/app/consent-form/_components/Title'
 import InfoText from '@/app/consent-form/_components/InfoText'
 import FormButtons from '@/app/consent-form/_components/form/FormButtons'
 import type { ChapterKeys } from '@/utils/types'
+import HowItWorks from '@/app/consent-form/_components/HowItWorks'
 
 const ConsentForm = () => {
   const { step, steps, stepIndex, goTo } = useForm((state) => ({
@@ -44,7 +45,10 @@ const ConsentForm = () => {
             isLastStep && 'flex grow flex-col items-center justify-center',
           )}
         >
-          {!isThankYouPage && <Title />}
+          <div className='flex justify-between'>
+            {!isThankYouPage && <Title />}
+            {isOverview && <HowItWorks />}
+          </div>
           {isOverview && <InfoText />}
           {step}
           <FormButtons />

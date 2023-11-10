@@ -18,9 +18,7 @@ const Accordion = ({ trigger, content, icon, className }: AccordionProps) => {
           <div className='flex items-center justify-between gap-4'>
             {trigger}
             {icon && (
-              <div>
-                <ChevronDown className='group-data-[state=open]:rotate-180' />
-              </div>
+              <ChevronDown className='shrink-0 group-data-[state=open]:rotate-180' />
             )}
           </div>
         </AccordionPrimitive.Trigger>
