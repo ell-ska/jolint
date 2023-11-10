@@ -35,7 +35,6 @@ const InclusionScoreChart = ({ data, selectedTeam }: ChartComponentProps) => {
       <AreaChart
         data={data}
         margin={{ top: 0, right: -20, left: -30, bottom: -10 }}
-        style={{ strokeWidth: 0 }}
       >
         <defs>
           <linearGradient id='colorMA' x1='0' y1='0' x2='0' y2='1'>
@@ -47,13 +46,19 @@ const InclusionScoreChart = ({ data, selectedTeam }: ChartComponentProps) => {
             <stop offset='95%' stopColor='#E2E8F0' stopOpacity={0} />
           </linearGradient>
         </defs>
-        <XAxis dataKey='month' stroke='#0F172A' tick={{ fontSize: 12 }} />
+        <XAxis
+          dataKey='month'
+          className='text-xs'
+          axisLine={false}
+          tickLine={false}
+        />
         <YAxis
           dataKey='Score'
           type='number'
           domain={[0, 100]}
-          stroke='#0F172A'
-          tick={{ fontSize: 12 }}
+          className='text-xs'
+          axisLine={false}
+          tickLine={false}
         />
         <Tooltip />
         <Area

@@ -26,7 +26,7 @@ const InclusionScoreGeneral = ({
   benchmark = 50,
 }: InclusionScoreProps) => {
   return (
-    <div className='flex min-w-[220px] flex-col gap-8 lg:flex-col'>
+    <div className='flex min-w-min flex-col gap-8 lg:flex-col'>
       <h3 className='font-heading text-3xl font-bold'>{title}</h3>
       <div className='self-center font-heading text-5xl font-bold'>{score}</div>
       <Progress.Root className='relative h-8 w-full overflow-hidden rounded-md bg-neutral-200'>
