@@ -1,6 +1,6 @@
 import * as Progress from '@radix-ui/react-progress'
 
-import InclusionTrend from '@/app/dashboard/_components/cards/InclusionScore/InclusionTrends'
+import Trend from '@/app/dashboard/_components/Trend'
 import { cn } from '@/utils/classnames'
 
 type InclusionScoreProps = {
@@ -26,7 +26,7 @@ const InclusionScoreGeneral = ({
   benchmark = 50,
 }: InclusionScoreProps) => {
   return (
-    <div className='flex min-w-min flex-col gap-8 lg:flex-col'>
+    <div className='flex flex-col gap-8 lg:flex-col'>
       <h3 className='font-heading text-3xl font-bold'>{title}</h3>
       <div className='self-center font-heading text-5xl font-bold'>{score}</div>
       <Progress.Root className='relative h-8 w-full overflow-hidden rounded-md bg-neutral-200'>
@@ -41,7 +41,7 @@ const InclusionScoreGeneral = ({
       <div>
         {trendData.map(({ trend, text }) => (
           <div key={trend} className='flex gap-2 first-of-type:pb-4'>
-            <InclusionTrend trend={trend} />
+            <Trend trend={trend} />
             <p>{text}</p>
           </div>
         ))}
