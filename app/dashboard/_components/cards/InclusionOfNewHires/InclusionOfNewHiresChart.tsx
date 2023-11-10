@@ -8,6 +8,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
+import { useMediaQuery } from 'usehooks-ts'
 
 import { formatChartData } from '@/utils/formatChartData'
 import { getColors } from '@/utils/getColors'
@@ -19,6 +20,8 @@ type InclusionOfNewHiresChartProps = {
 const InclusionOfNewHiresChart = ({
   currentData,
 }: InclusionOfNewHiresChartProps) => {
+  const lg = useMediaQuery('(min-width: 1024px)')
+
   const { data, metrics } = formatChartData({
     data: currentData,
     xAxis: 'time',
@@ -29,7 +32,7 @@ const InclusionOfNewHiresChart = ({
   const gradients = getColors(metrics)
 
   return (
-    <ResponsiveContainer height={144} width={'100%'}>
+    <ResponsiveContainer height={lg ? '100%' : 144} width={'100%'}>
       <AreaChart data={data} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
         <defs>
           {gradients.map((gradient) => (

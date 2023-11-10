@@ -42,7 +42,7 @@ const InclusionOfNewHires = () => {
   }, [initial, isLoading, error, update])
 
   return (
-    <Card classname='col-span-full lg:col-span-3 h-min flex flex-col gap-8'>
+    <Card classname='col-span-full lg:col-span-3 flex flex-col gap-8'>
       {currentDemographic && categories && currentMetrics && (
         <CardHeader
           title='Inclusion of new hires'

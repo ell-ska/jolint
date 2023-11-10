@@ -6,7 +6,7 @@ import { CardHeaderProps } from '@/utils/types'
 
 const CardHeader = ({ title, currentMetrics, dropdown }: CardHeaderProps) => {
   return (
-    <div className='flex flex-col items-start gap-2 md:flex-row md:justify-between md:items-baseline	'>
+    <div className='flex flex-col items-start gap-2 md:flex-row md:items-baseline md:justify-between'>
       <div className='flex flex-col flex-wrap gap-2 md:flex-grow md:flex-row md:justify-between'>
         <h3 className='font-heading text-xl font-bold'>{title}</h3>
         <div className='flex gap-2 whitespace-nowrap'>
