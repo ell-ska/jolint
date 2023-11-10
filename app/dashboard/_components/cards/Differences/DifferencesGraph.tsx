@@ -6,6 +6,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
+import { useMediaQuery } from 'usehooks-ts'
 
 import { formatChartData } from '@/utils/formatChartData'
 import { getColors } from '@/utils/getColors'
@@ -13,6 +14,8 @@ import { getColors } from '@/utils/getColors'
 type DifferencesGraphProps = { currentData: any[] }
 
 const DifferencesGraph = ({ currentData }: DifferencesGraphProps) => {
+  const md = useMediaQuery('(min-width: 768px)')
+
   const { data, metrics } = formatChartData({
     data: currentData,
     xAxis: 'metric',
@@ -23,7 +26,7 @@ const DifferencesGraph = ({ currentData }: DifferencesGraphProps) => {
   const colors = getColors(metrics)
 
   return (
-    <ResponsiveContainer width='100%' height={282}>
+    <ResponsiveContainer width='100%' height={md ? 282 : 182}>
       <BarChart
         data={data}
         margin={{
