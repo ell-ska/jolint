@@ -60,7 +60,7 @@ const WeeklyInclusionScore = ({
 
   return (
     <Card classname='col-span-full xl:col-span-2'>
-      {isLoading && <Loading height={200} padding='mb-6' />}
+      {isLoading && <Loading padding='mb-6' />}
       {weeks && currentWeek && (
         <div className='flex flex-col items-start justify-between gap-2 sm:flex-row lg:flex-col'>
           <h3 className='font-heading text-xl font-bold'>{title}</h3>
