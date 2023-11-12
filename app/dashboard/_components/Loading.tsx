@@ -6,11 +6,11 @@ type LoadingProps = {
   padding?: string
 }
 
-const Loading = ({height = 250, padding}: LoadingProps) => {
+const Loading = ({ height = 230, padding }: LoadingProps) => {
   return (
-    <SkeletonTheme height='28px'>
+    <SkeletonTheme height='1.75rem'>
       <Skeleton className={padding} />
-      <Skeleton height={height}/>
+      <Skeleton height={height} />
     </SkeletonTheme>
   )
 }

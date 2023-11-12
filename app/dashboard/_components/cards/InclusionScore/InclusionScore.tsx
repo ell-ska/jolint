@@ -1,7 +1,6 @@
 'use client'
 
 import { useCallback, useEffect, useState } from 'react'
-import { useMediaQuery } from 'usehooks-ts'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
@@ -14,8 +13,6 @@ import InclusionScoreGeneral from '@/app/dashboard/_components/cards/InclusionSc
 import type { metrics } from '@/utils/types'
 
 const InclusionScore = () => {
-const lg = useMediaQuery('(min-width: 1024px)')
-
   const { data: initial, error, isLoading } = useData('inclusionscore')
   const [currentTeam, setCurrentTeam] = useState<string | null>(null)
   const [categories, setCategories] = useState<string[] | null>(null)
@@ -49,7 +46,13 @@ const lg = useMediaQuery('(min-width: 1024px)')
 
   return (
     <Card classname='col-span-full xl:col-span-4 flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-20'>
-      {isLoading && <Skeleton count={2} height={200} containerClassName='flex flex-col gap-4 lg:flex-row' />}
+      {isLoading && (
+        <Skeleton
+          count={2}
+          height={300}
+          containerClassName='flex flex-1 gap-4'
+        />
+      )}
       {currentData && <InclusionScoreGeneral currentData={currentData} />}
       {currentTeam && categories && currentMetrics && currentData && (
         <div className='w-full flex-1 overflow-hidden'>
