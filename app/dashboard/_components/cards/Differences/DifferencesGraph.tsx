@@ -26,7 +26,7 @@ const DifferencesGraph = ({ currentData }: DifferencesGraphProps) => {
   const colors = getColors(metrics)
 
   return (
-    <ResponsiveContainer width='100%' height={md ? 282 : 182}>
+    <ResponsiveContainer width='100%' height={md ? 288 : 176}>
       <BarChart
         data={data}
         margin={{

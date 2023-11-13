@@ -24,7 +24,6 @@
     "radix": "^0.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-loading-skeleton": "^3.3.1",
     "recharts": "^2.8.0",
     "swiper": "^10.3.1",
     "tailwind-merge": "^1.14.0",

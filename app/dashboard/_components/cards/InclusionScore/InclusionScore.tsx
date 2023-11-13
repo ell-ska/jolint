@@ -1,9 +1,6 @@
 'use client'
 
 import { useCallback, useEffect, useState } from 'react'
-import { useMediaQuery } from 'usehooks-ts'
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
 
 import { useData } from '@/hooks/useData'
 import { getUnique } from '@/utils/getUnique'
@@ -11,12 +8,10 @@ import { getCurrentMetrics } from '@/utils/getCurrentMetrics'
 import Card from '@/components/Card'
 import InclusionScoreTimeline from '@/app/dashboard/_components/cards/InclusionScore/InclusionScoreTimeline'
 import InclusionScoreGeneral from '@/app/dashboard/_components/cards/InclusionScore/InclusionScoreGeneral'
+import Skeleton from '@/app/dashboard/_components/Skeleton'
 import type { metrics } from '@/utils/types'
-import Loading from '../../Loading'
 
 const InclusionScore = () => {
-  const lg = useMediaQuery('(min-width: 1024px)')
-
   const { data: initial, error, isLoading } = useData('inclusionscore')
   const [currentTeam, setCurrentTeam] = useState<string | null>(null)
   const [categories, setCategories] = useState<string[] | null>(null)
@@ -51,14 +46,9 @@ const InclusionScore = () => {
   return (
     <Card classname='col-span-full xl:col-span-4 flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-20'>
       {isLoading && (
-        // <Skeleton
-        //   count={2}
-        //   height={!lg ? 280 : 220}
-        //   containerClassName='flex-1 flex flex-col w-full lg:gap-4 lg:flex-row'
-        // />
         <>
-          <Loading className='h-[220px] w-full lg:h-72 lg:w-1/3' />
-          <Loading className='h-[220px] w-full lg:h-72 lg:w-2/3' />
+          <Skeleton className='h-56 w-full lg:h-72 lg:w-1/3' />
+          <Skeleton className='h-56 w-full lg:h-72 lg:w-2/3' />
         </>
       )}
       {currentData && <InclusionScoreGeneral currentData={currentData} />}

@@ -32,7 +32,7 @@ const InclusionScoreChart = ({ currentData }: InclusionScoreChartProps) => {
   const gradients = getColors(metrics)
 
   return (
-    <ResponsiveContainer height={md ? 220 : 140}>
+    <ResponsiveContainer height={md ? 224 : 140}>
       <AreaChart
         data={data}
         margin={{ top: 0, right: -20, left: -30, bottom: -10 }}
