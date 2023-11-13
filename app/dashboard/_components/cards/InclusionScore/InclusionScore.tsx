@@ -46,10 +46,10 @@ const InclusionScore = () => {
   return (
     <Card classname='col-span-full xl:col-span-4 flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-20'>
       {isLoading && (
-        <>
-          <Skeleton className='h-56 w-full lg:h-72 lg:w-1/3' />
-          <Skeleton className='h-56 w-full lg:h-72 lg:w-2/3' />
-        </>
+        <div className='flex w-full grow flex-col gap-6 lg:flex-row'>
+          <Skeleton className='h-56 w-full lg:w-2/5 xl:h-72' />
+          <Skeleton className='h-56 w-full lg:w-3/5 xl:h-72' />
+        </div>
       )}
       {currentData && <InclusionScoreGeneral currentData={currentData} />}
       {currentTeam && categories && currentMetrics && currentData && (
