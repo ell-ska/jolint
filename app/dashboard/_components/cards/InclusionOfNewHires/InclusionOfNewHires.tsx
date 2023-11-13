@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useState } from 'react'
+import { useMediaQuery } from 'usehooks-ts'
 
 import { useData } from '@/hooks/useData'
 import { getUnique } from '@/utils/getUnique'
@@ -12,6 +13,9 @@ import Loading from '@/app/dashboard/_components/Loading'
 import type { metrics } from '@/utils/types'
 
 const InclusionOfNewHires = () => {
+  // works on rezise but not on initialization
+  const lg = useMediaQuery('(min-width: 1024px)')
+
   const { data: initial, error, isLoading } = useData('demographic-timeline')
   const [currentDemographic, setCurrentDemographic] = useState<string | null>(
     null,
@@ -44,7 +48,7 @@ const InclusionOfNewHires = () => {
 
   return (
     <Card classname='col-span-full lg:col-span-3 flex flex-col gap-8'>
-      {isLoading && <Loading />}
+      {isLoading && <Loading height={lg ? 230 : 145} />}
       {currentDemographic && categories && currentMetrics && (
         <CardHeader
           title='Inclusion of new hires'
