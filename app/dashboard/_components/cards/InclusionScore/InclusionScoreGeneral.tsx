@@ -45,8 +45,8 @@ const InclusionScoreGeneral = ({
           trend={comparedToBenchmark}
           ending={
             Math.sign(comparedToBenchmark) === 1
-              ? 'above'
-              : 'below' + ' benchmark'
+              ? 'above benchmark'
+              : 'below benchmark'
           }
           className='gap-2'
         />
