@@ -12,6 +12,7 @@ import Card from '@/components/Card'
 import InclusionScoreTimeline from '@/app/dashboard/_components/cards/InclusionScore/InclusionScoreTimeline'
 import InclusionScoreGeneral from '@/app/dashboard/_components/cards/InclusionScore/InclusionScoreGeneral'
 import type { metrics } from '@/utils/types'
+import Loading from '../../Loading'
 
 const InclusionScore = () => {
   const lg = useMediaQuery('(min-width: 1024px)')
@@ -50,11 +51,15 @@ const InclusionScore = () => {
   return (
     <Card classname='col-span-full xl:col-span-4 flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-20'>
       {isLoading && (
-        <Skeleton
-          count={2}
-          height={!lg ? 280 : 220}
-          containerClassName='flex-1 flex flex-col w-full lg:gap-4 lg:flex-row'
-        />
+        // <Skeleton
+        //   count={2}
+        //   height={!lg ? 280 : 220}
+        //   containerClassName='flex-1 flex flex-col w-full lg:gap-4 lg:flex-row'
+        // />
+        <>
+          <Loading className='h-[220px] w-full lg:h-72 lg:w-1/3' />
+          <Loading className='h-[220px] w-full lg:h-72 lg:w-2/3' />
+        </>
       )}
       {currentData && <InclusionScoreGeneral currentData={currentData} />}
       {currentTeam && categories && currentMetrics && currentData && (
