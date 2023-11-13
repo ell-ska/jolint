@@ -8,6 +8,7 @@ import { getCurrentMetrics } from '@/utils/getCurrentMetrics'
 import Card from '@/components/Card'
 import CardHeader from '@/app/dashboard/_components/CardHeader'
 import InclusionOfNewHiresChart from '@/app/dashboard/_components/cards/InclusionOfNewHires/InclusionOfNewHiresChart'
+import Skeleton from '@/app/dashboard/_components/Skeleton'
 import type { metrics } from '@/utils/types'
 
 const InclusionOfNewHires = () => {
@@ -43,6 +44,12 @@ const InclusionOfNewHires = () => {
 
   return (
     <Card classname='col-span-full lg:col-span-3 flex flex-col gap-8'>
+      {isLoading && (
+        <>
+          <Skeleton className='h-7 w-full' />
+          <Skeleton className='h-44 w-full md:h-72' />
+        </>
+      )}
       {currentDemographic && categories && currentMetrics && (
         <CardHeader
           title='Inclusion of new hires'
